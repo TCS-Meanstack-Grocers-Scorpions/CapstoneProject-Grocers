@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Grocers';
+  isShown:boolean = true;
+
+  hide(){
+    this.isShown = false;
+    
+  }
 }
