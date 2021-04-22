@@ -9,12 +9,17 @@ import { Router } from '@angular/router';
 export class SignInComponent implements OnInit {
 
   constructor(public router:Router) { }
-
+  msg?:string;
   ngOnInit(): void {
   }
-  homePage(){
-    //token must be stored when username and password are correct
-    //sessionStorage.setItem("token","123");
-    this.router.navigate(["admin-index"]);
+
+  //NEED TO ADD: get credentials from database instead of hardcoded!!!!!!!!!!!!!!!!!!!
+  checkUser(loginInfo:any){
+    if(loginInfo.username=="Scorpion" && loginInfo.pass == 8865){
+      this.router.navigate(["admin-index"]);
+    } else {
+      this.msg = "Incorrect username and/or password. Please try again."
+    }
   }
+  
 }
