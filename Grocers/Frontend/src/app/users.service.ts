@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  constructor() { }
+  constructor(public http:HttpClient) { }
+
+  storeTicketinfo(data:any) {
+    this.http.post("http://localhost:9090/ticket",data,{responseType:"text"}).subscribe(
+      result=>console.log(result),error=>console.log(error));
+  }
 }

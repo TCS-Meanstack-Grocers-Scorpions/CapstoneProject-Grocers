@@ -2,8 +2,7 @@ let TicketModel = require("../model/ticket.model.js");
 
 let raiseTicket = (req, res) => {
     let ticket = new TicketModel({
-        // _id: 1 //come back to make id auto increment
-        username: req.body.username,
+        _id: req.body.username,
         reason: req.body.reason
     });
 
@@ -13,7 +12,7 @@ let raiseTicket = (req, res) => {
         }
 
         else {
-            res.send("Error with Ticket "+err);
+            res.send("Error with Ticket "+ err);
         }
     })
 }
