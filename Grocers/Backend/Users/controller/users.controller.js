@@ -17,7 +17,7 @@ let raiseTicket = (req, res) => {
     })
 }
 let storeUserDetails = (req,res)=>{
-    let product = new ProductModel({
+    let product = new UserModel({
         fname:req.body.fname,
         lname:req.body.lname,
         email:req.body.email,
