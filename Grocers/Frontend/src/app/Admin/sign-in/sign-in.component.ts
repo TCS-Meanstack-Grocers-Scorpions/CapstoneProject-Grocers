@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
+  }
+  homePage(){
+    //token must be stored when username and password are correct
+    //sessionStorage.setItem("token","123");
+    this.router.navigate(["admin-index"]);
   }
 }
