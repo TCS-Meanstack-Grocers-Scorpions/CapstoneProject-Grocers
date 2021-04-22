@@ -27,7 +27,8 @@ import { UnlockUsersComponent } from './Employee/employee-index/unlock-users/unl
 import { AdminIndexComponent } from './Admin/admin-index/admin-index.component';
 import { EmployeeIndexComponent } from './Employee/employee-index/employee-index.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,9 @@ import { UserIndexComponent } from './User/user-index/user-index.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
