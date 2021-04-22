@@ -28,7 +28,8 @@ import { AdminIndexComponent } from './Admin/admin-index/admin-index.component';
 import { EmployeeIndexComponent } from './Employee/employee-index/employee-index.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,

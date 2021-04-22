@@ -12,4 +12,8 @@ export class UsersService {
     this.http.post("http://localhost:9090/ticket",data,{responseType:"text"}).subscribe(
       result=>console.log(result),error=>console.log(error));
   }
+  storeUserDetailsInfo(productRef: any){
+    this.http.post('http://localhost:9090/signUp', productRef, {responseType: 'text'}).
+    subscribe(result => console.log(result), error => console.log(error));
+  }
 }

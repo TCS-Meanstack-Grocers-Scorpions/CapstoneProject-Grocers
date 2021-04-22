@@ -18,11 +18,11 @@ const mongooseDbOption = {       // to avoid warning
 mongoose.connect(url, mongooseDbOption);   //ready to connect 
 
 mongoose.connection
-
+ 
 //link to router module like a import concept. 
-var Product = require("./router/product.router.js");
+var Product = require("./Products/router/product.router.js");
 
-var Users = require("./Users/router/User.router.js");
+var Users = require("./Users/router/user.router.js");
 
 app.use("/",Users);
 
