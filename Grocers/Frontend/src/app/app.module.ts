@@ -29,6 +29,7 @@ import { EmployeeIndexComponent } from './Employee/employee-index/employee-index
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     UnlockUsersComponent,
     AdminIndexComponent,
     EmployeeIndexComponent,
-    UserIndexComponent
+    UserIndexComponent,
+    ViewRequestsComponent
   ],
   imports: [
     BrowserModule,
