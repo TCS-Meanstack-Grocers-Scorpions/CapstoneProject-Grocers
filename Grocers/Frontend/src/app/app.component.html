@@ -1,9 +1,12 @@
+<div *ngIf="isShown">
+  <h2 style="text-align: center;">Welcome to Scorpions Grocers!</h2>
+  <h3>Please select who you are</h3>
+  
+  <button routerLink='admin' type="button" name="admin" (click)="hide()">Admin</button>
+  <button routerLink='employee' type="button" name="employee" (click)="hide()">Employee</button>
+  <button routerLink='shopper' type="button" name="user" (click)="hide()">User</button>
+
+</div>
 <div>
-  <h1>Welcome to Grocers!</h1>
-  <!-- 3 buttons -> Please select who you are: admin, user, employee 
-  admin-> go to Admin/sign-in/sign-in.component
-  user-> go to User/sign-in/sign-in.component
-  employee-> go to Employee/sign-in/sign-in.component
-  -->
-  <app-raise-ticket></app-raise-ticket>
+  <router-outlet></router-outlet>
 </div>

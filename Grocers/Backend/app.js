@@ -1,3 +1,5 @@
+
+//Load all required modules 
 let app = require("express")();
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
@@ -17,8 +19,13 @@ mongoose.connect(url, mongooseDbOption);   //ready to connect
 
 mongoose.connection
 
+//link to router module like a import concept. 
+var Product = require("./router/product.router.js");
+
 var Users = require("./Users/router/User.router.js");
 
 app.use("/",Users);
 
 app.listen(9090, () => console.log("Server is running on port number 9090"));
+
+
