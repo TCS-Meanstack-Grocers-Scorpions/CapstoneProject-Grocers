@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 let UserSchema = mongoose.Schema({
@@ -12,7 +12,6 @@ let UserSchema = mongoose.Schema({
     funds:Number,
     locked:Boolean
 })
-
-let UserModel = mongoose.model("",UserSchema,"User")
+let UserModel = mongoose.model("",UserSchema,"User");
 
 module.exports = UserModel;
