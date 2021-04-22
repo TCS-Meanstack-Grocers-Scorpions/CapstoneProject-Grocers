@@ -1,8 +1,12 @@
 <div>
     <h3>Sign In</h3>
-    <form>
-        Username <input type="text" name="username"/>
-        Password <input type="text" name="pass"/>
-        <input type="button" value="Sign In" (click)=homePage()/>
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+        <label>Username </label>
+        <input type="text" name="username" ngModel/><br>
+        <label>Password </label>
+        <input type="password" name="pass" ngModel/><br>
+        <input type="submit" value="Sign In"/>
+        <input type="reset" value="Reset"/>
     </form>
+    {{msg}}
 </div>
