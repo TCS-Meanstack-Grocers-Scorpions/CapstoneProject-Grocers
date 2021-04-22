@@ -22,8 +22,9 @@ let storeProdectDetails = (req,res)=>{
     let product = new ProductModel({
         name:req.body.name,
         price:req.body.price,
-        quantity:req.body.qualtity
+        quantity:req.body.quantity
     });
+    console.log(product)
     product.save((err,result)=>{
         if(!err){
             res.send("Records stored successfully")
@@ -50,7 +51,7 @@ let updateProdectDetails = (req,res)=>{
     let pid = req.body.pid;       //passing the id through path param
     let upPrice = req.body.price;
     let newQuant = req.body.quantity;
-    ProductModel.updateMany({_id:pid},{$set:{price:upPrice}},{$set:{quantity:newQuant}},(err,result)=>{
+    ProductModel.updateMany({_id:pid},{$set:{quantity:newQuant,price:upPrice,}},(err,result)=>{
         if(!err){
             if(result.nModified>0){
                 res.send("Record updated successfully")
