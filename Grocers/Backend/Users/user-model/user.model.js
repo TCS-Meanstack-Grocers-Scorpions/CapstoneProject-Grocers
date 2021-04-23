@@ -12,6 +12,6 @@ let UserSchema = mongoose.Schema({
     funds:Number,
     locked:Boolean
 })
-let UserModel = mongoose.model("",UserSchema,"User");
+let UserModel = mongoose.model("user",UserSchema,"User");
 
 module.exports = UserModel;

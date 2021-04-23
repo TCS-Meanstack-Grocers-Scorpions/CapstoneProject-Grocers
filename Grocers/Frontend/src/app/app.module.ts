@@ -29,6 +29,8 @@ import { EmployeeIndexComponent } from './Employee/employee-index/employee-index
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -56,13 +58,15 @@ import { HttpClientModule } from '@angular/common/http';
     UnlockUsersComponent,
     AdminIndexComponent,
     EmployeeIndexComponent,
-    UserIndexComponent
+    UserIndexComponent,
+    ViewRequestsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
