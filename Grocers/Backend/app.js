@@ -20,7 +20,7 @@ mongoose.connection
  
 //link to router module like a import concept. 
 
-//var Users = require("./Users/router/user.router.js");
+var Users = require("./Users/router/user.router.js");
 var Product = require("./Products/router/product.router.js");
 
 // http://localhost:9090/product/viewProducts   Get App Product Details 
@@ -32,7 +32,7 @@ var Product = require("./Products/router/product.router.js");
 
 //Middleware
 app.use("/product",Product);
-//app.use("/",Users);
+app.use("/",Users);
 
 app.listen(9090, () => console.log("Server is running on port number 9090"));
 
