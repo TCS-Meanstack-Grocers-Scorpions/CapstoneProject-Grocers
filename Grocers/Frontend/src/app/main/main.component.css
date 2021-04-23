@@ -29,7 +29,7 @@
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: rgb(228, 228, 227);
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -46,7 +46,7 @@
   button {
     background-color:rgb(3, 82, 3);
     border: none;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 15px 80px;
     text-align: center;
     text-decoration: none;
