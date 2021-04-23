@@ -30,6 +30,7 @@ import { UserIndexComponent } from './User/user-index/user-index.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-re
     AdminIndexComponent,
     EmployeeIndexComponent,
     UserIndexComponent,
-    ViewRequestsComponent
+    ViewRequestsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

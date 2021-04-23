@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Grocers';
-  isShown = true;
-
-  // tslint:disable-next-line:typedef
-  hide(){
-    this.isShown = false;
-  }
 }
