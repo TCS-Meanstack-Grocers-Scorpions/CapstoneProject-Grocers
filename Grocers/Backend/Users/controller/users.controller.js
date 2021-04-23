@@ -1,4 +1,4 @@
-//let TicketModel = require("../user-model/user.model.js");
+let TicketModel = require("../user-model/ticket.model.js");
 let UserModel = require('../user-model/user.model.js');
 
 //adding users
@@ -23,4 +23,31 @@ let storeUserDetails = (req,res)=>{
     })
 }
 
-module.exports = {storeUserDetails};
+let raiseTicket = (req, res) => {
+    let ticket = new TicketModel({
+        _id: req.body.username,
+        reason: req.body.reason
+    });
+
+    ticket.save((err, result) => {
+        if (!err) {
+            res.send("Ticket raised successfully");
+        }
+
+        else {
+            res.send("Error with Ticket "+ err);
+        }
+    })
+}
+let selectObject= (req,res) => {
+
+    ProductModel.find({},(err,result)=>{
+        if(!err){
+            res.json(result);
+        }
+        else{
+            res.json(err);
+        }
+    })
+    }
+module.exports = {storeUserDetails,raiseTicket,selectObject};
