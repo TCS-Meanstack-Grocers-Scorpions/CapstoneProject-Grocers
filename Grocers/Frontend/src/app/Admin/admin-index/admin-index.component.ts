@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Product } from 'src/app/model.product';
 import { ProductService } from 'src/app/product.service';
 
@@ -11,13 +10,9 @@ import { ProductService } from 'src/app/product.service';
 export class AdminIndexComponent implements OnInit {
   showTable:Boolean = false;
   products?:Array<Product>
-  constructor(public router:Router, public proService:ProductService) { }
+  constructor(public proService:ProductService) { }
 
   ngOnInit(): void {
-  }
-
-  open(rout:any) {
-    this.router.navigate(["admin-employee"]);
   }
 
   toggleTable(){
