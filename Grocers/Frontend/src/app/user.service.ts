@@ -11,10 +11,10 @@ export class UserService {
   constructor(public http:HttpClient) { }
   //add method for updating user info 
   //add method for adding funds //
-  updateUserInfoByID(userRef:any){
+  updateUserInfo(userRef:any){
     //http client with link 
   }
-  addFundsByID(id:any){
+  addFundsByID(userRef:any){
     //http client with link
   }
 }

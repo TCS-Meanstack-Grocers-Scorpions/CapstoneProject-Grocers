@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/employee.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -8,7 +8,7 @@ import { EmployeeService } from 'src/app/employee.service';
 })
 export class SignInComponent implements OnInit {
   msg?:string;
-  constructor(public empSer:EmployeeService) { }
+  constructor(public empSer:EmployeeService, public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,11 +18,11 @@ export class SignInComponent implements OnInit {
     this.empSer.getEmployeeByID(id).subscribe(result=>{
       if(result?.length>0){
         if(result[0].pass == pass){
-          //Navigate to employee index
-          //Store current employee info in session storage
+          sessionStorage.setItem("curEmployeeID",id);
+          this.router.navigate(["employeeDashboard"]);
         }
         else{
-          this.msg = "Employee Not Found"
+          this.msg = "Employee Not Found, try again"
         }
       }
     });
