@@ -1,16 +1,16 @@
 <div>
     <h4>Add Employee</h4>
-    <form>
+    <form #empRef = 'ngForm' (ngSubmit) = 'addEmp(empRef.value)'>
         <label>Enter Employee Id: </label>
-        <input type="text" name = "id"> <br>
+        <input type="text" name = "id" ngModel> <br>
         <label>Enter Employee's First Name: </label>
-        <input type="text" name="fname"> <br>
+        <input type="text" name="fname" ngModel> <br>
         <label>Enter Employee's Last Name: </label>
-        <input type="text" name="lname"> <br>
+        <input type="text" name="lname" ngModel> <br>
         <label>Enter Employee's Email: </label>
-        <input type="text" name="email"> <br>
-        <label>Enter Employee's Password: </label>
-        <input type="password" name="pass"> <br>
+        <input type="text" name="email" ngModel> <br>
+        <!-- <label>Enter Employee's Password: </label>
+        <input type="password" name="pass"> <br> -->
         <input type="submit" value="Add Employee">
         <input type="reset" value="Reset">
     </form>

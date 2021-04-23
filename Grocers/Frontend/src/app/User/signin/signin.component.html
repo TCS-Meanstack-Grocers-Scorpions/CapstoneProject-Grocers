@@ -1,0 +1,12 @@
+<div>
+    <h2>Sign In</h2>
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+        <label>Username </label>
+        <input type="text" name="id" placeholder = "Enter your id" ngModel/><br>
+        <label>Password </label>
+        <input type="password" name="pass" placeholder = "Enter your password" ngModel/><br>
+        <input type="submit" value="Sign In"/>
+        <input type="reset" value="Reset"/>
+    </form>
+    <button (click) = "goTo()">Sign Up</button>
+</div>

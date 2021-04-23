@@ -22,5 +22,13 @@ let storeUserDetails = (req,res)=>{
         }
     })
 }
+let getUserById = (req,res)=>{  
+    let pid = req.params.pid;
+    UserModel.find({_id: pid},(err,result)=>{
+        if(!err){
+            res.json(result);
+        }
+    })
+}
 
-module.exports = {storeUserDetails};
+module.exports = {storeUserDetails, getUserById};
