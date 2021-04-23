@@ -1,12 +1,12 @@
-<div>
-    <h3>Admin Sign In</h3>
-    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
-        <label>Username </label>
-        <input type="text" name="username" ngModel/><br>
-        <label>Password </label>
-        <input type="password" name="pass" ngModel/><br>
-        <input type="submit" value="Sign In"/>
-        <input type="reset" value="Reset"/>
-    </form>
-    {{msg}}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h3>Admin Sign In</h3>
+        <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+        <input type="text" name="username" placeholder="username" ngModel>
+        <input type="password" name="pass" placeholder="password" ngModel>
+        <input type="submit" class="fadeIn fourth" value="Sign In">
+        </form>
+        {{msg}}
+    </div>
 </div>
+
