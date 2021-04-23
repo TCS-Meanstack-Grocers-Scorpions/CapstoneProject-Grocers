@@ -1,12 +1,12 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
           <b class="navbar-brand">Admin</b>
           <div id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a routerLink="requests" class="nav-link">Requests</a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a routerLink="report" class="nav-link">New Report</a>
               </li>
@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
-            <h1 style="text-align: center;">Products</h1><hr>
+            <h1>Products</h1><hr>
             <app-add-product></app-add-product>
             <br>
             <app-update-product></app-update-product>
@@ -51,9 +51,12 @@
           </div>
           </div>
           <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
-            <h1 style="text-align: center;">Employees</h1><hr>
+            <h1>Employees</h1><hr>
             <app-add-employee></app-add-employee><br>
             <app-delete-employee></app-delete-employee>
+            <hr>
+            <h1>Requests</h1>
+            <app-view-requests></app-view-requests>
             <br>
           </div>
         </div>

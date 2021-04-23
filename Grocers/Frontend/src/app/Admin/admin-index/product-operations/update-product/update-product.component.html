@@ -1,15 +1,26 @@
 <div>
     <h3>Update Product by Id</h3>
     <form #productRef="ngForm" (ngSubmit)="updateProduct(productRef.value)">
-        <label>Product Id: </label>
-        <input type="text" name="pid" ngModel/><br>
-        <label>Product Price: </label>
-        <input type="text" name="price" ngModel/><br>
-        <label>Product Quantity: </label>
-        <input type="text" name="quantity" ngModel/><br>
-
-        <input type="submit" value="Update"/>
-        <input type="reset" value="Reset"/>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-7">
+            <input type="text" class="form-control" name="pid" ngModel/>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-7">
+            <input type="text" class="form-control" name="price" ngModel/>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Quantity</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="quantity" ngModel/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-secondary m-2" >Update Product</button>
+        <button type="reset" class="btn btn-light">Reset</button>
     </form>
     {{resultMsg}}
 </div>
