@@ -8,6 +8,6 @@ let EmployeeSchema = mongoose.Schema({
     pass:String
 })
 
-let EmployeeModel = mongoose.model("",EmployeeSchema,"Employee")
+let EmployeeModel = mongoose.model("employee",EmployeeSchema,"Employee")
 
 module.exports = EmployeeModel;
