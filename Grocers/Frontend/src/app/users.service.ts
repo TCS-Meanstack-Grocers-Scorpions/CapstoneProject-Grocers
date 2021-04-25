@@ -19,6 +19,9 @@ export class UsersService {
     subscribe(result => console.log(result), error => console.log(error));
   }
   retrieveUserById(id: any): Observable<User[]>{
-    return this.http.get<User[]>('http://localhost:9090/signin' + id);
+    return this.http.get<User[]>('http://localhost:9090/getUserById/' + id);
  }
+ updateUserById(userRef: any): any{
+  return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
+}
 }

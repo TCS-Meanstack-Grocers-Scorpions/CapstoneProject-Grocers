@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/users.service';
 })
 export class SigninComponent implements OnInit {
   resultMsg!: string;
+  numberlogin = 0;
   users?: Array<User>;
   constructor(public router: Router, public user: UsersService) { }
 
@@ -19,9 +20,24 @@ export class SigninComponent implements OnInit {
     this.router.navigate(['./signup']);
   }
   checkUser(userRef: any): void {
-    console.log(userRef.id);
-    this.user.retrieveUserById(userRef.id).subscribe(result => {
-      console.log(result[0]._id);
+    const id = userRef.id;
+    const pass = userRef.pass;
+    console.log(id, typeof(pass));
+    this.user.retrieveUserById(id).subscribe(result => {
+      if (result[0]._id === id  && result[0].pass === pass) {
+        this.resultMsg = 'Successful Login';
+      } else {
+        this.resultMsg = 'Wrong Id or Password';
+        console.log(result[0]._id, typeof(result[0].pass));
+        this.numberlogin += 1;
+        if (this.numberlogin === 3){
+          result[0].locked = true;
+          // tslint:disable-next-line:no-shadowed-variable
+          this.user.updateUserById(userRef).subscribe((result: string) => {
+            this.resultMsg = result;
+          });
+        }
+      }
     });
   }
 

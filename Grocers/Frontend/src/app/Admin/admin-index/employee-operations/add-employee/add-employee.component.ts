@@ -15,6 +15,7 @@ export class AddEmployeeComponent implements OnInit {
 
   addEmp(empRef: any): void {
     console.log(empRef);
+    this.emp.storeEmpDetailsInfo(empRef);
   }
 
 }

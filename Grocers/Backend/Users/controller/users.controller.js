@@ -30,5 +30,20 @@ let getUserById = (req,res)=>{
         }
     })
 }
+let updateUserDetails = (req,res)=>{
+    let pid = req.body.pid;       //passing the id through path param
+    let locked = req.body.locked;
+    UserModel.updateMany({_id:pid},{$set:{locked:locked}},(err,result)=>{
+        if(!err){
+            if(result.nModified>0){
+                res.send("Record updated successfully")
+            } else {
+                res.send("No such Product")
+            }
+        } else {
+            res.send("Error generated "+err)
+        }
+    })
+}
 
-module.exports = {storeUserDetails, getUserById};
+module.exports = {storeUserDetails, getUserById, updateUserDetails}; 
