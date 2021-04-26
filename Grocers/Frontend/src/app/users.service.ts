@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './model.user';
-
+import { Product } from './model.product';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,12 @@ export class UsersService {
  }
  updateUserById(userRef: any): any{
   return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
-}
+ }
+ selectAllitems():Observable<Product[]>{
+  return this.http.get<Product[]>("http://localhost:9090/select");
+ }
+ AddtoCart(product:any) {
+ this.http.post('http://localhost:9090/select',product,{responseType:'text'}).subscribe(result => console.log(result), error => console.log(error));
+ }
 
 }
