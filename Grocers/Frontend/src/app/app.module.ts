@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SignInComponent } from './Admin/sign-in/sign-in.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
 import { AddProductComponent } from './Admin/admin-index/product-operations/add-product/add-product.component';
@@ -26,7 +27,7 @@ import { UnlockUsersComponent } from './Employee/employee-index/unlock-users/unl
 import { AdminIndexComponent } from './Admin/admin-index/admin-index.component';
 import { EmployeeIndexComponent } from './Employee/employee-index/employee-index.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { MainComponent } from './main/main.component';
@@ -35,6 +36,7 @@ import { SigninComponent } from './User/signin/signin.component';
 @NgModule({
   declarations: [
     AppComponent,
+    SignInComponent,
     SignUpComponent,
     RaiseTicketComponent,
     AddProductComponent,
@@ -67,7 +69,6 @@ import { SigninComponent } from './User/signin/signin.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
