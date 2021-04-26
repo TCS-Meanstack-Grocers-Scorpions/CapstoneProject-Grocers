@@ -33,11 +33,22 @@ export class UsersService {
  updateUserById(userRef: any): any{
   return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
  }
- selectAllitems():Observable<Product[]>{
-  return this.http.get<Product[]>("http://localhost:9090/select");
- }
- AddtoCart(product:any) {
- this.http.post('http://localhost:9090/select',product,{responseType:'text'}).subscribe(result => console.log(result), error => console.log(error));
- }
+  selectAllitems():Observable<Product[]>{
+    return this.http.get<Product[]>("http://localhost:9090/select");
+  }
 
+  AddtoCart(product:any) {
+   this.http.post('http://localhost:9090/select',product,{responseType:'text'}).subscribe(result => console.log(result), error => console.log(error));
+  }
+  viewCartitems():Observable<Product[]>{
+    return this.http.get<Product[]>("http://localhost:9090/cart");
+  }
+  updateCart(cartRef:any):void {
+ this.http.put("http://localhost:9090/cart",cartRef,{responseType:'text'}).subscribe(
+  result => console.log(result), error => console.log(error));
+  }
+  deleteItem(cartRef:any):void {
+this.http.delete("http://localhost:9090/cart/"+cartRef,{responseType:"text"}).subscribe(
+  result => console.log(result), error => console.log(error));
+  }
 }
