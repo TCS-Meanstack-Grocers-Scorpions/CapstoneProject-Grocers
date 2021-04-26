@@ -14,7 +14,6 @@ import { DeleteEmployeeComponent } from './Admin/admin-index/employee-operations
 import { GenerateReportComponent } from './Admin/admin-index/generate-report/generate-report.component';
 import { CartComponent } from './User/user-index/cart/cart.component';
 import { SelectItemsComponent } from './User/user-index/cart/select-items/select-items.component';
-import { DeleteItemsComponent } from './User/user-index/cart/delete-items/delete-items.component';
 import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items.component';
 import { CheckoutComponent } from './User/user-index/cart/checkout/checkout.component';
 import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
@@ -47,7 +46,6 @@ import { SigninComponent } from './User/signin/signin.component';
     GenerateReportComponent,
     CartComponent,
     SelectItemsComponent,
-    DeleteItemsComponent,
     ViewItemsComponent,
     CheckoutComponent,
     OrderStatusComponent,

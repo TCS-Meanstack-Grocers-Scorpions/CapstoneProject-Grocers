@@ -3,6 +3,11 @@ let router = express.Router();
 
 let UserController = require('../controller/users.controller.js');
 
+
+router.get("/cart",UserController.viewCart);
+router.put("/cart",UserController.updateCart);
+router.delete("/cart/:pid",UserController.deleteCart);
+
 router.post('/signUp', UserController.storeUserDetails);
 
 router.get('/getUserById/:pid', UserController.getUserById);

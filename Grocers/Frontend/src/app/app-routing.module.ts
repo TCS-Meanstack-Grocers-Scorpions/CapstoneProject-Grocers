@@ -7,6 +7,7 @@ import { SignInComponent as AdminSignin } from './Admin/sign-in/sign-in.componen
 import { SignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
+import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: '\admin-index', component: AdminIndexComponent},
   {path: '\admin-index/requests', component: ViewRequestsComponent},
   {path: '\admin-index/report', component: GenerateReportComponent},
+  {path:"\cart",component:ViewItemsComponent} 
   {path: 'signup', component: SignUpComponent}
 ];
 
