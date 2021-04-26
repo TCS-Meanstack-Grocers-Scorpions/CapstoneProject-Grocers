@@ -13,7 +13,10 @@ export class EditProdileComponent implements OnInit {
   ngOnInit(): void {
   }
   updateUserInfo(userRef:any){
-    this.userSer.updateUserInfo(userRef);
+    this.userSer.updateUserById(userRef);
+  }
+  displayID(){
+
   }
 
 }

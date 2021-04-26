@@ -17,7 +17,7 @@ export class UsersService {
   }
   
   updateUserInfo(userRef:any){
-
+    this.http.put('http://localhost:9090/user/updateUserInfo',userRef,{responseType: 'text'});
   }
   storeTicketinfo(data: any): void{
     this.http.post('http://localhost:9090/ticket', data, {responseType: 'text'}).subscribe(

@@ -1,5 +1,5 @@
 <button value = "Display User ID" (click) = "displayID()"></button>
-<form #userRef = "ngForm" (ngSubmit) = "updateUserInfo(userRef)">
+<form #userRef = "ngForm" (ngSubmit) = "updateUserInfo(userRef.value)">
     <label>Update Email</label>
     <input type = "text" name = "newEmail" ngModel><br/>
     <label>Update Password</label>
