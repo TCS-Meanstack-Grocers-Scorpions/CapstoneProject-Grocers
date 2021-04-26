@@ -8,20 +8,22 @@ import { SignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.co
 import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
+import { SendRequestComponent } from './Employee/employee-index/send-request/send-request.component';
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
-  {path: '\admin', component: AdminSignin},
-  {path: '\shopper', component: UserSignin},
-  {path: '\employee', component: EmployeeSignin},
-  {path: '\admin-index', component: AdminIndexComponent},
-  {path: '\admin-index/requests', component: ViewRequestsComponent},
-  {path: '\admin-index/report', component: GenerateReportComponent},
-  {path: 'signup', component: SignUpComponent}
+  { path: '', component: MainComponent },
+  { path: 'admin', component: AdminSignin },
+  { path: 'shopper', component: UserSignin },
+  { path: 'employee', component: EmployeeSignin },
+  { path: 'admin-index', component: AdminIndexComponent },
+  { path: 'admin-index/requests', component: ViewRequestsComponent },
+  { path: 'admin-index/report', component: GenerateReportComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'send-request', component: SendRequestComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
