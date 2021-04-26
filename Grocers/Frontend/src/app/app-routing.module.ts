@@ -8,6 +8,7 @@ import { SignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.co
 import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
+import { UserIndexComponent } from './User/user-index/user-index.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: '\admin-index', component: AdminIndexComponent},
   {path: '\admin-index/requests', component: ViewRequestsComponent},
   {path: '\admin-index/report', component: GenerateReportComponent},
-  {path: 'signup', component: SignUpComponent}
+  {path: '\signup', component: SignUpComponent},
+  {path: 'user-index', component: UserIndexComponent}
 ];
 
 @NgModule({

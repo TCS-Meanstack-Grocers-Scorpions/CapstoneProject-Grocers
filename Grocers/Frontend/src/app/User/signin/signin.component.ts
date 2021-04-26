@@ -25,7 +25,8 @@ export class SigninComponent implements OnInit {
     console.log(id, typeof(pass));
     this.user.retrieveUserById(id).subscribe(result => {
       if (result[0]._id === id  && result[0].pass === pass) {
-        this.resultMsg = 'Successful Login';
+        // this.resultMsg = 'Successful Login';
+        this.router.navigate(['user-index']);
       } else {
         this.resultMsg = 'Wrong Id or Password';
         console.log(result[0]._id, typeof(result[0].pass));

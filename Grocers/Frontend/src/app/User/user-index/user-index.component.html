@@ -1,1 +1,37 @@
-<p>user-index works!</p>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <b class="navbar-brand">Admin</b>
+            <div id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a routerLink="requests" class="nav-link">Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="report" class="nav-link">New Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="" class="nav-link">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
+                <h1 style="text-align: center;">User</h1>
+                <hr>
+                <app-cart></app-cart>
+                <br>
+                <app-edit-profile></app-edit-profile>
+                <br>
+                <app-funds></app-funds>
+                <br>
+                <app-order-status></app-order-status>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
