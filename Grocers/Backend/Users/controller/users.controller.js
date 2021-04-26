@@ -164,7 +164,7 @@ let deleteCart = (req, res) => {
         }
     })
 }
-//Edit Profile 
+//Edit Profile (getting rid of this soon)
 let updateUserInfo = (req,res) => {
     let pid = req.body.pid;
     let newEmail = req.body.newEmail;

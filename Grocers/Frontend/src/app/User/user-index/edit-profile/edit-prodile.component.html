@@ -1,7 +1,7 @@
 <button value = "Display User ID" (click) = "displayID()"></button>
 <form #userRef = "ngForm" (ngSubmit) = "updateUserEmail(userRef.value)">
     <label>New Email</label>
-    <input type = "password" name = "newEmail" ngModel>
+    <input type = "text" name = "newEmail" ngModel>
     <input type = "submit" value = "Update">
 </form>
 <form #userRef = "ngForm" (ngSubmit) = "updateUserPassword(userRef.value)">
@@ -11,6 +11,16 @@
 </form>
 <form #userRef = "ngForm" (ngSubmit) = "updateUserAddress(userRef.value)">
     <label>New Address</label>
-    <input type = "password" name = "newAdd" ngModel>
+    <input type = "text" name = "newAdd" ngModel>
+    <input type = "submit" value = "Update">
+</form>
+<form #userRef = "ngForm" (ngSubmit) = "updateUserPhone(userRef.value)">
+    <label>New Phone Number</label>
+    <input type = "text" name = "newPhone" ngModel>
+    <input type = "submit" value = "Update">
+</form>
+<form #userRef = "ngForm" (ngSubmit) = "updateUserDOB(userRef.value)">
+    <label>New Date of Birth</label>
+    <input type = "date" name = "newDOB" ngModel>
     <input type = "submit" value = "Update">
 </form>
