@@ -113,12 +113,18 @@ let addtoCart = (req, res) => {
     })
 }
 //Edit Profile 
-let updateUserInfo= (req,res) => {
+let updateUserInfo = (req,res) => {
     let pid = req.body.pid;
     let newEmail = req.body.newEmail;
     let newPass = req.body.newPass;
     let newAdd = req.body.newAdd;
     let newPhone = req.body.newPhone;
     let newDob = req.body.newDob;
+
 }
+let updateUserPassword = (req, res) => {}
+let updateUserEmail = (req, res) => {}
+let updateUserAddress = (req, res) => {}
+let updateUserPhone = (req, res) => {}
+let updateUserDOB = (req,res) => {}
 module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, getUserById, updateUserDetails, updateUserInfo };
