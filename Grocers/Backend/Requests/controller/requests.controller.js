@@ -21,8 +21,7 @@ let saveRequest = (req, res) => {
   request.save({}, (err, result) => {
     if (!err) {
       res.send('Record stored successfully ');
-      res.send(result);
-      //res.json({"msg":"Record stored successfully"})
+      //res.send(result);
     } else {
       res.send("Record didn't store ");
     }
