@@ -1,1 +1,12 @@
-<p>sign-in works!</p>
+<div>
+    <h3>Admin Sign In</h3>
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+        <label>Username </label>
+        <input type="text" name="username" ngModel/><br>
+        <label>Password </label>
+        <input type="password" name="pass" ngModel/><br>
+        <input type="submit" value="Sign In"/>
+        <input type="reset" value="Reset"/>
+    </form>
+    {{msg}}
+</div>

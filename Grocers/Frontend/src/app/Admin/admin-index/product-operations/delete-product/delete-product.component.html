@@ -1,1 +1,7 @@
-<p>delete-product works!</p>
+<div>
+    <h3>Delete Product</h3>
+    Id : <input type="text" #idRef/>
+    <input type="button" value="Delete by Id" (click)="deleteById(idRef.value)"/>
+    <input type="reset" value="Reset"/><br>
+    {{resultMsg}}
+</div>

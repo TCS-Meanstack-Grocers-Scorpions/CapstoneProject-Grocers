@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public router:Router) { }
+  msg?:string;
   ngOnInit(): void {
   }
 
+  //NEED TO ADD: get credentials from database instead of hardcoded!!!!!!!!!!!!!!!!!!!
+  checkUser(loginInfo:any){
+    if(loginInfo.username=="Scorpion" && loginInfo.pass == 8865){
+      this.router.navigate(["admin-index"]);
+    } else {
+      this.msg = "Incorrect username and/or password. Please try again."
+    }
+  }
+  
 }

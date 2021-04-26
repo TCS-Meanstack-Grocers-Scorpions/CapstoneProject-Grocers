@@ -1,1 +1,9 @@
-<p>raise-ticket works!</p>
+<div>
+    <form #ticketRef="ngForm" (ngSubmit)=storeTicket(ticketRef.value)>
+        <label>Username</label>
+        <input type="text" name="username"  id= 'username' ngModel><span style="color:red">{{msg1}}</span> <br>
+        <label>Issue</label>
+        <input type="text" name="reason" ngModel><span style="color:red">{{msg2}}</span> <br>
+        <input type="submit" value="Raise Ticket">
+    </form>
+</div>
