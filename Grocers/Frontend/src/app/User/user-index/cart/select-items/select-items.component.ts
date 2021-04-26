@@ -56,10 +56,11 @@ export class SelectItemsComponent implements OnInit {
   }
   addCart(val: any, i: any) {
     let num = (<HTMLInputElement>document.getElementById(val));
-    this.cartNum = this.cartNum + parseInt(num.value);
+     this.cartNum = this.cartNum + parseInt(num.value);
     let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value };
     console.log(newCartitem);
-    this.getItemsService.AddtoCart(newCartitem)
+    let temp=this.getItemsService.AddtoCart(newCartitem)
+    console.log(temp);
     num.value = "0";
     let output = document.getElementById("msg" + i);
     if (output) output.innerHTML = "Added"
