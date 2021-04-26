@@ -16,6 +16,12 @@ export class SelectItemsComponent implements OnInit {
     this.getItemsService.selectAllitems().subscribe(result => {
       this.products = result;
     })
+    this.getItemsService.viewCartitems().subscribe(result=>{
+      console.log(result.length);
+      for(let i=0;i<result.length;i++){
+ this.cartNum=this.cartNum+result[i].quantity
+      }
+    })
   }
 
   increment(id: any, val: any, i: any) {
