@@ -9,6 +9,8 @@ import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
 import { CartComponent } from './User/user-index/cart/cart.component';
+import { EditProdileComponent } from './User/user-index/edit-profile/edit-prodile.component';
+import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
 
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: '\admin-index/report', component: GenerateReportComponent},
   {path: '\signup', component: SignUpComponent},
   {path: 'user-index', component: UserIndexComponent},
-  {path: 'user-index/cart', component: CartComponent}
+  {path: 'user-index/cart', component: CartComponent},
+  {path: 'user-index/edit-profile', component: EditProdileComponent},
+  {path: 'user-index/order-status', component: OrderStatusComponent}
 ];
 
 @NgModule({
