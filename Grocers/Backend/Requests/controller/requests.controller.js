@@ -1,6 +1,6 @@
 let RequestModel = require('../model/requests.model.js');
 
-//retrieve all admin details
+//retrieve all request details
 let getRequests = (req, res) => {
   RequestModel.find({}, (err, result) => {
     if (!err) {
