@@ -3,7 +3,7 @@ let router = express.Router();
 
 let UserController = require('../controller/users.controller.js');
 
-
+router.put("/updateUserInfo",UserController.updateUserInfo);
 router.get("/cart",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);

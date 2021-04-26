@@ -1,14 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Employee } from './model.employee';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
-  constructor(public http: HttpClient) { }
-
+  constructor(public http:HttpClient) { }
+  getEmployeeByID(id:any):Observable<Employee[]>{
+    return this.http.get<Employee[]>("http://localhost:9090/emp/getEmployeeById"+id);
+  }
+  
   storeEmpDetailsInfo(empRef: any): void{
     this.http.post('http://localhost:9090/emp/addEmployee', empRef, {responseType: 'text'}).
     subscribe(result => console.log(result), error => console.log(error));

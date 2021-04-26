@@ -10,7 +10,15 @@ import { Product } from './model.product';
 export class UsersService {
 
   constructor(public http: HttpClient) { }
-
+  
+  
+  getUserByID(id:any):Observable<User[]>{
+    return this.http.get<User[]>('http://localhost:9090/user/getUserByID/' + id);
+  }
+  
+  updateUserInfo(userRef:any){
+    this.http.put('http://localhost:9090/user/updateUserInfo',userRef,{responseType: 'text'});
+  }
   storeTicketinfo(data: any): void{
     this.http.post('http://localhost:9090/ticket', data, {responseType: 'text'}).subscribe(
       result => console.log(result), error => console.log(error));

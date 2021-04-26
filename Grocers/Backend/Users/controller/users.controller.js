@@ -31,6 +31,7 @@ let getUserById = (req, res) => {
     }
   });
 };
+//CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 let updateUserDetails = (req, res) => {
   let pid = req.body.pid; //passing the id through path param
   let locked = req.body.locked;
@@ -163,5 +164,15 @@ let deleteCart = (req, res) => {
         }
     })
 }
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser };
+//Edit Profile 
+let updateUserInfo= (req,res) => {
+    let pid = req.body.pid;
+    let newEmail = req.body.newEmail;
+    let newPass = req.body.newPass;
+    let newAdd = req.body.newAdd;
+    let newPhone = req.body.newPhone;
+    let newDob = req.body.newDob;
+}
+
+module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser, updateUserInfo };
 

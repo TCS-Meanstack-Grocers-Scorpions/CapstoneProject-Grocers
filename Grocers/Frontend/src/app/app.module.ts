@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './User/signin/signin.component';
-
+import {EmployeeSignInComponent} from './Employee/sign-in/sign-in.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +60,8 @@ import { SigninComponent } from './User/signin/signin.component';
     UserIndexComponent,
     ViewRequestsComponent,
     MainComponent,
-    SigninComponent
+    SigninComponent,
+    EmployeeSignInComponent
   ],
   imports: [
     BrowserModule,

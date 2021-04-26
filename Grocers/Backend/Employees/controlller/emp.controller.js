@@ -1,5 +1,17 @@
 let EmployeeModel = require('../model/employee.model.js');
 
+//get emp by ID
+let getEmpByID = (req,res=>{
+    let eid = req.params.eid;
+    EmployeeModel.find({_id:eid},(err,data)=>{
+        if(!error){
+            res.json(data);
+        }
+        else{
+            console.log(err.message);
+        }
+    })
+})
 //adding emp
 let empUserDetails = (req, res) => {
   let emp = new EmployeeModel({
@@ -69,4 +81,4 @@ let editEmpPro = (req, res) => {
   });
 };
 
-module.exports = { empUserDetails, deleteEmpById, editEmpPro };
+module.exports = { empUserDetails, deleteEmpById, editEmpPro, getEmpByID };

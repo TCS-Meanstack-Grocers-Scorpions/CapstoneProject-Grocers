@@ -1,1 +1,9 @@
-<p> employee sign-in works!</p>
+<form #empRef = "ngForm" (ngSubmit) = "employeeLogin(empRef.value)">
+    <label>Employee ID</label>
+    <input type = "text" name = "empID" ngModel><br/>
+    <label>Password</label>
+    <input type = "password" name = "empPass" ngModel><br/>
+    <input type = "submit" value = "Log In">
+    <input type = "reset" value = "Clear">
+</form>
+{{msg}}
