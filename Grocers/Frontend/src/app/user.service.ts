@@ -12,9 +12,15 @@ export class UserService {
   //add method for updating user info 
   //add method for adding funds //
   updateUserInfo(userRef:any){
-    //http client with link 
+    this.http.put("http://localhost:9090/user/updateUserInfo",userRef,{responseType:'text'});
   }
   addFundsByID(userRef:any){
     //http client with link
+  }
+  getFundsByID(id:any){
+
+  }
+  getOrdersByID(id:any){
+
   }
 }

@@ -1,8 +1,8 @@
 const e = require('express');
 let EmployeeModel = require('../model/employee.model.js');
 let getEmpByID = (req,res=>{
-    let pid = req.params.pid;
-    EmployeeModel.find({_id:pid},(err,data)=>{
+    let eid = req.params.eid;
+    EmployeeModel.find({_id:eid},(err,data)=>{
         if(!error){
             res.json(data);
         }

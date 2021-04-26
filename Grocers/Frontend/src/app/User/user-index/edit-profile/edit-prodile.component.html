@@ -1,1 +1,15 @@
-<p>edit-prodile works!</p>
+<button value = "Display User ID" (click) = "displayID()"></button>
+<form #userRef = "ngForm" (ngSubmit) = "updateUserInfo(userRef)">
+    <label>Update Email</label>
+    <input type = "text" name = "newEmail" ngModel><br/>
+    <label>Update Password</label>
+    <input type = "password" name = "newPass" ngModel> <br/>
+    <label>Update Phone Number</label>
+    <input type = "text" name = "newPhone" ngModel><br/>
+    <label>Update Address</label>
+    <input type = "text" name = "newAdd" ngModel><br/>
+    <label>Update Date of Birth</label>
+    <input type = "date" name = "newDob" ngModel><br/>
+    <input type = "submit" value = "Update Info">
+    <input type = "reset" value = "Clear"><br/> 
+</form>
