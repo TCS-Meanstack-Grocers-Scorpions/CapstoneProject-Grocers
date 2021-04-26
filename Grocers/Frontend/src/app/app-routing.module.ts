@@ -9,7 +9,7 @@ import { AdminIndexComponent } from './Admin/admin-index/admin-index.component';
 import { GenerateReportComponent } from './Admin/admin-index/generate-report/generate-report.component';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { SignInComponent as AdminSignin } from './Admin/sign-in/sign-in.component';
-import { SignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.component';
+import { EmployeeSignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
+export class EmployeeSignInComponent implements OnInit {
   msg?:string;
   constructor(public empSer:EmployeeService, public router:Router) { }
 

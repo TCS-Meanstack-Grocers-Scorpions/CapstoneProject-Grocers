@@ -11,16 +11,13 @@ export class UsersService {
 
   constructor(public http: HttpClient) { }
   
-  addFundsBy(userRef:any){
+  
+  getUserByID(id:any):Observable<User[]>{
+    return this.http.get<User[]>('http://localhost:9090/user/getUserByID/' + id);
   }
-  getFundsByID(id:any){
-
-  }
-  getOrdersByID(id:any){
-
-  }
+  
   updateUserInfo(userRef:any){
-    
+
   }
   storeTicketinfo(data: any): void{
     this.http.post('http://localhost:9090/ticket', data, {responseType: 'text'}).subscribe(
