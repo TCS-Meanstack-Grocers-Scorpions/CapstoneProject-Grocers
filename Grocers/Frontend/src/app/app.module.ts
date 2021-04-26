@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { MainComponent } from './main/main.component';
+import { SigninComponent } from './User/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { MainComponent } from './main/main.component';
     EmployeeIndexComponent,
     UserIndexComponent,
     ViewRequestsComponent,
-    MainComponent
+    MainComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

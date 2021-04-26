@@ -24,8 +24,7 @@ export class SignInComponent implements OnInit {
     if(loginInfo.username==this.username && loginInfo.pass == this.password){
       this.router.navigate(["admin-index"]);
     } else {
-      this.msg = "Incorrect username and/or password. Please try again."
+      this.msg = 'Incorrect username and/or password. Please try again.';
     }
   }
-  
 }
