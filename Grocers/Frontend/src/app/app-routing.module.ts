@@ -14,26 +14,25 @@ import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
-import { SendRequestComponent } from './Employee/employee-index/send-request/send-request.component';
 import { SelectItemsComponent } from './User/user-index/cart/select-items/select-items.component';
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
-  {path: '\admin', component: AdminSignin},
-  {path: '\shopper', component: UserSignin},
-  {path: '\employee', component: EmployeeSignin},
-  {path: '\admin-index', component: AdminIndexComponent},
-  {path: '\admin-index/requests', component: ViewRequestsComponent},
-  {path: '\admin-index/report', component: GenerateReportComponent}, 
-  {path:"\employeeDashboard",component:EmployeeIndexComponent},
-  {path:"\editEmployeeProfile",component:EditProdileComponent},
-  {path: 'send-request', component: SendRequestComponent },
-  {path:"\nlockUsers",component:UnlockUsersComponent},
-  {path:"\pdateOrderStatus",component:UpdateOrderStatusComponent},
-  {path: '\admin-index/report', component: GenerateReportComponent},
-  {path:"\selectItems/cart",component:ViewItemsComponent}, 
-  {path: 'signup', component: SignUpComponent},
-  {path:'\selectItems',component:SelectItemsComponent}
+  { path: '', component: MainComponent },
+  { path: 'admin', component: AdminSignin },
+  { path: 'shopper', component: UserSignin },
+  { path: 'employee', component: EmployeeSignin },
+  { path: 'admin-index', component: AdminIndexComponent },
+  { path: 'admin-index/requests', component: ViewRequestsComponent },
+  { path: 'admin-index/report', component: GenerateReportComponent },
+  { path: 'employeeDashboard', component: EmployeeIndexComponent },
+  { path: 'editEmployeeProfile', component: EditProdileComponent },
+  { path: 'send-request', component: SendRequestComponent },
+  { path: '\nlockUsers', component: UnlockUsersComponent },
+  { path: 'pdateOrderStatus', component: UpdateOrderStatusComponent },
+  { path: 'admin-index/report', component: GenerateReportComponent },
+  { path: 'selectItems/cart', component: ViewItemsComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'selectItems', component: SelectItemsComponent },
 ];
 
 @NgModule({
