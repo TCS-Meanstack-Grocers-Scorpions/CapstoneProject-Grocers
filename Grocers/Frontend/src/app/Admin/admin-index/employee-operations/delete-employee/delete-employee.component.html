@@ -1,19 +1,21 @@
 <div>
     <h4>Delete Employee</h4>
-    <form>
+    <form #empRef = 'ngForm' (ngSubmit) = 'deleteEmp(empRef.value)'>
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Employee Id</label>
             <div class="col-sm-7">
-            <input type="text" class="form-control" name="id"/>
+            <input type="text" class="form-control" name="id" ngModel/>
             </div>
         </div>
-        <div class="row mb-3">
+<!--         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Employee's First Name</label>
             <div class="col-sm-7">
             <input type="text" class="form-control" name="fname"/>
             </div>
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-secondary m-2" >Delete Employee</button>
         <button type="reset" class="btn btn-light">Reset</button>
+
     </form>
+    {{deleteMsg}}
 </div>
