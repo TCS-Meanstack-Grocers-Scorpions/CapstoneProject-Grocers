@@ -56,7 +56,9 @@ let addtoCart = (req, res) => {
 
     let cartItem = new CartModel({
         _id: req.body._id,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        name: req.body.name,
+        price: req.body.price
     });
 
     cartItem.save((err, result) => {
@@ -72,7 +74,7 @@ let addtoCart = (req, res) => {
                     console.log(newQuantity);
                     ProductModel.find({ _id: req.body._id }, (err, result) => {
 
-                        if (result[0].quantity+1 > newQuantity) {
+                        if (result[0].quantity + 1 > newQuantity) {
                             CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: newQuantity } }, (err, result) => {/*console.log(result)*/ });
                         }
                         else {
@@ -88,4 +90,45 @@ let addtoCart = (req, res) => {
         }
     })
 }
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart };
+
+let viewCart = (req, res) => {
+    CartModel.find({}, (err, result) => {
+        if (!err) {
+            res.json(result);
+        }
+        else {
+            res.json(err);
+        }
+    })
+}
+
+let updateCart = (req, res) => {
+    // console.log(req.body.quantity);
+    CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: req.body.quantity } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                res.send("Record updated succesfully")
+            } else {
+                res.send("Failed to update");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+
+let deleteCart = (req, res) => {
+    console.log("this is id:" + req.params.pid);
+    CartModel.deleteOne({ _id: req.params.pid }, (err, result) => {
+        if (!err) {
+            if (result.deletedCount > 0) {
+                res.send("Record deleted successfully")
+            } else {
+                res.send("Error deleting Record");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart };

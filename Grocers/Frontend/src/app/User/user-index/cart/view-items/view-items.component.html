@@ -1,1 +1,24 @@
-<p>view-items works!</p>
+<div>
+  <hr>
+  <div *ngFor="let item of cartProducts; let i=index;">
+    <div [id]="'item'+i">
+      <img [src]="'/assets/images/'+ 'product'+i+'.png'" alt="" [id]="'img'+i">
+      {{cartProducts[i].name}}
+      ${{cartProducts[i].price}}
+      <div> Quantity:<span [id]="'Q'+i"> {{cartProducts[i].quantity}}</span></div>
+      <div class="input-group" [id]="'updateinfo'+i" style="visibility:hidden">
+        Quantity:<input type="button" value="-" class="button-minus" data-field="quantity"
+          (click)="decriment('inc'+i,'nums'+i)">
+        <input type="number" step="1" max="" [value]="cartProducts[i].quantity" name="quantity" class="quantity-field"
+          [id]="'nums' +i" (input)="maxobj('nums'+i,i)">
+        <input type="button" value="+" class="button-plus" data-field="quantity" id="'inc'+i"
+          (click)="increment('inc'+i,'nums'+i,i)">
+        <input type="button" value="confirm" (click)=confirmUpdate(i)>
+      </div>
+      <span style="width: 50px; margin-right: 20px;"><input type="button" value="Update" (click)=showUpdate(i)> </span>
+      <span><input type="button" value="Delete" (click)=deleteCartItem(i)></span>
+    </div>
+  </div>
+
+</div>
+<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
