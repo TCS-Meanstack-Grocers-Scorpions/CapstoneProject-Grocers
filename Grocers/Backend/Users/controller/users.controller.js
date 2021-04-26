@@ -31,6 +31,7 @@ let getUserById = (req, res) => {
     }
   });
 };
+//CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 let updateUserDetails = (req, res) => {
   let pid = req.body.pid; //passing the id through path param
   let locked = req.body.locked;
@@ -77,41 +78,37 @@ let selectObject = (req, res) => {
 };
 
 let addtoCart = (req, res) => {
-  let cartItem = new CartModel({
-    _id: req.body._id,
-    quantity: req.body.quantity,
-  });
+  
 
-  cartItem.save((err, result) => {
-    if (!err) {
-      res.send('Added to cart');
-    } else {
-      CartModel.findOne({ _id: req.body._id }, (err, result) => {
+    let cartItem = new CartModel({
+        _id: req.body._id,
+        quantity: req.body.quantity,
+        name: req.body.name,
+        price: req.body.price
+    });
+
+    cartItem.save((err, result) => {
         if (!err) {
           num = parseInt(req.body.quantity);
           console.log(result);
           newQuantity = result.quantity + num;
           console.log(newQuantity);
           ProductModel.find({ _id: req.body._id }, (err, result) => {
-            if (result[0].quantity + 1 > newQuantity) {
-              CartModel.updateOne(
-                { _id: req.body._id },
-                { $set: { quantity: newQuantity } },
-                (err, result) => {
-                  /*console.log(result)*/
-                }
-              );
-            } else {
-              console.log('Not Enough in Stock');
-            }
-          });
-        }
-      });
+                  if (result[0].quantity + 1 > newQuantity) {
+                      CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: newQuantity } }, (err, result) => {/*console.log(result)*/ });
+                  }
+                  else {
+                     console.log("Not Enough in Stock");
+                  }
+           })
 
-      res.send('Updated existing item');
-    }
-  });
+        }
+    })
+    res.send('Updated existing item');
+//     }
+//   });
 };
+
 
 let unlockUser = (req, res) => {
   let pid = req.params.pid;
@@ -127,12 +124,55 @@ let unlockUser = (req, res) => {
   );
 };
 
-module.exports = {
-  storeUserDetails,
-  raiseTicket,
-  selectObject,
-  addtoCart,
-  getUserById,
-  updateUserDetails,
-  unlockUser,
-};
+let viewCart = (req, res) => {
+    CartModel.find({}, (err, result) => {
+        if (!err) {
+            res.json(result);
+        }
+        else {
+            res.json(err);
+        }
+    })
+}
+
+let updateCart = (req, res) => {
+    // console.log(req.body.quantity);
+    CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: req.body.quantity } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                res.send("Record updated succesfully")
+            } else {
+                res.send("Failed to update");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+
+let deleteCart = (req, res) => {
+    console.log("this is id:" + req.params.pid);
+    CartModel.deleteOne({ _id: req.params.pid }, (err, result) => {
+        if (!err) {
+            if (result.deletedCount > 0) {
+                res.send("Record deleted successfully")
+            } else {
+                res.send("Error deleting Record");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+//Edit Profile 
+let updateUserInfo= (req,res) => {
+    let pid = req.body.pid;
+    let newEmail = req.body.newEmail;
+    let newPass = req.body.newPass;
+    let newAdd = req.body.newAdd;
+    let newPhone = req.body.newPhone;
+    let newDob = req.body.newDob;
+}
+
+module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser, updateUserInfo };
+
