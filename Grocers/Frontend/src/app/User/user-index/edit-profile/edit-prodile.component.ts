@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user.service';
+import { UsersService } from 'src/app/users.service';
 
 @Component({
   selector: 'app-edit-prodile',
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class EditProdileComponent implements OnInit {
   id = "";
-  constructor(public userSer:UserService) { }
+  constructor(public userSer:UsersService) { }
 
   ngOnInit(): void {
   }
