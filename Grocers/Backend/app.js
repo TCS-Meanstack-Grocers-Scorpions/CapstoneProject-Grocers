@@ -22,6 +22,7 @@ mongoose.connection
 
 var Users = require("./Users/router/user.router.js");
 var Product = require("./Products/router/product.router.js");
+var Employee = require("./Employees/router/emp.router.js");
 var Admin = require("./Admin/router/admin.router.js");
 
 // http://localhost:9090/product/viewProducts   Get App Product Details 
@@ -34,6 +35,7 @@ var Admin = require("./Admin/router/admin.router.js");
 //Middleware
 app.use("/product",Product);
 app.use("/",Users);
+app.use("/emp", Employee);
 app.use("/admin",Admin);
 
 app.listen(9090, () => console.log("Server is running on port number 9090"));

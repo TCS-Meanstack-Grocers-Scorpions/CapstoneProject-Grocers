@@ -6,17 +6,18 @@ import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-re
 import { SignInComponent as AdminSignin } from './Admin/sign-in/sign-in.component';
 import { SignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
-import { SignInComponent as UserSignin } from './User/sign-in/sign-in.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
+import { SigninComponent as UserSignin } from './User/signin/signin.component';
 
 const routes: Routes = [
-  {path: '',component:MainComponent},
+  {path: '', component: MainComponent},
   {path: '\admin', component: AdminSignin},
   {path: '\shopper', component: UserSignin},
   {path: '\employee', component: EmployeeSignin},
   {path: '\admin-index', component: AdminIndexComponent},
   {path: '\admin-index/requests', component: ViewRequestsComponent},
-  {path: '\admin-index/report', component: GenerateReportComponent} 
+  {path: '\admin-index/report', component: GenerateReportComponent},
+  {path: 'signup', component: SignUpComponent}
 ];
 
 @NgModule({

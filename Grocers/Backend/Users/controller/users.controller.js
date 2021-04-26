@@ -23,6 +23,29 @@ let storeUserDetails = (req, res) => {
         }
     })
 }
+let getUserById = (req,res)=>{  
+    let pid = req.params.pid;
+    UserModel.find({_id: pid},(err,result)=>{
+        if(!err){
+            res.json(result);
+        }
+    })
+}
+let updateUserDetails = (req,res)=>{
+    let pid = req.body.pid;       //passing the id through path param
+    let locked = req.body.locked;
+    UserModel.updateMany({_id:pid},{$set:{locked:locked}},(err,result)=>{
+        if(!err){
+            if(result.nModified>0){
+                res.send("Record updated successfully")
+            } else {
+                res.send("No such Product")
+            }
+        } else {
+            res.send("Error generated "+err)
+        }
+    })
+}
 
 let raiseTicket = (req, res) => {
     let ticket = new TicketModel({
@@ -40,6 +63,7 @@ let raiseTicket = (req, res) => {
         }
     })
 }
+
 let selectObject = (req, res) => {
 
     ProductModel.find({}, (err, result) => {
@@ -88,4 +112,4 @@ let addtoCart = (req, res) => {
         }
     })
 }
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart };
+module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, getUserById, updateUserDetails };
