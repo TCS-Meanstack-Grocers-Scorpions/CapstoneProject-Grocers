@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
+import { SendRequestComponent } from './Employee/employee-index/send-request/send-request.component';
 import { SelectItemsComponent } from './User/user-index/cart/select-items/select-items.component';
 
 const routes: Routes = [
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path: '\admin-index/report', component: GenerateReportComponent}, 
   {path:"\employeeDashboard",component:EmployeeIndexComponent},
   {path:"\editEmployeeProfile",component:EditProdileComponent},
-  {path:"\sendRequest",component:SendRequestComponent},
+  {path: 'send-request', component: SendRequestComponent },
   {path:"\nlockUsers",component:UnlockUsersComponent},
   {path:"\pdateOrderStatus",component:UpdateOrderStatusComponent},
   {path: '\admin-index/report', component: GenerateReportComponent},
@@ -37,6 +38,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
