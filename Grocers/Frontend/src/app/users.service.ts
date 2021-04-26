@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './model.user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,4 +25,5 @@ export class UsersService {
  updateUserById(userRef: any): any{
   return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
 }
+
 }

@@ -1,7 +1,15 @@
 <div>
-    <h3>Delete Product</h3>
-    Id : <input type="text" #idRef/>
-    <input type="button" value="Delete by Id" (click)="deleteById(idRef.value)"/>
-    <input type="reset" value="Reset"/><br>
-    {{resultMsg}}
+    <h4>Delete Product</h4>
+    <form>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" #idRef/>
+            </div>
+        </div>
+        <button type="button" class="btn btn-secondary m-2" (click)="deleteById(idRef.value)">Delete Product</button>
+        <button type="reset" class="btn btn-light">Reset</button>
+        <br>
+        {{resultMsg}}
+    </form>
 </div>
