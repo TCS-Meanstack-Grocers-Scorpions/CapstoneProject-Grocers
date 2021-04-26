@@ -9,20 +9,20 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(public router:Router, public adminService:AdminService) { }
-  msg?:string;
-  username?:string;
-  password?:string;
+  constructor(public router: Router, public adminService: AdminService) { }
+  msg?: string;
+  username?: string;
+  password?: string;
   ngOnInit(): void {
-    this.adminService.retrieveAdminDetails().subscribe(result=>{
+    this.adminService.retrieveAdminDetails().subscribe(result => {
       this.username = result[0].username;
       this.password = result[0].password;
     });
   }
 
-  checkUser(loginInfo:any){
-    if(loginInfo.username==this.username && loginInfo.pass == this.password){
-      this.router.navigate(["admin-index"]);
+  checkUser(loginInfo: any): void{
+    if (loginInfo.username === this.username && loginInfo.pass === this.password){
+      this.router.navigate(['admin-index']);
     } else {
       this.msg = 'Incorrect username and/or password. Please try again.';
     }

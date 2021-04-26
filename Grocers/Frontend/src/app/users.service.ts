@@ -25,11 +25,12 @@ export class UsersService {
  updateUserById(userRef: any): any{
   return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
  }
- selectAllitems():Observable<Product[]>{
-  return this.http.get<Product[]>("http://localhost:9090/select");
+ selectAllitems(): Observable<Product[]>{
+  return this.http.get<Product[]>('http://localhost:9090/select');
  }
- AddtoCart(product:any) {
- this.http.post('http://localhost:9090/select',product,{responseType:'text'}).subscribe(result => console.log(result), error => console.log(error));
+ AddtoCart(product: any): void {
+ this.http.post('http://localhost:9090/select', product, {responseType: 'text'})
+ .subscribe(result => console.log(result), error => console.log(error));
  }
 
 }
