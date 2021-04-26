@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model.product';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-admin-index',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-index.component.css']
 })
 export class AdminIndexComponent implements OnInit {
-
-  constructor() { }
+  showTable:Boolean = false;
+  products?:Array<Product>
+  constructor(public proService:ProductService) { }
 
   ngOnInit(): void {
   }
 
+  toggleTable(){
+    this.showTable = !this.showTable;
+    if(this.showTable){
+      this.proService.retrieveAllProductDetails().subscribe(result=>this.products=result);
+    }
+  }
 }
