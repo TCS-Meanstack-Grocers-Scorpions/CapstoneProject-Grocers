@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/model.product';
 import { ProductService } from 'src/app/product.service';
 
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/product.service';
 export class AdminIndexComponent implements OnInit {
   showTable:Boolean = false;
   products?:Array<Product>
-  constructor(public proService:ProductService) { }
+  constructor(public proService:ProductService, public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +21,9 @@ export class AdminIndexComponent implements OnInit {
     if(this.showTable){
       this.proService.retrieveAllProductDetails().subscribe(result=>this.products=result);
     }
+  }
+  logout() {
+    sessionStorage.removeItem("token");
+    this.router.navigate([""]);
   }
 }

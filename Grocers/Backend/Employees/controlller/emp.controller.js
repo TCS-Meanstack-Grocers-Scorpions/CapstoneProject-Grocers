@@ -1,7 +1,7 @@
 let EmployeeModel = require('../model/employee.model.js');
 
 //get emp by ID
-let getEmpByID = (req,res=>{
+let getEmpByID = (req,res) => {
     let eid = req.params.eid;
     EmployeeModel.find({_id:eid},(err,data)=>{
         if(!error){
@@ -11,7 +11,7 @@ let getEmpByID = (req,res=>{
             console.log(err.message);
         }
     })
-})
+}
 //adding emp
 let empUserDetails = (req, res) => {
   let emp = new EmployeeModel({

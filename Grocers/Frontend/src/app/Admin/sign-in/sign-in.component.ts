@@ -23,6 +23,7 @@ export class SignInComponent implements OnInit {
   checkUser(loginInfo:any){
     if(loginInfo.username==this.username && loginInfo.pass == this.password){
       this.router.navigate(["admin-index"]);
+      sessionStorage.setItem("token","admin");
     } else {
       this.msg = 'Incorrect username and/or password. Please try again.';
     }
