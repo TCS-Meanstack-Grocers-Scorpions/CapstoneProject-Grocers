@@ -40,7 +40,4 @@ app.use("/emp", Employee);
 app.use("/admin",Admin);
 app.use('/request', Request);
 
-app.listen(9090, () => console.log("Server is running on port number 9090"));
-
-
 app.listen(9090, () => console.log('Server is running on port number 9090'));
