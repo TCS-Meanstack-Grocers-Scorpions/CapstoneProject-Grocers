@@ -32,6 +32,7 @@ import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-re
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './User/signin/signin.component';
 import {EmployeeSignInComponent} from './Employee/sign-in/sign-in.component';
+import { MyAuthGuard } from './myauthguard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,7 @@ import {EmployeeSignInComponent} from './Employee/sign-in/sign-in.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [MyAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
