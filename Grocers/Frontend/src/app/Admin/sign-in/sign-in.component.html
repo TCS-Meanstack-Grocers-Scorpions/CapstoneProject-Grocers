@@ -1,11 +1,12 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <h3>Admin Sign In</h3>
+                <h3>Admin Sign In</h3>
         <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
             <input type="text" name="username" placeholder="username" ngModel>
             <input type="password" name="pass" placeholder="password" ngModel>
             <input type="submit" value="Sign In">
         </form>
+        <a routerLink="" class="nav-link">Back</a><br>
         {{msg}}
     </div>
 </div>
