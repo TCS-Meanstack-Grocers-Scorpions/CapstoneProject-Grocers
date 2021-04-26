@@ -26,7 +26,7 @@ import { UnlockUsersComponent } from './Employee/employee-index/unlock-users/unl
 import { AdminIndexComponent } from './Admin/admin-index/admin-index.component';
 import { EmployeeIndexComponent } from './Employee/employee-index/employee-index.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { MainComponent } from './main/main.component';
@@ -67,6 +67,7 @@ import { SigninComponent } from './User/signin/signin.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
