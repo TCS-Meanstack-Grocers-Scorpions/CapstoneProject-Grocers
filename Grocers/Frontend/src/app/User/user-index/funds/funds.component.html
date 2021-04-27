@@ -1,1 +1,9 @@
-<p>funds works!</p>
+<h2>Current Funds</h2><br/>
+{{currentFunds}}
+<h2>Add Funds</h2>
+<form #userRef = "ngForm" (ngSubmit) = "addFunds(userRef.value)">
+    <label>Add Ammount</label>
+    <input type  =  "number"  name = "addedFunds" ngModel><br/>
+    <input type = "submit" value  =  "Add">
+</form>
+
