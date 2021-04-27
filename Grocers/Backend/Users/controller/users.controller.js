@@ -31,7 +31,6 @@ let getUserById = (req, res) => {
     }
   });
 };
-//CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 let lockUser = (req, res) => {
   let pid = req.body.pid; //passing the id through path param
   UserModel.updateOne(
@@ -176,6 +175,45 @@ let deleteCart = (req, res) => {
     }
   })
 }
+
+let updateUserPassword = (req, res) => {
+    let uid = req.params.uid;
+    let newPass = req.body.newPass;
+    UserModel.updateOne({_id:uid},{$set:{pass,newPass}});
+}
+let updateUserEmail = (req, res) => {
+    let uid = req.params.uid;
+    let newEmail = req.body.newEmail;
+    UserModel.updateOne({_id:uid},{$set:{email,newEmail}});
+    
+}
+let updateUserAddress = (req, res) => {
+    let uid = req.params.uid;
+    let newAdd = req.body.newAdd;
+    UserModel.updateOne({_id:uid},{$set:{address,newAdd}});
+}
+let updateUserPhone = (req, res) => {
+    let uid = req.params.uid;
+    let newPhone = req.body.newPhone;
+    UserModel.updateOne({_id:uid},{$set:{phone,newPhone}});
+}
+let updateUserDOB = (req,res) => {
+    let uid = req.params.uid;
+    let newDOB = req.body.newDOB;
+    UserModel.updateOne({_id:uid},{$set:{dob,newDOB}});
+}
+let updateUserFunds = (req,res) =>{
+  let uid = req.params.uid;
+  let addedFunds = req.body.addedFunds;
+  let curFunds = 0;
+  UserModel.find({_id:uid},(err,result)=>{
+    if(!err){
+      curFunds = result[0].funds;
+    }
+  })
+  let totalFunds = addedFunds + curFunds;
+  UserModel.updateOne({_id:uid},{$set:{funds,totalFunds}});
+}
 //Edit Profile 
 let updateUserInfo = (req, res) => {
   let pid = req.body.pid;
@@ -186,5 +224,5 @@ let updateUserInfo = (req, res) => {
   let newDob = req.body.newDob;
 }
 
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, lockUser, unlockUser, updateUserInfo };
+module.exports = {updateUserInfo, lockUser, storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, unlockUser,  updateUserPassword, updateUserEmail, updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds};
 
