@@ -1,2 +1,12 @@
-<p>order-status works!</p>
-<!--Table Displaying Status of Orders-->
+<div>
+    <table border="1">
+            <tr>
+                <th>Order Name</th>
+                <th>Order Status</th>
+            </tr>
+            <tr *ngFor="let order of orders">
+                    <td>{{order.name}}</td>
+                    <td>{{order.status}}</td>
+            </tr>
+    </table>
+</div>
