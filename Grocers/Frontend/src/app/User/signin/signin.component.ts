@@ -19,6 +19,9 @@ export class SigninComponent implements OnInit {
   goTo(): void {
     this.router.navigate(['./signup']);
   }
+  goto(): void {
+    this.router.navigate(['./raise-ticket']);
+  }
   checkUser(userRef: any): void {
     const id = userRef.id;
     const pass = userRef.pass;
