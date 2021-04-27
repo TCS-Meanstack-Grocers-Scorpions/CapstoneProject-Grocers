@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './model.user';
 import { Product } from './model.product';
+import { cartProduct } from './model.cart';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,10 @@ export class UsersService {
   lockUser(userRef: any): any {
     return this.http.put('http://localhost:9090/lockUser/', userRef, { responseType: 'text' });
   }
+
+  viewCartitems(userId:any):Observable<cartProduct[]>{
+    return this.http.get<cartProduct[]>("http://localhost:9090/cart/"+userId);
+
   selectAllitems(): Observable<Product[]> {
     return this.http.get<Product[]>('http://localhost:9090/select');
   }
@@ -70,5 +75,9 @@ export class UsersService {
   deleteItem(cartRef: any): void {
     this.http.delete('http://localhost:9090/cart/' + cartRef, { responseType: 'text' }).subscribe(
       result => console.log(result), error => console.log(error));
+  }
+  Purchaseitems(list:any):void {
+    this.http.post("http://localhost:9090/cart",list,{responseType:"text"}).subscribe(
+      result => console.log(result), error => console.log(error))
   }
 }
