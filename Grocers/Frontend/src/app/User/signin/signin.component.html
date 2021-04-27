@@ -1,4 +1,22 @@
-<div>
+<div class="wrapper">
+    <div id="formContent">
+        <h3>Sign In</h3>
+        <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+            <input type="text" name="is" placeholder="User Id" ngModel>
+            <input type="password" name="pass" placeholder="password" ngModel>
+            <input [disabled] = "(numberlogin >=3)" type="submit" value="Sign In">
+            <!-- <input type="reset" value="Reset"/> -->
+        </form>
+        <a routerLink="" class="nav-link">Back</a>
+        <button (click) = "goTo()">Sign Up</button>
+        <button (click) = "goto()">Raise Ticket</button>
+        <br>
+        {{resultMsg}}
+    </div>
+    
+</div>
+
+<!-- <div>
     <h2>Sign In</h2>
     <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
         <label>Username </label>
@@ -11,4 +29,4 @@
     {{resultMsg}} <br>
     <button (click) = "goTo()">Sign Up</button>
     <button (click) = "goto()">Raise Ticket</button>
-</div>
+</div> -->
