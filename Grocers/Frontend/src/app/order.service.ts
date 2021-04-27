@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Order} from './model.order';
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class OrderService {
-  constructor(public http: HttpClient) {}
+
 
   getOrdersByUserID(uid:any):Observable<Order[]> {
     return this.http.get<Order[]>('http://localhost:9090/order/getOrderByUserID/'+uid);
@@ -24,4 +24,5 @@ export class OrderService {
         (error) => console.log(error)
       );
   }
+
 }
