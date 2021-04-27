@@ -31,7 +31,6 @@ let getUserById = (req, res) => {
     }
   });
 };
-//CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 let lockUser = (req, res) => {
   let pid = req.body.pid; //passing the id through path param
   UserModel.updateOne(
@@ -193,10 +192,11 @@ let updateUserAddress = (req, res) => {
     let newAdd = req.body.newAdd;
     UserModel.updateOne({_id:uid},{$set:{address,newAdd}});
 }
-let updateUserPhone = (req, res) => {}
+let updateUserPhone = (req, res) => {
     let uid = req.params.uid;
     let newPhone = req.body.newPhone;
     UserModel.updateOne({_id:uid},{$set:{phone,newPhone}});
+}
 let updateUserDOB = (req,res) => {
     let uid = req.params.uid;
     let newDOB = req.body.newDOB;
@@ -214,6 +214,15 @@ let updateUserFunds = (req,res) =>{
   let totalFunds = addedFunds + curFunds;
   UserModel.updateOne({_id:uid},{$set:{funds,totalFunds}});
 }
+//Edit Profile 
+let updateUserInfo = (req, res) => {
+  let pid = req.body.pid;
+  let newEmail = req.body.newEmail;
+  let newPass = req.body.newPass;
+  let newAdd = req.body.newAdd;
+  let newPhone = req.body.newPhone;
+  let newDob = req.body.newDob;
+}
 
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, unlockUser,  updateUserPassword, updateUserEmail,updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds};
+module.exports = {updateUserInfo, lockUser, storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, unlockUser,  updateUserPassword, updateUserEmail, updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds};
 
