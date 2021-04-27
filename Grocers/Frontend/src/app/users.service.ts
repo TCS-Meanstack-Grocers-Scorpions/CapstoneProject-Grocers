@@ -17,36 +17,36 @@ export class UsersService {
     );
   }
 
-  updateUserPassword(userRef: any, id: any) {
+  updateUserPassword(userRef: any, id: any): void {
     this.http.put(
       'http://localhost:9090/user/updateUserPassword' + id,
       userRef,
       { responseType: 'text' }
     );
   }
-  updateUserEmail(userRef: any, id: any) {
+  updateUserEmail(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserEmail' + id, userRef, {
       responseType: 'text',
     });
   }
-  updateUserAddress(userRef: any, id: any) {
+  updateUserAddress(userRef: any, id: any): void {
     this.http.put(
       'http://localhost:9090/user/updateUserAddress' + id,
       userRef,
       { responseType: 'text' }
     );
   }
-  updateUserPhone(userRef: any, id: any) {
+  updateUserPhone(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserPhone' + id, userRef, {
       responseType: 'text',
     });
   }
-  updateUserDOB(userRef: any, id: any) {
+  updateUserDOB(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserDOB' + id, userRef, {
       responseType: 'text',
     });
   }
-  updateFunds(userRef: any, id: any) {
+  updateFunds(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserFunds' + id, userRef, {
       responseType: 'text',
     });
@@ -98,8 +98,8 @@ export class UsersService {
       );
   }
 
-  viewCartitems(userId:any):Observable<cartProduct[]>{
-    return this.http.get<cartProduct[]>("http://localhost:9090/cart/"+userId);
+  viewCartitems(userId: any): Observable<cartProduct[]>{
+    return this.http.get<cartProduct[]>('http://localhost:9090/cart/' + userId);
   }
 
   selectAllitems(): Observable<Product[]> {
