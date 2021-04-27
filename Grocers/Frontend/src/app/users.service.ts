@@ -52,11 +52,13 @@ export class UsersService {
       responseType: 'text',
     });
   }
+
   updateUserById(userRef: any):void  {
     this.http.put('http://localhost:9090/user/updateUserInfo', userRef, {
       responseType: 'text',
     });
   }
+
 
   storeTicketinfo(data: any): void {
     this.http.post('http://localhost:9090/ticket', data, { responseType: 'text' }).subscribe((result) => console.log(result), (error) => console.log(error));
@@ -98,7 +100,6 @@ this.http.delete("http://localhost:9090/cart/"+cartRef,{responseType:"text"}).su
       responseType: 'text',
     });
   }
-
 
   unlockUser(unlockRef: any): any {
     console.log('unlockUser Service called');
