@@ -17,14 +17,14 @@ router.post("/ticket",UserController.raiseTicket);
 router.get("/select", UserController.selectObject);
 router.post("/select",UserController.addtoCart);
 router.put("/updateUserInfo",UserController.updateUserInfo);
-router.get("/cart",UserController.viewCart);
+router.get("/cart/:userId",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);
 
 router.post('/signUp', UserController.storeUserDetails);
 
 router.get('/getUserById/:pid', UserController.getUserById);
-router.put('/updateUserDetails', UserController.updateUserDetails);
+router.put('/lockUser', UserController.lockUser);
 router.put('/unlockUser/:pid', UserController.unlockUser);
 
 router.post('/ticket', UserController.raiseTicket);

@@ -32,18 +32,17 @@ let getUserById = (req, res) => {
   });
 };
 //CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let updateUserDetails = (req, res) => {
+let lockUser = (req, res) => {
   let pid = req.body.pid; //passing the id through path param
-  let locked = req.body.locked;
-  UserModel.updateMany(
+  UserModel.updateOne(
     { _id: pid },
-    { $set: { locked: locked } },
+    { $set: { locked: true } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
           res.send('Record updated successfully');
         } else {
-          res.send('No such Product');
+          res.send('No such User');
         }
       } else {
         res.send('Error generated ' + err);
@@ -78,35 +77,47 @@ let selectObject = (req, res) => {
 };
 
 let addtoCart = (req, res) => {
-  
+  var msg = "hi";
+  let cartItem = new CartModel({
+    pid: req.body._id,
+    quantity: req.body.quantity,
+    name: req.body.name,
+    price: req.body.price,
+    userId: req.body.userId
+  });
 
-    let cartItem = new CartModel({
-        _id: req.body._id,
-        quantity: req.body.quantity,
-        name: req.body.name,
-        price: req.body.price
-    });
-
-    cartItem.save((err, result) => {
+  CartModel.findOne({ pid: req.body._id, userId: req.body.userId }, (err3, result2) => {
+    console.log("this is r2");
+    console.log(result2)
+    console.log("this is err3 "+err3);
+    console.log(result2)
+    if (result2 === null) {
+      cartItem.save((err, result) => {
         if (!err) {
-          num = parseInt(req.body.quantity);
-          console.log(result);
-          newQuantity = result.quantity + num;
-          console.log(newQuantity);
-          ProductModel.find({ _id: req.body._id }, (err, result) => {
-                  if (result[0].quantity + 1 > newQuantity) {
-                      CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: newQuantity } }, (err, result) => {/*console.log(result)*/ });
-                  }
-                  else {
-                     console.log("Not Enough in Stock");
-                  }
-           })
-
+          console.log("added to cart")
         }
-    })
-    res.send('Updated existing item');
-//     }
-//   });
+      })
+    }
+
+    else {
+      ProductModel.find({ _id: req.body._id }, (err, result) => {
+        CartModel.findOne({ pid: req.body._id, userId: req.body.userId }, (err2, result2) => {
+          num = parseInt(req.body.quantity);
+          console.log(result2);
+          newQuantity = result2.quantity + num;
+          if (result[0].quantity + 1 > newQuantity) {
+            console.log("Updated");
+            CartModel.updateOne({ pid: req.body._id, userId: req.body.userId }, { $set: { quantity: newQuantity } }, (err, result) => {/*console.log(result)*/ });
+          }
+          else {
+            console.log("Not Enough in Stock");
+            msg = "Not Enough in Stock";
+          }
+        })
+
+      })
+    }
+  })
 };
 
 
@@ -125,55 +136,47 @@ let unlockUser = (req, res) => {
 };
 
 let viewCart = (req, res) => {
-    CartModel.find({}, (err, result) => {
-        if (!err) {
-            res.json(result);
-        }
-        else {
-            res.json(err);
-        }
-    })
+  CartModel.find({ userId: req.params.userId }, (err, result) => {
+    if (!err) {
+      res.json(result);
+    }
+    else {
+      res.json(err);
+    }
+  })
 }
 
 let updateCart = (req, res) => {
-    // console.log(req.body.quantity);
-    CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: req.body.quantity } }, (err, result) => {
-        if (!err) {
-            if (result.nModified > 0) {
-                res.send("Record updated succesfully")
-            } else {
-                res.send("Failed to update");
-            }
-        } else {
-            res.send("Error generated " + err);
-        }
-    })
+  console.log(req.body.quantity);
+  console.log(req.body._id);
+  CartModel.updateOne({ pid: req.body._id,userId:req.body.userId }, { $set: { quantity: req.body.quantity } }, (err, result) => {
+    if (!err) {
+      if (result.nModified > 0) {
+        res.send("Record updated succesfully")
+      } else {
+        res.send("Failed to update");
+      }
+    } else {
+      res.send("Error generated " + err);
+    }
+  })
 }
 
 let deleteCart = (req, res) => {
-    console.log("this is id:" + req.params.pid);
-    CartModel.deleteOne({ _id: req.params.pid }, (err, result) => {
-        if (!err) {
-            if (result.deletedCount > 0) {
-                res.send("Record deleted successfully")
-            } else {
-                res.send("Error deleting Record");
-            }
-        } else {
-            res.send("Error generated " + err);
-        }
-    })
+  console.log("this is id:" + req.params.pid);
+  CartModel.deleteOne({ _id: req.params.pid }, (err, result) => {
+    if (!err) {
+      if (result.deletedCount > 0) {
+        res.send("Record deleted successfully")
+      } else {
+        res.send("Error deleting Record");
+      }
+    } else {
+      res.send("Error generated " + err);
+    }
+  })
 }
-//Edit Profile (getting rid of this soon)
-let updateUserInfo = (req,res) => {
-    let pid = req.body.pid;
-    let newEmail = req.body.newEmail;
-    let newPass = req.body.newPass;
-    let newAdd = req.body.newAdd;
-    let newPhone = req.body.newPhone;
-    let newDob = req.body.newDob;
 
-}
 let updateUserPassword = (req, res) => {
     let uid = req.params.uid;
     let newPass = req.body.newPass;
@@ -212,5 +215,5 @@ let updateUserFunds = (req,res) =>{
   UserModel.updateOne({_id:uid},{$set:{funds,totalFunds}});
 }
 
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser,  updateUserPassword, updateUserEmail,updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds};
+module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, unlockUser,  updateUserPassword, updateUserEmail,updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds};
 

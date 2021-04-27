@@ -5,9 +5,10 @@
         <input type="text" name="id" placeholder = "Enter your id" ngModel/><br>
         <label>Password </label>
         <input type="password" name="pass" placeholder = "Enter your password" ngModel/><br>
-        <input type="submit" value="Sign In"/>
+        <button [disabled] = "(numberlogin >=3)" type = "submit">Sign In</button>
         <input type="reset" value="Reset"/>
     </form>
-    {{resultMsg}}
+    {{resultMsg}} <br>
     <button (click) = "goTo()">Sign Up</button>
+    <button (click) = "goto()">Raise Ticket</button>
 </div>

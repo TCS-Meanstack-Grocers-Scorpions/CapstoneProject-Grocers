@@ -10,9 +10,8 @@ import { Product } from './model.product';
 export class UsersService {
 
   constructor(public http: HttpClient) { }
-  
-  
-  getUserByID(id:any):Observable<User[]>{
+
+  getUserByID(id: any): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:9090/user/getUserByID/' + id);
   }
   
@@ -34,36 +33,42 @@ export class UsersService {
   updateFunds(userRef:any,id:any){
     this.http.put('http://localhost:9090/user/updateUserFunds'+id ,userRef,{responseType: 'text'});
   }
-  storeTicketinfo(data: any): void{
-    this.http.post('http://localhost:9090/ticket', data, {responseType: 'text'}).subscribe(
-      result => console.log(result), error => console.log(error));
-  }
-  storeUserDetailsInfo(productRef: any): void{
-    this.http.post('http://localhost:9090/signUp', productRef, {responseType: 'text'}).
-    subscribe(result => console.log(result), error => console.log(error));
-  }
-  retrieveUserById(id: any): Observable<User[]>{
-    return this.http.get<User[]>('http://localhost:9090/getUserById/' + id);
- }
- updateUserById(userRef: any): any{
-  return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
- }
-  selectAllitems():Observable<Product[]>{
-    return this.http.get<Product[]>("http://localhost:9090/select");
+  updateUserById(userRef: any): void {
+    this.http.put('http://localhost:9090/user/updateUserInfo', userRef, { responseType: 'text' });
   }
 
-  AddtoCart(product:any) {
-   this.http.post('http://localhost:9090/select',product,{responseType:'text'}).subscribe(result => console.log(result), error => console.log(error));
+  storeTicketinfo(data: any): void {
+    this.http.post('http://localhost:9090/ticket', data, { responseType: 'text' }).subscribe(
+      result => console.log(result), error => console.log(error));
   }
-  viewCartitems():Observable<Product[]>{
-    return this.http.get<Product[]>("http://localhost:9090/cart");
+  storeUserDetailsInfo(productRef: any): void {
+    this.http.post('http://localhost:9090/signUp', productRef, { responseType: 'text' }).
+      subscribe(result => console.log(result), error => console.log(error));
   }
-  updateCart(cartRef:any):void {
- this.http.put("http://localhost:9090/cart",cartRef,{responseType:'text'}).subscribe(
-  result => console.log(result), error => console.log(error));
+  retrieveUserById(id: any): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:9090/getUserById/' + id);
   }
-  deleteItem(cartRef:any):void {
-this.http.delete("http://localhost:9090/cart/"+cartRef,{responseType:"text"}).subscribe(
-  result => console.log(result), error => console.log(error));
+
+  lockUser(userRef: any): any {
+    return this.http.put('http://localhost:9090/lockUser/', userRef, { responseType: 'text' });
+  }
+  selectAllitems(): Observable<Product[]> {
+    return this.http.get<Product[]>('http://localhost:9090/select');
+  }
+
+  AddtoCart(product: any): void {
+    this.http.post('http://localhost:9090/select', product, { responseType: 'text' })
+      .subscribe(result => console.log(result), error => console.log(error));
+  }
+  viewCartitems(userId: any): Observable<Product[]> {
+    return this.http.get<Product[]>('http://localhost:9090/cart/' + userId);
+  }
+  updateCart(cartRef: any): void {
+    this.http.put('http://localhost:9090/cart', cartRef, { responseType: 'text' }).subscribe(
+      result => console.log(result), error => console.log(error));
+  }
+  deleteItem(cartRef: any): void {
+    this.http.delete('http://localhost:9090/cart/' + cartRef, { responseType: 'text' }).subscribe(
+      result => console.log(result), error => console.log(error));
   }
 }
