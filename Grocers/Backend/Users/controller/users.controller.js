@@ -32,18 +32,17 @@ let getUserById = (req, res) => {
   });
 };
 //CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let updateUserDetails = (req, res) => {
+let lockUser = (req, res) => {
   let pid = req.body.pid; //passing the id through path param
-  let locked = req.body.locked;
-  UserModel.updateMany(
+  UserModel.updateOne(
     { _id: pid },
-    { $set: { locked: locked } },
+    { $set: { locked: true } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
           res.send('Record updated successfully');
         } else {
-          res.send('No such Product');
+          res.send('No such User');
         }
       } else {
         res.send('Error generated ' + err);
@@ -187,5 +186,5 @@ let updateUserInfo = (req, res) => {
   let newDob = req.body.newDob;
 }
 
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser, updateUserInfo };
+module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, lockUser, unlockUser, updateUserInfo };
 

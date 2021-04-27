@@ -11,7 +11,7 @@ router.delete("/cart/:pid",UserController.deleteCart);
 router.post('/signUp', UserController.storeUserDetails);
 
 router.get('/getUserById/:pid', UserController.getUserById);
-router.put('/updateUserDetails', UserController.updateUserDetails);
+router.put('/lockUser', UserController.lockUser);
 router.put('/unlockUser/:pid', UserController.unlockUser);
 
 router.post('/ticket', UserController.raiseTicket);
