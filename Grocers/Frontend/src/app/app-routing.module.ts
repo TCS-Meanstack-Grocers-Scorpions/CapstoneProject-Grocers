@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'employeeDashboard', component: EmployeeIndexComponent },
   { path: 'editEmployeeProfile', component: EditProdileComponent },
   { path: 'send-request', component: SendRequestComponent },
-  { path: '\nlockUsers', component: UnlockUsersComponent },
+  { path: 'unlockUser', component: UnlockUsersComponent },
   { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
   {
     path: 'admin-index/report',
@@ -54,6 +54,7 @@ const routes: Routes = [
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
+
   {path:'purchaseComplete',component:CartComponent},
   { path: 'user-index', component: UserIndexComponent},
   { path: 'user-index/cart', component: CartComponent},
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'user-index/order-status', component: OrderStatusComponent},
   { path: 'user-index/view-item', component: ViewItemsComponent},
   { path: 'user-index/raise-ticket', component: RaiseTicketComponent}
+
 ];
 
 @NgModule({
