@@ -16,6 +16,7 @@ import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
 import { SelectItemsComponent } from './User/user-index/cart/select-items/select-items.component';
 import { MyAuthGuard } from './myauthguard';
+import { CartComponent } from './User/user-index/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
+  {path:'purchaseComplete',component:CartComponent}
 ];
 
 @NgModule({

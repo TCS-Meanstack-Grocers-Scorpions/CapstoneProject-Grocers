@@ -18,7 +18,6 @@ export class SelectItemsComponent implements OnInit {
       this.products = result;
     })
     this.getItemsService.viewCartitems(this.UserId).subscribe(result => {
-      console.log(result.length);
       for (let i = 0; i < result.length; i++) {
         this.cartNum = this.cartNum + result[i].quantity
       }
@@ -58,11 +57,11 @@ export class SelectItemsComponent implements OnInit {
   addCart(val: any, i: any) {
     let num = (<HTMLInputElement>document.getElementById(val));
     this.cartNum = this.cartNum + parseInt(num.value);
-    let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value, userId: this.UserId };
-    console.log(newCartitem);
+    let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value, userId: this.UserId, imgId: i };
     this.getItemsService.AddtoCart(newCartitem)
     num.value = "0";
     let output = document.getElementById("msg" + i);
+    console.log(newCartitem.imgId);
     if (output) output.innerHTML = "Added"
     setTimeout(function () { if (output) output.style.visibility = "hidden" }, 1000);
   }
