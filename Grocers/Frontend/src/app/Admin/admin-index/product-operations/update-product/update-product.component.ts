@@ -17,5 +17,7 @@ export class UpdateProductComponent implements OnInit {
     this.productSer.updateProductById(productRef).subscribe((result:string)=>{
       this.resultMsg=result
     })
+    //displays the result message for 10 seconds and then 'removes' it
+    setTimeout(()=> this.resultMsg = '',10000);
   }
 }
