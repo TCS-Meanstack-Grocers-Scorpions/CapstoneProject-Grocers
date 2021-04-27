@@ -81,6 +81,7 @@ this.total=this.total+(result[i].price*result[i].quantity)
     this.getItemsService.deleteItem(delete2);
     let item = document.getElementById("item" + i);
     if (item) item.style.display = "none";
+    setTimeout(function () { location.reload() }, 500);
   }
 
   Purchased(){
