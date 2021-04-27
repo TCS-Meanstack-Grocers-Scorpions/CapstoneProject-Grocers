@@ -10,16 +10,17 @@ import { UsersService } from 'src/app/users.service';
 export class SelectItemsComponent implements OnInit {
   products: Array<Product> = []
   cartNum: number = 0; //get from cart later
+  UserId = "4"
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
     this.getItemsService.selectAllitems().subscribe(result => {
       this.products = result;
     })
-    this.getItemsService.viewCartitems().subscribe(result=>{
+    this.getItemsService.viewCartitems(this.UserId).subscribe(result => {
       console.log(result.length);
-      for(let i=0;i<result.length;i++){
- this.cartNum=this.cartNum+result[i].quantity
+      for (let i = 0; i < result.length; i++) {
+        this.cartNum = this.cartNum + result[i].quantity
       }
     })
   }
@@ -57,7 +58,7 @@ export class SelectItemsComponent implements OnInit {
   addCart(val: any, i: any) {
     let num = (<HTMLInputElement>document.getElementById(val));
     this.cartNum = this.cartNum + parseInt(num.value);
-    let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value };
+    let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value, userId: this.UserId };
     console.log(newCartitem);
     this.getItemsService.AddtoCart(newCartitem)
     num.value = "0";

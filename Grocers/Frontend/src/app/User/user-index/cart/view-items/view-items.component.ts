@@ -10,10 +10,11 @@ import { UsersService } from 'src/app/users.service';
 export class ViewItemsComponent implements OnInit {
   cartProducts: Array<Product> = []
   products: Array<Product> = []
+  userId:string="4"; //get from local store later
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
-    this.getItemsService.viewCartitems().subscribe(result => {
+    this.getItemsService.viewCartitems(this.userId).subscribe(result => {
       this.cartProducts = result;
 
     })
@@ -60,7 +61,8 @@ export class ViewItemsComponent implements OnInit {
     let updateinfo = document.getElementById("updateinfo" + i);
     if (updateinfo) updateinfo.style.visibility = "hidden";
     let updateQ = (<HTMLInputElement>document.getElementById("nums" + i)).value;
-    let updatedCart = { "_id": this.products[i]._id, "quantity": updateQ }
+    console.log(this.products[i]._id);
+    let updatedCart = { "_id": this.products[i]._id, "quantity": updateQ ,"userId":this.userId}
     this.getItemsService.updateCart(updatedCart);
     setTimeout(function () { location.reload() }, 500);
   }
@@ -68,7 +70,7 @@ export class ViewItemsComponent implements OnInit {
     let deletedItem = this.cartProducts[i]._id;
     console.log(deletedItem);
     this.getItemsService.deleteItem(deletedItem);
-    let item=document.getElementById("item"+i);
-    if(item) item.style.display="none";
+    let item = document.getElementById("item" + i);
+    if (item) item.style.display = "none";
   }
 }
