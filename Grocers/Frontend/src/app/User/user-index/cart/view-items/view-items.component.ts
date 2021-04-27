@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { cartProduct } from 'src/app/model.cart';
 import { Product } from 'src/app/model.product';
 import { UsersService } from 'src/app/users.service';
 
@@ -8,7 +9,7 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent implements OnInit {
-  cartProducts: Array<Product> = []
+  cartProducts: Array<cartProduct> = []
   products: Array<Product> = []
   userId:string="4"; //get from local store later
   constructor(public getItemsService: UsersService) { }
@@ -67,10 +68,11 @@ export class ViewItemsComponent implements OnInit {
     setTimeout(function () { location.reload() }, 500);
   }
   deleteCartItem(i: any) {
-    let deletedItem = this.cartProducts[i]._id;
-    console.log(deletedItem);
-    this.getItemsService.deleteItem(deletedItem);
+    let deletedItem ={userId:this.userId,pid:this.cartProducts[i].pid};
+    let delete2=JSON.stringify(deletedItem);
+    this.getItemsService.deleteItem(delete2);
     let item = document.getElementById("item" + i);
     if (item) item.style.display = "none";
   }
+
 }
