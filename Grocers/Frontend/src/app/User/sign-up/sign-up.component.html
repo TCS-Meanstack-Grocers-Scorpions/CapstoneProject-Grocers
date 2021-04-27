@@ -1,21 +1,22 @@
-<div>
-    <h2>Sign Up</h2>
-    <form #userRef = 'ngForm' (ngSubmit) = 'storeUser(userRef.value)'>
-        <label>Enter First Name: </label>
-        <input type="text" name="fname" ngModel> <br>
-        <label>Enter Last Name: </label>
-        <input type="text" name="lname" ngModel> <br>
-        <label>Enter Email: </label>
-        <input type="text" name="email" ngModel> <br>
-        <label>Enter Password: </label>
-        <input type="password" name="pass" ngModel> <br>
-        <label>Enter Date of Birth: </label>
-        <input type="date" name="dob" ngModel> <br>
-        <label>Enter Phone number: </label>
-        <input type="text" name="phone" ngModel> <br>
-        <label>Enter Address: </label>
-        <input type="text" name="address" ngModel> <br>
-        <input type="submit" value="Sign In">
-        <input type="reset" value="Reset">
-    </form>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2>Sign Up</h2>
+        <form #userRef = 'ngForm' (ngSubmit) = 'storeUser(userRef.value)'>
+            <label>Enter First Name: </label>
+            <input type="text" name="fname" ngModel> <br>
+            <label>Enter Last Name: </label>
+            <input type="text" name="lname" ngModel> <br>
+            <label>Enter Email: </label>
+            <input type="text" name="email" ngModel> <br>
+            <label>Enter Password: </label>
+            <input type="password" name="pass" ngModel> <br>
+            <label>Enter Date of Birth: </label>
+            <input type="date" name="dob" ngModel> <br>
+            <label>Enter Phone number: </label>
+            <input type="text" name="phone" ngModel> <br>
+            <label>Enter Address: </label>
+            <input type="text" name="address" ngModel> <br>
+            <input type="submit" value="Sign In">
+        </form>
+    </div>
 </div>
