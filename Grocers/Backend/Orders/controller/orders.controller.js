@@ -15,5 +15,10 @@ let updateStatus = (req, res) => {
     }
   );
 };
-
-module.exports = { updateStatus };
+let getOrdersByUserID = (req,res)=>{
+  let uid = req.params.uid;
+  OrderModel.find({userID:uid},(err,result)=>{
+    if(!err) res.json(result);
+  })
+}
+module.exports = { updateStatus,getOrdersByUserID};

@@ -3,6 +3,10 @@ let UserModel = require('../user-model/user.model.js');
 let ProductModel = require('../../Products/model/product.model.js');
 let CartModel = require('../user-model/cart.model');
 const PurchaseModel = require('../user-model/purchased.model.js');
+
+const ObjectId = require('mongodb').ObjectId;
+
+
 //adding users
 let storeUserDetails = (req, res) => {
   let product = new UserModel({
@@ -118,30 +122,29 @@ let addtoCart = (req, res) => {
 };
 
 
+
 let unlockUser = (req, res) => {
-  let pid = req.params.pid;
-  UserModel.updateOne(
-    {
-      _id: pid,
-    },
-    {
-      $set: {
-        locked: false,
-      },
-    }
-  );
+  let uid = req.body.uid;
+  //let objUid = new ObjectId(uid);
+  console.log('uid: ' + uid);
+  UserModel.updateOne({ _id: new ObjectId(uid) }, { $set: { locked: false } })
+    .then((obj) => {
+      console.log(obj);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 let viewCart = (req, res) => {
   CartModel.find({ userId: req.params.userId }, (err, result) => {
     if (!err) {
       res.json(result);
-    }
-    else {
+    } else {
       res.json(err);
     }
-  })
-}
+  });
+};
 
 let updateCart = (req, res) => {
   CartModel.updateOne({ pid: req.body.pid,userId:req.body.userId }, { $set: { quantity: req.body.quantity } }, (err, result) => {
@@ -171,7 +174,45 @@ let deleteCart = (req, res) => {
     }
   })
 }
-//Edit Profile 
+
+let updateUserPassword = (req, res) => {
+  let uid = req.params.uid;
+  let newPass = req.body.newPass;
+  UserModel.updateOne({ _id: uid }, { $set: { pass, newPass } });
+};
+let updateUserEmail = (req, res) => {
+  let uid = req.params.uid;
+  let newEmail = req.body.newEmail;
+  UserModel.updateOne({ _id: uid }, { $set: { email, newEmail } });
+};
+let updateUserAddress = (req, res) => {
+  let uid = req.params.uid;
+  let newAdd = req.body.newAdd;
+  UserModel.updateOne({ _id: uid }, { $set: { address, newAdd } });
+};
+let updateUserPhone = (req, res) => {
+  let uid = req.params.uid;
+  let newPhone = req.body.newPhone;
+  UserModel.updateOne({ _id: uid }, { $set: { phone, newPhone } });
+};
+let updateUserDOB = (req, res) => {
+  let uid = req.params.uid;
+  let newDOB = req.body.newDOB;
+  UserModel.updateOne({ _id: uid }, { $set: { dob, newDOB } });
+};
+let updateUserFunds = (req, res) => {
+  let uid = req.params.uid;
+  let addedFunds = req.body.addedFunds;
+  let curFunds = 0;
+  UserModel.find({ _id: uid }, (err, result) => {
+    if (!err) {
+      curFunds = result[0].funds;
+    }
+  });
+  let totalFunds = addedFunds + curFunds;
+  UserModel.updateOne({ _id: uid }, { $set: { funds, totalFunds } });
+};
+//Edit Profile
 let updateUserInfo = (req, res) => {
   let pid = req.body.pid;
   let newEmail = req.body.newEmail;
@@ -179,6 +220,7 @@ let updateUserInfo = (req, res) => {
   let newAdd = req.body.newAdd;
   let newPhone = req.body.newPhone;
   let newDob = req.body.newDob;
+
 }
 
 let PurchaseInfo= (req,res)=> {
@@ -210,5 +252,25 @@ else {
   
 }
 
-module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser, updateUserInfo,PurchaseInfo };
 
+
+module.exports = {
+  updateUserInfo,
+  lockUser,
+  storeUserDetails,
+  raiseTicket,
+  selectObject,
+  addtoCart,
+  viewCart,
+  updateCart,
+  deleteCart,
+  getUserById,
+  unlockUser,
+  updateUserPassword,
+  updateUserEmail,
+  updateUserAddress,
+  updateUserDOB,
+  updateUserPhone,
+  updateUserFunds,
+  PurchaseInfo 
+};

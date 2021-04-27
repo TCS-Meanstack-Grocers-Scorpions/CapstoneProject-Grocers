@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/model.product';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-generate-report',
@@ -8,13 +10,20 @@ import { Router } from '@angular/router';
 })
 export class GenerateReportComponent implements OnInit {
 
-  constructor(public router:Router) { }
+
+  products?: Array<Product>;
+
+  constructor(public router: Router, public proService: ProductService) { }
+
 
   ngOnInit(): void {
   }
 
   back() {
     this.router.navigate(["admin-index"]);
+  }
+  getProduct(formRef: any): void {
+    this.proService.retrieveAllProductDetails().subscribe(result => this.products = result);
   }
 
 }

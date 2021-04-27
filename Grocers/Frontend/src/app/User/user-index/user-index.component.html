@@ -1,1 +1,63 @@
-<p>user-index works!</p>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <b class="navbar-brand">User</b>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <span style = 'color: white'>ID: {{retrieve}}</span>
+        <div id="navbarNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a routerLink="cart" class="nav-link">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">More .....</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a style = 'color: black'routerLink="order-status" class="nav-link"> Order Status</a>
+                        <a style = 'color: black'routerLink="edit-profile" class="nav-link"> Edit Profile</a>
+                        <a style = 'color: black'routerLink="view-item" class="nav-link"> View Item</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+    <br>
+    <div class="container main">
+        <div class="row">
+            <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
+                <h1 style="text-align: center;">User</h1>
+                    <table class="table">
+                        <tr>
+                            <th>Prduct Id</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                        <tr *ngFor="let p of products">
+                            <td>{{p._id}}</td>
+                            <td>{{p.name}}</td>
+                            <td>{{p.price}}</td>
+                            <td>{{p.quantity}}</td>
+                        </tr>
+                    </table>
+                    <br>
+                <hr>
+                <app-funds></app-funds>
+                <br>
+                <app-select-items></app-select-items>
+                <br>
+                <app-order-status></app-order-status>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
