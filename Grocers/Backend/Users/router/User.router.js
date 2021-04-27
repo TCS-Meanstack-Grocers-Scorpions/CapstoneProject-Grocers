@@ -26,6 +26,6 @@ router.put('/unlockUsers/', UserController.unlockUser);
 router.post('/ticket', UserController.raiseTicket);
 router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);
-
+router.post("/cart",UserController.PurchaseInfo);
 
 module.exports = router;
