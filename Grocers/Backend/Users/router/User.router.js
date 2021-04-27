@@ -19,7 +19,6 @@ router.put("/updateUserInfo",UserController.updateUserInfo);
 router.get("/cart/:userId",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);
-router.post("/cart",UserController.PurchaseInfo);
 
 router.post('/signUp', UserController.storeUserDetails);
 
