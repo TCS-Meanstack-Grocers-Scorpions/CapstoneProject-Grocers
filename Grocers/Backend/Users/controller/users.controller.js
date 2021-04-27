@@ -80,27 +80,35 @@ let selectObject = (req, res) => {
 let addtoCart = (req, res) => {
   var msg = "hi";
   let cartItem = new CartModel({
-    _id: req.body._id,
+    pid: req.body._id,
     quantity: req.body.quantity,
     name: req.body.name,
-    price: req.body.price
+    price: req.body.price,
+    userId: req.body.userId
   });
 
-  cartItem.save((err, result) => {
-    if (!err) {
-      console.log(result);
-      msg = "added to cart"
-      console.log("added to cart");
-
+  CartModel.findOne({ pid: req.body._id, userId: req.body.userId }, (err3, result2) => {
+    console.log("this is r2");
+    console.log(result2)
+    console.log("this is err3 "+err3);
+    console.log(result2)
+    if (result2 === null) {
+      cartItem.save((err, result) => {
+        if (!err) {
+          console.log("added to cart")
+        }
+      })
     }
+
     else {
       ProductModel.find({ _id: req.body._id }, (err, result) => {
-        CartModel.find({ _id: req.body._id }, (err2, result2) => {
+        CartModel.findOne({ pid: req.body._id, userId: req.body.userId }, (err2, result2) => {
           num = parseInt(req.body.quantity);
-          newQuantity = result2[0].quantity + num;
+          console.log(result2);
+          newQuantity = result2.quantity + num;
           if (result[0].quantity + 1 > newQuantity) {
             console.log("Updated");
-            CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: newQuantity } }, (err, result) => {/*console.log(result)*/ });
+            CartModel.updateOne({ pid: req.body._id, userId: req.body.userId }, { $set: { quantity: newQuantity } }, (err, result) => {/*console.log(result)*/ });
           }
           else {
             console.log("Not Enough in Stock");
@@ -110,9 +118,7 @@ let addtoCart = (req, res) => {
 
       })
     }
-
   })
-
 };
 
 
@@ -131,7 +137,7 @@ let unlockUser = (req, res) => {
 };
 
 let viewCart = (req, res) => {
-  CartModel.find({}, (err, result) => {
+  CartModel.find({ userId: req.params.userId }, (err, result) => {
     if (!err) {
       res.json(result);
     }
@@ -144,7 +150,7 @@ let viewCart = (req, res) => {
 let updateCart = (req, res) => {
   console.log(req.body.quantity);
   console.log(req.body._id);
-  CartModel.updateOne({ _id: req.body._id }, { $set: { quantity: req.body.quantity } }, (err, result) => {
+  CartModel.updateOne({ pid: req.body._id,userId:req.body.userId }, { $set: { quantity: req.body.quantity } }, (err, result) => {
     if (!err) {
       if (result.nModified > 0) {
         res.send("Record updated succesfully")
@@ -172,13 +178,13 @@ let deleteCart = (req, res) => {
   })
 }
 //Edit Profile 
-let updateUserInfo= (req,res) => {
-    let pid = req.body.pid;
-    let newEmail = req.body.newEmail;
-    let newPass = req.body.newPass;
-    let newAdd = req.body.newAdd;
-    let newPhone = req.body.newPhone;
-    let newDob = req.body.newDob;
+let updateUserInfo = (req, res) => {
+  let pid = req.body.pid;
+  let newEmail = req.body.newEmail;
+  let newPass = req.body.newPass;
+  let newAdd = req.body.newAdd;
+  let newPhone = req.body.newPhone;
+  let newDob = req.body.newDob;
 }
 
 module.exports = { storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, updateUserDetails, unlockUser, updateUserInfo };
