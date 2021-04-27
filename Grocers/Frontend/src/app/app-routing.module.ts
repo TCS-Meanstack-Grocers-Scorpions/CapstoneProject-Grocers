@@ -15,7 +15,10 @@ import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items.component';
 import { SigninComponent as UserSignin } from './User/signin/signin.component';
 import { SelectItemsComponent } from './User/user-index/cart/select-items/select-items.component';
+import { CartComponent } from './User/user-index/cart/cart.component';
 import { MyAuthGuard } from './myauthguard';
+import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
+import { UserIndexComponent } from './User/user-index/user-index.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -50,6 +53,10 @@ const routes: Routes = [
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
+  {path: 'user-index', component: UserIndexComponent},
+  {path: 'user-index/cart', component: CartComponent},
+  {path: 'user-index/edit-profile', component: EditProdileComponent},
+  {path: 'user-index/order-status', component: OrderStatusComponent}
 ];
 
 @NgModule({
