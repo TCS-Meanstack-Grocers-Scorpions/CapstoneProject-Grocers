@@ -53,31 +53,24 @@ export class UsersService {
     });
   }
 
+  updateUserById(userRef: any):void  {
+    this.http.put('http://localhost:9090/user/updateUserInfo', userRef, {
+      responseType: 'text',
+    });
+  }
+
+
   storeTicketinfo(data: any): void {
-    this.http
-      .post('http://localhost:9090/ticket', data, { responseType: 'text' })
-      .subscribe(
-        (result) => console.log(result),
-        (error) => console.log(error)
-      );
+    this.http.post('http://localhost:9090/ticket', data, { responseType: 'text' }).subscribe((result) => console.log(result), (error) => console.log(error));
   }
   storeUserDetailsInfo(productRef: any): void {
-    this.http
-      .post('http://localhost:9090/signUp', productRef, {
-        responseType: 'text',
-      })
-      .subscribe(
-        (result) => console.log(result),
-        (error) => console.log(error)
-      );
+    this.http.post('http://localhost:9090/signUp', productRef, {responseType: 'text',}).subscribe((result) => console.log(result),(error) => console.log(error));
 
   }
   retrieveUserById(id: any): Observable<User[]>{
     return this.http.get<User[]>('http://localhost:9090/getUserById/' + id);
  }
- updateUserById(userRef: any): any{
-  return this.http.put('http://localhost:9090/updateUserDetails', userRef, {responseType: 'text'});
- }
+
   selectAllitems():Observable<Product[]>{
     return this.http.get<Product[]>("http://localhost:9090/select");
   }
@@ -108,17 +101,9 @@ this.http.delete("http://localhost:9090/cart/"+cartRef,{responseType:"text"}).su
     });
   }
 
-
   unlockUser(unlockRef: any): any {
     console.log('unlockUser Service called');
-    return this.http
-      .put('http://localhost:9090/unlockUsers/', unlockRef, {
-        responseType: 'text',
-      })
-      .subscribe(
-        (result) => console.log(result),
-        (error) => console.log(error)
-      );
+    return this.http.put('http://localhost:9090/unlockUsers/', unlockRef, {responseType: 'text',}).subscribe((result) => console.log(result),(error) => console.log(error));
   }
  
 }

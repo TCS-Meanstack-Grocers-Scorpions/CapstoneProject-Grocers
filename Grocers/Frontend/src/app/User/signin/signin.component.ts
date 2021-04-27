@@ -40,9 +40,9 @@ export class SigninComponent implements OnInit {
         // add authguard
         if (this.numberlogin == 3){
           // tslint:disable-next-line:no-shadowed-variable
-          this.user.updateUserById(userRef).subscribe((result: string) => {
+        /* this.user.updateUserById(userRef).subscribe((result: string) => {
             this.resultMsg = result;
-          });
+          });*/
         }
       }
     });
