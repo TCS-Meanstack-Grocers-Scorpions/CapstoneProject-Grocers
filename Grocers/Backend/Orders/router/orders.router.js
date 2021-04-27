@@ -1,8 +1,8 @@
 let express = require('express');
 let router = express.Router();
 
-let OrderController = require('../controller/orders.controller');
+let OrderControll = require('../controller/orders.controller');
 
-router.put('/updateOrderStatus/', OrderController.updateStatus);
+router.put('/updateOrderStatus/', OrderControll.updateStatus);
 
 module.exports = router;

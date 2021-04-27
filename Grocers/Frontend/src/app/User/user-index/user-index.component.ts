@@ -11,4 +11,5 @@ export class UserIndexComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }

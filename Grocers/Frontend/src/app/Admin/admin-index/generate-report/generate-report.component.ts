@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
 })
 export class GenerateReportComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  back(): void {
-    this.router.navigate(['admin-index']);
+  back() {
+    this.router.navigate(["admin-index"]);
   }
 
 }
