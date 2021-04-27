@@ -17,6 +17,9 @@ export class UserIndexComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  logout(){
+    sessionStorage.removeItem("curUserId");
+  }
   toggleTable(): void{
       this.proService.retrieveAllProductDetails().subscribe(result => this.products = result);
   }

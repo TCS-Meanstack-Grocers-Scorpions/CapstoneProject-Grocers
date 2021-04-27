@@ -11,5 +11,8 @@ export class EmployeeIndexComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  logout(){
+    sessionStorage.removeItem("curEmployeeID");
+  }
   
 }
