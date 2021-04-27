@@ -20,8 +20,7 @@ import { CartComponent } from './User/user-index/cart/cart.component';
 import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
-import {EditProfileComponent} from './Employee/employee-index/edit-profile/edit-profile.component';
-
+import { EditProfileComponent } from './Employee/employee-index/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -45,10 +44,13 @@ const routes: Routes = [
   },
 
   { path: 'employee-index', component: EmployeeIndexComponent },
-  { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
-  { path: 'employee-index/send-request', component: SendRequestComponent },
+  {
+    path: 'employee-index/edit-employee-profile',
+    component: EditProfileComponent,
+  },
+  { path: 'send-request', component: SendRequestComponent },
   { path: 'employee-index/unlockUsers', component: UnlockUsersComponent },
-  { path: 'employee-index/updateOrderStatus', component: UpdateOrderStatusComponent },
+  { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
 
   {
     path: 'admin-index/report',
@@ -59,14 +61,13 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
 
-  {path:'purchaseComplete',component:CartComponent},
-  { path: 'user-index', component: UserIndexComponent},
-  { path: 'user-index/cart', component: CartComponent},
-  { path: 'user-index/edit-profile', component: EditProdileComponent},
-  { path: 'user-index/order-status', component: OrderStatusComponent},
-  { path: 'user-index/view-item', component: ViewItemsComponent},
-  { path: 'user-index/raise-ticket', component: RaiseTicketComponent}
-
+  { path: 'purchaseComplete', component: CartComponent },
+  { path: 'user-index', component: UserIndexComponent },
+  { path: 'user-index/cart', component: CartComponent },
+  { path: 'user-index/edit-profile', component: EditProdileComponent },
+  { path: 'user-index/order-status', component: OrderStatusComponent },
+  { path: 'user-index/view-item', component: ViewItemsComponent },
+  { path: 'user-index/raise-ticket', component: RaiseTicketComponent },
 ];
 
 @NgModule({
