@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
-
+  {path:'purchaseComplete',component:CartComponent},
   { path: 'user-index', component: UserIndexComponent},
   { path: 'user-index/cart', component: CartComponent},
   { path: 'user-index/edit-profile', component: EditProdileComponent},
