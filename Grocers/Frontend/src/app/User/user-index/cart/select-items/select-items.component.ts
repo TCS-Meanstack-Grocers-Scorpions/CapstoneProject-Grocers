@@ -18,10 +18,8 @@ export class SelectItemsComponent implements OnInit {
       this.products = result;
     });
     this.getItemsService.viewCartitems(this.UserId).subscribe(result => {
-
       console.log(result.length);
       // tslint:disable-next-line:prefer-for-of
-
       for (let i = 0; i < result.length; i++) {
         this.cartNum = this.cartNum + result[i].quantity;
       }
@@ -65,14 +63,15 @@ export class SelectItemsComponent implements OnInit {
     const num = (document.getElementById(val) as HTMLInputElement);
     // tslint:disable-next-line:radix
     this.cartNum = this.cartNum + parseInt(num.value);
-
-    let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value, userId: this.UserId, imgId: i };
-    this.getItemsService.AddtoCart(newCartitem)
-    num.value = "0";
-    let output = document.getElementById("msg" + i);
-    console.log(newCartitem.imgId);
-    if (output) output.innerHTML = "Added"
-    setTimeout(function () { if (output) output.style.visibility = "hidden" }, 1000);
-
+    const newCartitem = { _id: this.products[i]._id,
+      name: this.products[i].name, price: this.products[i].price,
+      quantity: num.value, userId: this.UserId };
+    console.log(newCartitem);
+    this.getItemsService.AddtoCart(newCartitem);
+    num.value = '0';
+    const output = document.getElementById('msg' + i);
+    if (output) { output.innerHTML = 'Added'; }
+    // tslint:disable-next-line:typedef
+    setTimeout(function() { if (output) { output.style.visibility = 'hidden'; } }, 1000);
   }
 }
