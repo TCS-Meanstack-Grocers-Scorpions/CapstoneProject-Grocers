@@ -9,20 +9,23 @@ import { UsersService } from 'src/app/users.service';
 })
 export class SelectItemsComponent implements OnInit {
   products: Array<Product> = []
-  cartNum:number=0; //get from cart later
+  cartNum: number = 0; //get from cart later
+  UserId = "4"
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
     this.getItemsService.selectAllitems().subscribe(result => {
-      //console.log(result);
       this.products = result;
-      console.log("this is products");
-
+    })
+    this.getItemsService.viewCartitems(this.UserId).subscribe(result => {
+      console.log(result.length);
+      for (let i = 0; i < result.length; i++) {
+        this.cartNum = this.cartNum + result[i].quantity
+      }
     })
   }
 
   increment(id: any, val: any, i: any) {
-    let inc = document.getElementById(id);
     let num = (<HTMLInputElement>document.getElementById(val));
     var current = parseInt(num.value);
     current++;
@@ -33,8 +36,6 @@ export class SelectItemsComponent implements OnInit {
     else {
       num.value = current.toString()
     }
-    //console.log("this is id "+ id);
-    //console.log(current);
   }
 
   decriment(id: any, val: any) {
@@ -45,8 +46,6 @@ export class SelectItemsComponent implements OnInit {
       current--;
     }
     num.value = current.toString()
-    //console.log("this is id "+ id);
-    // console.log(current);
   }
 
   maxobj(val: any, i: any) {
@@ -56,12 +55,15 @@ export class SelectItemsComponent implements OnInit {
       num.value = this.products[i].quantity.toString();
     }
   }
-  addCart(val:any,i:any)
-  {
-    let num = (<HTMLInputElement>document.getElementById(val)).value;
-    this.cartNum=this.cartNum+parseInt(num)
-    let newCartitem={"_id":this.products[i]._id,"quantity":num};
+  addCart(val: any, i: any) {
+    let num = (<HTMLInputElement>document.getElementById(val));
+    this.cartNum = this.cartNum + parseInt(num.value);
+    let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value, userId: this.UserId };
     console.log(newCartitem);
     this.getItemsService.AddtoCart(newCartitem)
+    num.value = "0";
+    let output = document.getElementById("msg" + i);
+    if (output) output.innerHTML = "Added"
+    setTimeout(function () { if (output) output.style.visibility = "hidden" }, 1000);
   }
 }

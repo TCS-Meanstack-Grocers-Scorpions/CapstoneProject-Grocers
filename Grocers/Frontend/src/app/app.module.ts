@@ -14,7 +14,6 @@ import { DeleteEmployeeComponent } from './Admin/admin-index/employee-operations
 import { GenerateReportComponent } from './Admin/admin-index/generate-report/generate-report.component';
 import { CartComponent } from './User/user-index/cart/cart.component';
 import { SelectItemsComponent } from './User/user-index/cart/select-items/select-items.component';
-import { DeleteItemsComponent } from './User/user-index/cart/delete-items/delete-items.component';
 import { ViewItemsComponent } from './User/user-index/cart/view-items/view-items.component';
 import { CheckoutComponent } from './User/user-index/cart/checkout/checkout.component';
 import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
@@ -32,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './User/signin/signin.component';
-
+import {EmployeeSignInComponent} from './Employee/sign-in/sign-in.component';
+import { MyAuthGuard } from './myauthguard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +47,6 @@ import { SigninComponent } from './User/signin/signin.component';
     GenerateReportComponent,
     CartComponent,
     SelectItemsComponent,
-    DeleteItemsComponent,
     ViewItemsComponent,
     CheckoutComponent,
     OrderStatusComponent,
@@ -62,7 +61,8 @@ import { SigninComponent } from './User/signin/signin.component';
     UserIndexComponent,
     ViewRequestsComponent,
     MainComponent,
-    SigninComponent
+    SigninComponent,
+    EmployeeSignInComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +70,7 @@ import { SigninComponent } from './User/signin/signin.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [MyAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
