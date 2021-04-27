@@ -49,7 +49,7 @@ const routes: Routes = [
     component: EditProfileComponent,
   },
   { path: 'send-request', component: SendRequestComponent },
-  { path: 'employee-index/unlockUsers', component: UnlockUsersComponent },
+  { path: 'unlockUsers', component: UnlockUsersComponent },
   { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
 
   {
