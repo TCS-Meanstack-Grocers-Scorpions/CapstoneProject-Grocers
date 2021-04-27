@@ -21,7 +21,6 @@ import { OrderStatusComponent } from './User/user-index/order-status/order-statu
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
 
-
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'admin', component: AdminSignin },
@@ -62,7 +61,6 @@ const routes: Routes = [
   { path: 'user-index/order-status', component: OrderStatusComponent},
   { path: 'user-index/view-item', component: ViewItemsComponent},
   { path: 'user-index/raise-ticket', component: RaiseTicketComponent}
-
 ];
 
 @NgModule({

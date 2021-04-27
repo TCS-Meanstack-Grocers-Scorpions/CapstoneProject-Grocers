@@ -2,7 +2,6 @@ let TicketModel = require('../user-model/ticket.model.js');
 let UserModel = require('../user-model/user.model.js');
 let ProductModel = require('../../Products/model/product.model.js');
 let CartModel = require('../user-model/cart.model');
-const PurchaseModel = require('../user-model/purchased.model.js');
 //adding users
 let storeUserDetails = (req, res) => {
   let product = new UserModel({
@@ -77,16 +76,20 @@ let selectObject = (req, res) => {
 };
 
 let addtoCart = (req, res) => {
+  var msg = "hi";
   let cartItem = new CartModel({
     pid: req.body._id,
     quantity: req.body.quantity,
     name: req.body.name,
     price: req.body.price,
-    userId: req.body.userId,
-    imgId:req.body.imgId
+    userId: req.body.userId
   });
 
   CartModel.findOne({ pid: req.body._id, userId: req.body.userId }, (err3, result2) => {
+    console.log("this is r2");
+    console.log(result2)
+    console.log("this is err3 "+err3);
+    console.log(result2)
     if (result2 === null) {
       cartItem.save((err, result) => {
         if (!err) {
@@ -99,6 +102,7 @@ let addtoCart = (req, res) => {
       ProductModel.find({ _id: req.body._id }, (err, result) => {
         CartModel.findOne({ pid: req.body._id, userId: req.body.userId }, (err2, result2) => {
           num = parseInt(req.body.quantity);
+          console.log(result2);
           newQuantity = result2.quantity + num;
           if (result[0].quantity + 1 > newQuantity) {
             console.log("Updated");
@@ -106,7 +110,7 @@ let addtoCart = (req, res) => {
           }
           else {
             console.log("Not Enough in Stock");
-            
+            msg = "Not Enough in Stock";
           }
         })
 
@@ -142,7 +146,9 @@ let viewCart = (req, res) => {
 }
 
 let updateCart = (req, res) => {
-  CartModel.updateOne({ pid: req.body.pid,userId:req.body.userId }, { $set: { quantity: req.body.quantity } }, (err, result) => {
+  console.log(req.body.quantity);
+  console.log(req.body._id);
+  CartModel.updateOne({ pid: req.body._id,userId:req.body.userId }, { $set: { quantity: req.body.quantity } }, (err, result) => {
     if (!err) {
       if (result.nModified > 0) {
         res.send("Record updated succesfully")
@@ -156,8 +162,8 @@ let updateCart = (req, res) => {
 }
 
 let deleteCart = (req, res) => {
-  let datainfo=JSON.parse(req.params.pid);
-  CartModel.deleteMany({ pid: datainfo.pid,userId:datainfo.userId }, (err, result) => {
+  console.log("this is id:" + req.params.pid);
+  CartModel.deleteOne({ _id: req.params.pid }, (err, result) => {
     if (!err) {
       if (result.deletedCount > 0) {
         res.send("Record deleted successfully")
@@ -218,37 +224,5 @@ let updateUserInfo = (req, res) => {
   let newDob = req.body.newDob;
 }
 
-
-let PurchaseInfo= (req,res)=> {
-  let PurchaseItem = new PurchaseModel({
-    _id: req.body.userId,
-    items: req.body.items
-  });
-
-PurchaseModel.findOne({_id:req.body.userId}, (err3, result) => {
-if(result==null)
-{
-  PurchaseItem.save()
-}
-else {
-  for(i=0;i<PurchaseItem.items.length;i++){
-    temp=  PurchaseItem.items[i];
-  PurchaseModel.updateOne({_id:req.body.userId},{$push:{items:temp}},(err,result)=>{
-    if(!err)
-    {
-      console.log("pushed");
-    }
-    else{
-      console.log("could not add to purchased array");
-    }
-  })
-  }
-}
-})
-  
-}
-
-
-module.exports = {updateUserInfo, lockUser, storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, unlockUser,  updateUserPassword, updateUserEmail, updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds,PurchaseInfo};
-
+module.exports = {updateUserInfo, lockUser, storeUserDetails, raiseTicket, selectObject, addtoCart, viewCart, updateCart, deleteCart, getUserById, unlockUser,  updateUserPassword, updateUserEmail, updateUserAddress, updateUserDOB,updateUserPhone,updateUserFunds};
 
