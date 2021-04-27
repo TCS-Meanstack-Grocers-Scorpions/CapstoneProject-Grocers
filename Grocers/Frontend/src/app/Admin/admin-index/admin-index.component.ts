@@ -22,6 +22,14 @@ export class AdminIndexComponent implements OnInit {
       this.proService.retrieveAllProductDetails().subscribe(result=>this.products=result);
     }
   }
+  updateTable() {
+    this.proService.retrieveAllProductDetails().subscribe(result=> {
+      if (this.products?.length != result.length) {
+        this.products=result;
+        //console.log("updated");
+      }
+    });
+  }
   logout() {
     sessionStorage.removeItem("token");
     this.router.navigate([""]);

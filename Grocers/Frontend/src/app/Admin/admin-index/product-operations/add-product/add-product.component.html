@@ -1,22 +1,22 @@
 <div>
     <h4>Add new Product</h4>
-    <form #productRef="ngForm" (ngSubmit)="storeProduct(productRef.value)">
+    <form #productRef="ngForm" (ngSubmit)="storeProduct(productRef.value)" ngNativeValidate>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-7">
-            <input type="text" class="form-control" name="name" ngModel/>
+            <input type="text" class="form-control" name="name"  required ngModel/>
             </div>
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Price</label>
             <div class="col-sm-7">
-            <input type="text" class="form-control" name="price" ngModel/>
+            <input type="text" class="form-control" name="price" required ngModel/>
             </div>
         </div>
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Quantity</label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" name="quantity" ngModel/>
+                <input type="text" class="form-control" name="quantity" required ngModel/>
             </div>
         </div>
             
