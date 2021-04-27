@@ -33,9 +33,9 @@ export class SigninComponent implements OnInit {
         if (this.numberlogin === 3){
           result[0].locked = true;
           // tslint:disable-next-line:no-shadowed-variable
-          this.user.updateUserById(userRef).subscribe((result: string) => {
+        /* this.user.updateUserById(userRef).subscribe((result: string) => {
             this.resultMsg = result;
-          });
+          });*/
         }
       }
     });
