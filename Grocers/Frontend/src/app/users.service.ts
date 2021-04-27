@@ -84,6 +84,7 @@ export class UsersService {
     });
   }
 
+
   unlockUser(unlockRef: any): any {
     console.log('unlockUser Service called');
     return this.http
@@ -95,6 +96,9 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
+
+  viewCartitems(userId:any):Observable<cartProduct[]>{
+    return this.http.get<cartProduct[]>("http://localhost:9090/cart/"+userId);}
 
   selectAllitems(): Observable<Product[]> {
     return this.http.get<Product[]>('http://localhost:9090/select');
@@ -108,9 +112,7 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
-  viewCartitems(userId: any): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:9090/cart/' + userId);
-  }
+
   updateCart(cartRef: any): void {
     this.http
       .put('http://localhost:9090/cart', cartRef, { responseType: 'text' })

@@ -17,5 +17,7 @@ export class DeleteProductComponent implements OnInit {
     this.productSer.deleteProductById(id).subscribe((result:string)=>{
       this.resultMsg = result;
     })
+    //displays the result message for 10 seconds and then 'removes' it
+    setTimeout(()=> this.resultMsg = '',10000);
   }
 }

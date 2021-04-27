@@ -55,12 +55,14 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
 
-  { path: 'user-index', component: UserIndexComponent },
-  { path: 'user-index/cart', component: CartComponent },
-  { path: 'user-index/edit-profile', component: EditProdileComponent },
-  { path: 'user-index/order-status', component: OrderStatusComponent },
-  { path: 'user-index/view-item', component: ViewItemsComponent },
-  { path: 'user-index/raise-ticket', component: RaiseTicketComponent },
+  {path:'purchaseComplete',component:CartComponent},
+  { path: 'user-index', component: UserIndexComponent},
+  { path: 'user-index/cart', component: CartComponent},
+  { path: 'user-index/edit-profile', component: EditProdileComponent},
+  { path: 'user-index/order-status', component: OrderStatusComponent},
+  { path: 'user-index/view-item', component: ViewItemsComponent},
+  { path: 'user-index/raise-ticket', component: RaiseTicketComponent}
+
 ];
 
 @NgModule({
