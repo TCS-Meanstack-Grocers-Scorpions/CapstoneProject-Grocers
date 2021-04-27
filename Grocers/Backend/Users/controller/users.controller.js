@@ -36,19 +36,21 @@ let getUserById = (req, res) => {
     }
   });
 };
-//CHANGE NAME TO updateUserLockedStatus!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let updateUserDetails = (req, res) => {
-  let pid = req.body.pid; //passing the id through path param
-  let locked = req.body.locked;
-  UserModel.updateMany(
-    { _id: pid },
-    { $set: { locked: locked } },
+let lockUser = (req, res) => {
+  let pid = req.body.id; 
+  //console.log(pid)
+  UserModel.updateOne(
+    { _id: new ObjectId(pid) },
+    { $set: { locked: true } },
+
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
           res.send('Record updated successfully');
         } else {
-          res.send('No such Product');
+          res.send('No such User');
+          //console.log(pid)
+
         }
       } else {
         res.send('Error generated ' + err);
