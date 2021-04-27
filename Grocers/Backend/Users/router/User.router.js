@@ -20,7 +20,7 @@ router.put("/updateUserInfo",UserController.updateUserInfo);
 router.get("/cart/:userId",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);
-
+router.get("/orderStatus:/:uid",UserController.getOrderStatus);
 router.post('/signUp', UserController.storeUserDetails);
 
 router.get('/getUserById/:pid', UserController.getUserById);

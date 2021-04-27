@@ -20,6 +20,7 @@ import { MyAuthGuard } from './myauthguard';
 import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
+import {EditProfileComponent} from './Employee/employee-index/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -41,11 +42,11 @@ const routes: Routes = [
     component: GenerateReportComponent,
     canActivate: [MyAuthGuard],
   },
-  { path: 'employeeDashboard', component: EmployeeIndexComponent },
-  { path: 'editEmployeeProfile', component: EditProdileComponent },
-  { path: 'send-request', component: SendRequestComponent },
-  { path: '\nlockUsers', component: UnlockUsersComponent },
-  { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
+  { path: 'employee-index', component: EmployeeIndexComponent },
+  { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
+  { path: 'employee-index/send-request', component: SendRequestComponent },
+  { path: 'employee-index/unlockUsers', component: UnlockUsersComponent },
+  { path: 'employee-index/updateOrderStatus', component: UpdateOrderStatusComponent },
   {
     path: 'admin-index/report',
     component: GenerateReportComponent,

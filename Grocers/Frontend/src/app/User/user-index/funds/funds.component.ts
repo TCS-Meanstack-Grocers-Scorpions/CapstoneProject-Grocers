@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/users.service';
 })
 export class FundsComponent implements OnInit {
   currentFunds? = 0;
-  id = "";
+  id = sessionStorage.getItem("curUserId");
   constructor(public userSer:UsersService) { }
 
   ngOnInit(): void {
@@ -19,6 +19,10 @@ export class FundsComponent implements OnInit {
   }
   addFunds(userRef:any){
     this.userSer.updateFunds(userRef,this.id);
+    this.userSer.retrieveUserById(this.id).subscribe(result=>{
+      this.currentFunds = result[0].funds;
+    }
+      )
   }
 
 }
