@@ -40,8 +40,8 @@ export class UsersService {
   AddtoCart(product:any) {
    this.http.post('http://localhost:9090/select',product,{responseType:'text'}).subscribe(result => console.log(result), error => console.log(error));
   }
-  viewCartitems():Observable<Product[]>{
-    return this.http.get<Product[]>("http://localhost:9090/cart");
+  viewCartitems(userId:any):Observable<Product[]>{
+    return this.http.get<Product[]>("http://localhost:9090/cart/"+userId);
   }
   updateCart(cartRef:any):void {
  this.http.put("http://localhost:9090/cart",cartRef,{responseType:'text'}).subscribe(
