@@ -1,1 +1,11 @@
-<p>unlock-users works!</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <h3>Enter User ID to Unlock</h3>
+    <form #unlockRef="ngForm" (ngSubmit)="unlockUser(unlockRef.value)">
+      <input type="text" name="uid" placeholder="User ID" ngModel /><br />
+      <input type="submit" value="Unlock" />
+    </form>
+    <a routerLink="" class="nav-link">Back</a><br />
+    {{ msg }}
+  </div>
+</div>
