@@ -1,9 +1,10 @@
 let express = require('express');
 let router = express.Router();
 
-let UserController = require('../controller/users.controller.js');
+let UserController = require('../controller/users.controller');
 
-router.post("/signUp", UserController.storeUserDetails);
+router.post('/signUp', UserController.storeUserDetails);
+
 
 router.get("/getUserById/:pid", UserController.getUserById);
 router.put("/updateUserPassword/:uid",UserController.updateUserPassword);
@@ -24,7 +25,7 @@ router.post('/signUp', UserController.storeUserDetails);
 
 router.get('/getUserById/:pid', UserController.getUserById);
 router.put('/lockUser', UserController.lockUser);
-router.put('/unlockUser/:pid', UserController.unlockUser);
+router.put('/unlockUsers/', UserController.unlockUser);
 
 router.post('/ticket', UserController.raiseTicket);
 router.get('/select', UserController.selectObject);

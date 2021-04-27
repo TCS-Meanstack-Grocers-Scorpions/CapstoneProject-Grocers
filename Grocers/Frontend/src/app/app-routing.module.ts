@@ -42,11 +42,13 @@ const routes: Routes = [
     component: GenerateReportComponent,
     canActivate: [MyAuthGuard],
   },
+
   { path: 'employee-index', component: EmployeeIndexComponent },
   { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
   { path: 'employee-index/send-request', component: SendRequestComponent },
   { path: 'employee-index/unlockUsers', component: UnlockUsersComponent },
   { path: 'employee-index/updateOrderStatus', component: UpdateOrderStatusComponent },
+
   {
     path: 'admin-index/report',
     component: GenerateReportComponent,
@@ -55,6 +57,7 @@ const routes: Routes = [
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
+
   {path:'purchaseComplete',component:CartComponent},
   { path: 'user-index', component: UserIndexComponent},
   { path: 'user-index/cart', component: CartComponent},
@@ -62,6 +65,7 @@ const routes: Routes = [
   { path: 'user-index/order-status', component: OrderStatusComponent},
   { path: 'user-index/view-item', component: ViewItemsComponent},
   { path: 'user-index/raise-ticket', component: RaiseTicketComponent}
+
 ];
 
 @NgModule({
