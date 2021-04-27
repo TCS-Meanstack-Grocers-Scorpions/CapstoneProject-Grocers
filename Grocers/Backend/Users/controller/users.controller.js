@@ -34,9 +34,10 @@ let getUserById = (req, res) => {
   });
 };
 let lockUser = (req, res) => {
-  let pid = req.body.pid; //passing the id through path param
+  let pid = req.body.id; 
+  //console.log(pid)
   UserModel.updateOne(
-    { _id: pid },
+    { _id: new ObjectId(pid) },
     { $set: { locked: true } },
     (err, result) => {
       if (!err) {
@@ -44,6 +45,7 @@ let lockUser = (req, res) => {
           res.send('Record updated successfully');
         } else {
           res.send('No such User');
+          //console.log(pid)
         }
       } else {
         res.send('Error generated ' + err);
