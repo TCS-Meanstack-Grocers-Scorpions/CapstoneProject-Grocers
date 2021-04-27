@@ -1,13 +1,31 @@
-<div class="wrapper fadeInDown">
+<div class="wrapper">
     <div id="formContent">
-        <h2>Sign In</h2>
+        <h3>Sign In</h3>
         <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
-            <input type="text" name="id" placeholder="Enter your id" ngModel /><br>
-            <input type="password" name="pass" placeholder="Enter your password" ngModel /><br>
-            <button [disabled]="(numberlogin >=3)" type="submit">Sign In</button>
-            <button (click)="goTo()">Sign Up</button>
-            <button (click)="goto()">Raise Ticket</button>
+            <input type="text" name="is" placeholder="User Id" ngModel>
+            <input type="password" name="pass" placeholder="password" ngModel>
+            <input [disabled] = "(numberlogin >=3)" type="submit" value="Sign In">
         </form>
-        {{resultMsg}} <br>
+        <a routerLink="" class="nav-link">Back</a>
+        <button (click) = "goTo()">Sign Up</button>
+        <button (click) = "goto()">Raise Ticket</button>
+        <br>
+        {{resultMsg}}
     </div>
+    
 </div>
+
+<!-- <div>
+    <h2>Sign In</h2>
+    <form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef.value)">
+        <label>Username </label>
+        <input type="text" name="id" placeholder = "Enter your id" ngModel/><br>
+        <label>Password </label>
+        <input type="password" name="pass" placeholder = "Enter your password" ngModel/><br>
+        <button [disabled] = "(numberlogin >=3)" type = "submit">Sign In</button>
+        <input type="reset" value="Reset"/>
+    </form>
+    {{resultMsg}} <br>
+    <button (click) = "goTo()">Sign Up</button>
+    <button (click) = "goto()">Raise Ticket</button>
+</div> -->

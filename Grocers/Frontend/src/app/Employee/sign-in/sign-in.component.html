@@ -1,9 +1,12 @@
-<form #empRef = "ngForm" (ngSubmit) = "employeeLogin(empRef.value)">
-    <label>Employee ID</label>
-    <input type = "text" name = "empID" ngModel><br/>
-    <label>Password</label>
-    <input type = "password" name = "empPass" ngModel><br/>
-    <input type = "submit" value = "Log In">
-    <input type = "reset" value = "Clear">
-</form>
-{{msg}}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+                <h3>Employee Sign In</h3>
+        <form #empRef = "ngForm" (ngSubmit) = "employeeLogin(empRef.value)">
+            <input type="text" name="empID" placeholder="Employee Id" ngModel>
+            <input type="password" name="empPass" placeholder="password" ngModel>
+            <input type="submit" value="Sign In">
+        </form>
+        <a routerLink="" class="nav-link">Back</a><br>
+        {{msg}}
+    </div>
+</div>
