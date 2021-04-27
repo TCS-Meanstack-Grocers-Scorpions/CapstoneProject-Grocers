@@ -16,24 +16,41 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  checkButton(): any {
+    if (this.numberlogin >= 3) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   goTo(): void {
     this.router.navigate(['./signup']);
+  }
+  goto(): void {
+    this.router.navigate(['user-index/raise-ticket']);
   }
   checkUser(userRef: any): void {
     const id = userRef.id;
     const pass = userRef.pass;
     console.log(id, typeof(pass));
     this.user.retrieveUserById(id).subscribe(result => {
-      if (result[0]._id === id  && result[0].pass === pass) {
-        this.resultMsg = 'Successful Login';
+      if (result[0]._id === id  && result[0].pass === pass && result[0].locked === false) {
+        // this.resultMsg = 'Successful Login';
+        this.router.navigate(['user-index']);
+        sessionStorage.setItem('curUserId', userRef.id);
       } else {
+        if (result[0].locked === true){
+          alert('Your account is locked, raise a ticket');
+        }
         this.resultMsg = 'Wrong Id or Password';
         console.log(result[0]._id, typeof(result[0].pass));
         this.numberlogin += 1;
+        console.log(this.numberlogin);
+        // add authguard
         if (this.numberlogin === 3){
-          result[0].locked = true;
           // tslint:disable-next-line:no-shadowed-variable
-          this.user.updateUserById(userRef).subscribe((result: string) => {
+          this.user.lockUser(userRef).subscribe((result: string) => {
             this.resultMsg = result;
           });
         }
