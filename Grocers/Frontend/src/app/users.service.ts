@@ -105,6 +105,7 @@ this.http.delete("http://localhost:9090/cart/"+cartRef,{responseType:"text"}).su
   Purchaseitems(list:any):void {
     this.http.post("http://localhost:9090/cart",list,{responseType:"text"}).subscribe(
       result => console.log(result), error => console.log(error))
+  }
 
   lockUser(userRef: any): any {
     return this.http.put('http://localhost:9090/lockUser/', userRef, {
