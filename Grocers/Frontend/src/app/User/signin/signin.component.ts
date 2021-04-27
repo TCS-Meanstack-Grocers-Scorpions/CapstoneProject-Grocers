@@ -16,8 +16,19 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  checkButton(): any {
+    if (this.numberlogin >= 3) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   goTo(): void {
     this.router.navigate(['./signup']);
+  }
+  goto(): void {
+    this.router.navigate(['user-index/raise-ticket']);
   }
   checkUser(userRef: any): void {
     const id = userRef.id;
@@ -35,11 +46,11 @@ export class SigninComponent implements OnInit {
         this.resultMsg = 'Wrong Id or Password';
         console.log(result[0]._id, typeof(result[0].pass));
         this.numberlogin += 1;
+        console.log(this.numberlogin);
         // add authguard
         if (this.numberlogin === 3){
-          result[0].locked = true;
           // tslint:disable-next-line:no-shadowed-variable
-          this.user.updateUserById(userRef).subscribe((result: string) => {
+          this.user.lockUser(userRef).subscribe((result: string) => {
             this.resultMsg = result;
           });
         }

@@ -21,6 +21,7 @@
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                         <a style = 'color: black'routerLink="order-status" class="nav-link"> Order Status</a>
                         <a style = 'color: black'routerLink="edit-profile" class="nav-link"> Edit Profile</a>
+                        <a style = 'color: black'routerLink="view-item" class="nav-link"> View Item</a>
                     </div>
                 </li>
             </ul>
@@ -32,10 +33,12 @@
             <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
                 <h1 style="text-align: center;">User</h1>
                 <hr>
-                <br>
                 <app-funds></app-funds>
                 <br>
-                <app-view-items></app-view-items>
+                <app-select-items></app-select-items>
+                <br>
+                <app-order-status></app-order-status>
+                <br>
             </div>
         </div>
     </div>

@@ -19,6 +19,7 @@ import { CartComponent } from './User/user-index/cart/cart.component';
 import { MyAuthGuard } from './myauthguard';
 import { OrderStatusComponent } from './User/user-index/order-status/order-status.component';
 import { UserIndexComponent } from './User/user-index/user-index.component';
+import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -53,10 +54,13 @@ const routes: Routes = [
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
-  {path: 'user-index', component: UserIndexComponent},
-  {path: 'user-index/cart', component: CartComponent},
-  {path: 'user-index/edit-profile', component: EditProdileComponent},
-  {path: 'user-index/order-status', component: OrderStatusComponent}
+
+  { path: 'user-index', component: UserIndexComponent},
+  { path: 'user-index/cart', component: CartComponent},
+  { path: 'user-index/edit-profile', component: EditProdileComponent},
+  { path: 'user-index/order-status', component: OrderStatusComponent},
+  { path: 'user-index/view-item', component: ViewItemsComponent},
+  { path: 'user-index/raise-ticket', component: RaiseTicketComponent}
 ];
 
 @NgModule({
