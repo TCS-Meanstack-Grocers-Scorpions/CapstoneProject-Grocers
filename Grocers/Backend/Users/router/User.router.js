@@ -21,14 +21,11 @@ router.get("/cart/:userId",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);
 //router.get("/orderStatus:/:uid",UserController.getOrderStatus);
-router.post('/signUp', UserController.storeUserDetails);
 
+router.post('/signUp', UserController.storeUserDetails);
 router.get('/getUserById/:pid', UserController.getUserById);
 router.put('/lockUser', UserController.lockUser);
 router.put('/unlockUsers/', UserController.unlockUser);
-
 router.post('/ticket', UserController.raiseTicket);
 router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);
-
-module.exports = router;

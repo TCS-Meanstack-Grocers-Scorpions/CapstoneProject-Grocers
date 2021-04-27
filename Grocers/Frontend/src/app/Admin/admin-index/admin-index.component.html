@@ -20,7 +20,7 @@
       <br>
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
             <h1>Products</h1><hr>
             <app-add-product></app-add-product>
             <br>
@@ -30,10 +30,9 @@
             <br>
             <div style="text-align: center;">
               <input type="button" value="Show/Hide Products" (click)="toggleTable()"/>
-              <input type="button" value="Refresh" (click)="updateTable()"/>
             </div>
             <br>
-            <div *ngIf="showTable" #table>
+            <div *ngIf="showTable">
               <table class="table">
                   <tr>
                       <th>Prduct Id</th>
@@ -49,9 +48,9 @@
                   </tr>
               </table>
               <br>
-            </div>
           </div>
-          <div class="col">
+          </div>
+          <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
             <h1>Employees</h1><hr>
             <app-add-employee></app-add-employee><br>
             <app-delete-employee></app-delete-employee>
