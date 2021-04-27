@@ -31,6 +31,9 @@ export class UsersService {
   updateUserDOB(userRef:any,id:any){
     this.http.put('http://localhost:9090/user/updateUserDOB'+id,userRef,{responseType: 'text'});
   }
+  updateFunds(userRef:any,id:any){
+    this.http.put('http://localhost:9090/user/updateUserFunds'+id ,userRef,{responseType: 'text'});
+  }
   storeTicketinfo(data: any): void{
     this.http.post('http://localhost:9090/ticket', data, {responseType: 'text'}).subscribe(
       result => console.log(result), error => console.log(error));

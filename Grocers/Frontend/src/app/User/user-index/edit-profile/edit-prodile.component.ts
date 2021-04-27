@@ -12,9 +12,7 @@ export class EditProdileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  updateUserInfo(userRef:any){
-    this.userSer.updateUserById(userRef);
-  }
+  
   updatePass(userRef:any){
     this.userSer.updateUserPassword(userRef,this.id);
   }
@@ -30,8 +28,5 @@ export class EditProdileComponent implements OnInit {
   updateDOB(userRef:any){
     this.userSer.updateUserDOB(userRef,this.id);
   }
-  displayID(){
-
-  }
-
+ 
 }

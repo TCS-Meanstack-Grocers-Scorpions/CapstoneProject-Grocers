@@ -1,26 +1,30 @@
-<button value = "Display User ID" (click) = "displayID()"></button>
-<form #userRef = "ngForm" (ngSubmit) = "updateUserEmail(userRef.value)">
+<form #userRef = "ngForm" (ngSubmit) = "updateEmail(userRef.value)">
     <label>New Email</label>
-    <input type = "text" name = "newEmail" ngModel>
+    <input type = "text" name = "newEmail" ngModel><br/>
     <input type = "submit" value = "Update">
+    <input type = "reset" value = "Clear">
 </form>
-<form #userRef = "ngForm" (ngSubmit) = "updateUserPassword(userRef.value)">
+<form #userRef = "ngForm" (ngSubmit) = "updatePass(userRef.value)">
     <label>New Password</label>
-    <input type = "password" name = "newPass" ngModel>
+    <input type = "password" name = "newPass" ngModel><br/>
     <input type = "submit" value = "Update">
+    <input type = "reset" value = "Clear">
 </form>
-<form #userRef = "ngForm" (ngSubmit) = "updateUserAddress(userRef.value)">
+<form #userRef = "ngForm" (ngSubmit) = "updateAddress(userRef.value)">
     <label>New Address</label>
-    <input type = "text" name = "newAdd" ngModel>
+    <input type = "text" name = "newAdd" ngModel><br/>
     <input type = "submit" value = "Update">
+    <input type = "reset" value = "Clear">
 </form>
-<form #userRef = "ngForm" (ngSubmit) = "updateUserPhone(userRef.value)">
+<form #userRef = "ngForm" (ngSubmit) = "updatePhone(userRef.value)">
     <label>New Phone Number</label>
-    <input type = "text" name = "newPhone" ngModel>
+    <input type = "number" name = "newPhone" ngModel><br/>
     <input type = "submit" value = "Update">
+    <input type = "reset" value = "Clear">
 </form>
-<form #userRef = "ngForm" (ngSubmit) = "updateUserDOB(userRef.value)">
+<form #userRef = "ngForm" (ngSubmit) = "updateDOB(userRef.value)">
     <label>New Date of Birth</label>
-    <input type = "date" name = "newDOB" ngModel>
+    <input type = "date" name = "newDOB" ngModel><br/>
     <input type = "submit" value = "Update">
+    <input type = "reset" value = "Clear">
 </form>
