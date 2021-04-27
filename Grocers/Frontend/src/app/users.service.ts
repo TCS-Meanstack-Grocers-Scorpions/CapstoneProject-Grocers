@@ -52,11 +52,6 @@ export class UsersService {
       responseType: 'text',
     });
   }
-  updateUserById(userRef: any): void {
-    this.http.put('http://localhost:9090/user/updateUserInfo', userRef, {
-      responseType: 'text',
-    });
-  }
 
   storeTicketinfo(data: any): void {
     this.http
