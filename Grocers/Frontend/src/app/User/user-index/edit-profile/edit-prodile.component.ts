@@ -7,7 +7,7 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./edit-prodile.component.css']
 })
 export class EditProdileComponent implements OnInit {
-  id = "";
+  id = sessionStorage.getItem("curUserId");
   constructor(public userSer:UsersService) { }
 
   ngOnInit(): void {
