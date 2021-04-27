@@ -2,11 +2,11 @@ let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 let OrderSchema = mongoose.Schema({
-    _id:Number,
-    name:String,
-    status:String
-})
+  name: String,
+  status: String,
+  userID: Number
+});
 
-let OrderModel = mongoose.model("",OrderSchema,"Order")
+let OrderModel = mongoose.model('', OrderSchema, 'order');
 
 module.exports = OrderModel;

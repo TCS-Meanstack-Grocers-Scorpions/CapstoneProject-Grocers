@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/employee.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -22,9 +23,13 @@ export class EmployeeSignInComponent implements OnInit {
           this.router.navigate(["employeeDashboard"]);
         }
         else{
+          this.msg = "Incorrect Password"
+        }
+
+      }
+      else{
           this.msg = "Employee Not Found, try again"
         }
-      }
     });
     
   }
