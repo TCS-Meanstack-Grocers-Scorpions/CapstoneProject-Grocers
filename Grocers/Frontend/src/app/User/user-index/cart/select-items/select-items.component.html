@@ -1,15 +1,15 @@
 <div>
-  <button routerLink='view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart:{{cartNum}}</button>
+  <button routerLink='view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart: {{cartNum}}</button>
 <hr>
   <div *ngFor="let item of products; let i=index;">
-    <img [src]="'/assets/images/'+ 'product'+i+'.png'" alt=""> 
-    {{products[i].name}}
-    ${{products[i].price}}
-    <div class="input-group">
-      Quantity:<input type="button" value="-" class="button-minus" data-field="quantity" (click)="decriment('inc'+i,'nums'+i)"> 
+    <!--<img [src]="'/assets/images/'+ 'product'+i+'.png'" alt=""> -->
+   <table class="table"><tr><td>{{products[i].name}}</td> 
+   <td> ${{products[i].price}}</td></tr></table>
+   <td> <div class="input-group">
+     <input type="button" value="-" class="button-minus" data-field="quantity" (click)="decriment('inc'+i,'nums'+i)"> 
       <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" [id]="'nums' +i" (input)="maxobj('nums'+i,i)">
       <input type="button" value="+" class="button-plus" data-field="quantity" id="'inc'+i" (click)="increment('inc'+i,'nums'+i,i)">
-    </div>
+    </div> 
     <input type="button" value="Add to cart" (click)="addCart('nums'+i,i)"> <p [id]="'msg'+i" style="color: red;"></p>
   </div>
 
