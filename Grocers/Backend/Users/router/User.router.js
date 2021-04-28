@@ -27,5 +27,5 @@ router.post('/ticket', UserController.raiseTicket);
 router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);
 router.post("/cart",UserController.PurchaseInfo);
-
+router.post("/changeFunds",UserController.changeUserFund);
 module.exports = router;
