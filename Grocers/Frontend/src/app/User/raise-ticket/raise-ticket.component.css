@@ -67,6 +67,7 @@
 
 
   #wraptest {
+      position: relative;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: rgb(247, 246, 246);;
