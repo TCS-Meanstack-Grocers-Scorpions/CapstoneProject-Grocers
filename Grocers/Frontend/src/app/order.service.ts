@@ -28,7 +28,7 @@ export class OrderService {
       );
   }
   getUserpurchased(pid: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/user/getUserPurchasedDetails/' + pid);
+    return this.http.get<Purchased[]> ('http://localhost:9090/getUserPurchasedDetails/' + pid);
   }
   getProductpurchased(product: any): Observable<Purchased[]> {
     return this.http.get<Purchased[]> ('http://localhost:9090/getProductPurchasedDetails/' + product);

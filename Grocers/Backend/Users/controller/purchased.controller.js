@@ -1,8 +1,9 @@
 const PurchaseModel = require('../user-model/purchased.model.js');
+const ObjectId = require('mongodb').ObjectId;
 
 let getUserPurchaseDetails = (req,res)=>{
     let pid = req.params.pid;
-    PurchaseModel.find({ _id: pid },(err,result)=>{
+    PurchaseModel.find({ _id: new ObjectId(pid) },(err,result)=>{
         if(!err){
             res.json(result);
         }
