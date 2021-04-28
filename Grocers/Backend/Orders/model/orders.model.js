@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 let OrderSchema = mongoose.Schema({
   name: String,
   status: String,
-  userID: Number
+  userID: Number,
 });
 
 let OrderModel = mongoose.model('', OrderSchema, 'order');

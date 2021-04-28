@@ -13,6 +13,7 @@ export class SendRequestComponent implements OnInit {
   ngOnInit(): void {}
 
   sendReq(requestRef: any): void {
+    console.log(requestRef);
     this.request.sendRequestToAdmin(requestRef);
     this.msg = 'Request Sent!';
   }

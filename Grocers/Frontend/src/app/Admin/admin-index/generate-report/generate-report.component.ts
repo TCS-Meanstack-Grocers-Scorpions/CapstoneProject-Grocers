@@ -10,15 +10,17 @@ import { ProductService } from 'src/app/product.service';
 })
 export class GenerateReportComponent implements OnInit {
 
+
   products?: Array<Product>;
 
   constructor(public router: Router, public proService: ProductService) { }
 
+
   ngOnInit(): void {
   }
 
-  back(): void {
-    this.router.navigate(['admin-index']);
+  back() {
+    this.router.navigate(["admin-index"]);
   }
   getProduct(formRef: any): void {
     this.proService.retrieveAllProductDetails().subscribe(result => this.products = result);

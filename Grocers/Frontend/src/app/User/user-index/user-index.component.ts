@@ -22,4 +22,5 @@ export class UserIndexComponent implements OnInit {
   toggleTable(): void{
       this.proService.retrieveAllProductDetails().subscribe(result => this.products = result);
   }
+
 }
