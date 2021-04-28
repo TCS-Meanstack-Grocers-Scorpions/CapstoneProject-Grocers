@@ -19,7 +19,7 @@ export class EmployeeSignInComponent implements OnInit {
       if(result?.length>0){
         if(result[0].pass == pass){
           sessionStorage.setItem("curEmployeeID",id);
-          this.router.navigate(["employee-index"]);
+          this.router.navigate(["employeeDashboard"]);
         }
         else{
           this.msg = "Employee Not Found, try again"

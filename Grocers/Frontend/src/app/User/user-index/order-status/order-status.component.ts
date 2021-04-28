@@ -15,5 +15,5 @@ export class OrderStatusComponent implements OnInit {
       this.orders = result;
     });
   }
- 
+
 }
