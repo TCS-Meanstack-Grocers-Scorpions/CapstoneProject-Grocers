@@ -13,7 +13,7 @@ export class EmployeeService {
 
   getEmployeeByID(id: any): Observable<Employee[]> {
     return this.http.get<Employee[]>(
-      'http://localhost:9090/emp/getEmployeeById' + id
+      'http://localhost:9090/emp/getEmployeeById/' + id
     );
   }
 
@@ -45,7 +45,7 @@ export class EmployeeService {
         (error) => console.log(error)
       );
   }
-  //update employee profile
+  // update employee profile
   updateEmployeeProfile(editRef: any): void {
     console.log('updateinSVCfileReached');
     this.http
