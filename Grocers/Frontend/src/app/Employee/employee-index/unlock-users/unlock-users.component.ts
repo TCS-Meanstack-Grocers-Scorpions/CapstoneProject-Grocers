@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../../users.service';
+import { UsersService } from 'src/app/services/users.service';
+
 
 @Component({
   selector: 'app-unlock-users',
@@ -8,7 +9,7 @@ import { UsersService } from '../../../users.service';
 })
 export class UnlockUsersComponent implements OnInit {
   constructor(public userServ: UsersService) {}
-  msg?: String;
+  msg?: string;
 
   ngOnInit(): void {}
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsersService } from 'src/app/users.service';
+import { UsersService } from 'src/app/services/users.service';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -16,6 +17,6 @@ export class SignUpComponent implements OnInit {
   storeUser(userRef: any): void {
    console.log(userRef);
    this.user.storeUserDetailsInfo(userRef);
-   this.router.navigate(['user-index']);  //MAY WANT TO CHANGE LATER
+   this.router.navigate(['user-index']);  // MAY WANT TO CHANGE LATER
  }
 }

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/model.product';
-import { ProductService } from 'src/app/product.service';
+import { Product } from 'src/app/model/model.product';
+import { ProductService } from 'src/app/services/product.service';
+
 @Component({
   selector: 'app-user-index',
   templateUrl: './user-index.component.html',

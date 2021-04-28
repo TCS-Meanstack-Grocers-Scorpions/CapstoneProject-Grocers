@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../../../order.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-update-order-status',
@@ -8,7 +8,7 @@ import { OrderService } from '../../../order.service';
 })
 export class UpdateOrderStatusComponent implements OnInit {
   constructor(public updateOr: OrderService) {}
-  msg?: String;
+  msg?: string;
 
   ngOnInit(): void {}
 

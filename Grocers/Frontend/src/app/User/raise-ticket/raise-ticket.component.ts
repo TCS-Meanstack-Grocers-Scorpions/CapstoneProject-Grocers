@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/users.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-raise-ticket',
@@ -13,23 +13,23 @@ export class RaiseTicketComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  storeTicket(data: any) {
-    //console.log(data);
-    if (data.username != "" && data.reason != "") {
+  storeTicket(data: any): any {
+    // console.log(data);
+    if (data.username !== '' && data.reason !== '') {
       this.ticketService.storeTicketinfo(data);
     }
-    if (data.username == "") {
-      this.msg1 = "Invalid input"
+    if (data.username === '') {
+      this.msg1 = 'Invalid input';
     }
     else {
-      this.msg1=""
+      this.msg1 = '';
     }
-    if (data.reason == "") {
-      this.msg2 = "Invalid input"
+    if (data.reason === '') {
+      this.msg2 = 'Invalid input';
     }
     else
     {
-      this.msg2="";
+      this.msg2 = '';
     }
   }
 }

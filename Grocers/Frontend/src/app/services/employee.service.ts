@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Employee } from './model.employee';
+import { Employee } from '../model/model.employee';
+
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +33,7 @@ export class EmployeeService {
     });
   }
 
-  //send request
+  // send request
   sendRequestToAdmin(requestRef: any): void {
     this.http
       .post('http://localhost:9090/request/sendRequest', requestRef, {

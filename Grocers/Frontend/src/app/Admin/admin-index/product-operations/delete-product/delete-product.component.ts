@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/product.service';
+import { ProductService } from 'src/app/services/product.service';
+
 
 @Component({
   selector: 'app-delete-product',
@@ -7,15 +8,15 @@ import { ProductService } from 'src/app/product.service';
   styleUrls: ['./delete-product.component.css']
 })
 export class DeleteProductComponent implements OnInit {
-  resultMsg?:string;
-  constructor(public productSer:ProductService) { }
+  resultMsg?: string;
+  constructor(public productSer: ProductService) { }
 
   ngOnInit(): void {
   }
 
-  deleteById(id:any){
-    this.productSer.deleteProductById(id).subscribe((result:string)=>{
+  deleteById(id: any): any{
+    this.productSer.deleteProductById(id).subscribe((result: string) => {
       this.resultMsg = result;
-    })
+    });
   }
 }

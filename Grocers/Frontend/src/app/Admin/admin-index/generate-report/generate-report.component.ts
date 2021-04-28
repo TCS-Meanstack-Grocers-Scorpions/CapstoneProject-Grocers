@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/model.product';
-import { Purchased } from 'src/app/model.purchase';
-import { OrderService } from 'src/app/order.service';
-import { ProductService } from 'src/app/product.service';
+import { Purchased } from 'src/app/model/model.purchase';
+import { OrderService } from 'src/app/services/order.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-generate-report',
@@ -34,6 +33,7 @@ export class GenerateReportComponent implements OnInit {
     this.purchased.getUserpurchased(formRef.userID).subscribe(result => this.customer = result);
   }
   getDaily(formRef: any): void {
+    console.log(formRef);
     this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.daily = result);
   }
   getWeekly(formRef: any): void {
