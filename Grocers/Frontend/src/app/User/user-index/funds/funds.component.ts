@@ -21,8 +21,12 @@ export class FundsComponent implements OnInit {
       );
   }
   addFunds(userRef: any): void{
+    console.log("adding funds");
+    console.log(userRef);
+    console.log(this.id);
     this.userSer.updateFunds(userRef, this.id);
     this.userSer.retrieveUserById(this.id).subscribe(result => {
+      console.log("result" + result[0]);
       this.currentFunds = result[0].funds;
     }
       );
