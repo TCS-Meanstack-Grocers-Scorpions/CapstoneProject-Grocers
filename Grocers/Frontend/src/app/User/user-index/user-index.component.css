@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+    color:darkgreen;
+    margin-top: 8px;
+    padding: 3px;
+}
+nav{
+    background-color: rgb(1, 71, 1);
+}
+a{
+    color: white;
+}
