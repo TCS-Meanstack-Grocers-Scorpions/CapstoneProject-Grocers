@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Request } from 'src/app/model.request';
 import { RequestService } from 'src/app/request.service';
+
+
 
 @Component({
   selector: 'app-view-requests',
@@ -28,11 +29,12 @@ export class ViewRequestsComponent implements OnInit {
         this.requests=result;
         //console.log("updated");
       }
+
     });
   }
 
-  back() {
-    this.router.navigate(["admin-index"]);
+  back(): void {
+    this.router.navigate(['admin-index']);
   }
   deleteById(id:any){
     this.reqService.deleteRequestById(id).subscribe((result:string)=>{

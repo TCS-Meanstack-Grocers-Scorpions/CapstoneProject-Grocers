@@ -2,6 +2,8 @@ let express = require('express');
 let router = express.Router();
 
 let UserController = require('../controller/users.controller');
+let PurchaseController = require('../controller/purchased.controller');
+const PurchaseModel = require('../user-model/purchased.model');
 
 router.post('/signUp', UserController.storeUserDetails);
 router.get("/getUserById/:pid", UserController.getUserById);
@@ -28,4 +30,10 @@ router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);
 router.post("/cart",UserController.PurchaseInfo);
 router.post("/changeFunds",UserController.changeUserFund);
+
+router.get("/getUserPurchasedDetails/:pid", PurchaseController.getUserPurchaseDetails);
+router.get("/getProductPurchasedDetails/:product", PurchaseController.getProductPurchaseDetails);
+router.get("/datePurchased/:date", PurchaseController.datePurchased);
+router.get("/twoDatesPurchased/:date/:date2", PurchaseController.twoDatesPurchaseed);
+
 module.exports = router;

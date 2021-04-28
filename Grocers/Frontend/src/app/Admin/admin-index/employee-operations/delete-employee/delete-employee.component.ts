@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/employee.service';
 
+
 @Component({
   selector: 'app-delete-employee',
   templateUrl: './delete-employee.component.html',

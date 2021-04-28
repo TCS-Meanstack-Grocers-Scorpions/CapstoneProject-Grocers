@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from './model.user';
-import { Product } from './model.product';
 import { cartProduct } from './model.cart';
+import { Product } from './model.product';
+import { User } from './model.user';
+
 
 @Injectable({
   providedIn: 'root',
@@ -107,7 +108,9 @@ this.http.delete('http://localhost:9090/cart/' + cartRef, {responseType: 'text'}
     return this.http.put('http://localhost:9090/unlockUsers/', unlockRef, {responseType: 'text', }).subscribe((result) => console.log(result), (error) => console.log(error));
   }
 
+
   changeFunds(userInfo:any):any {
     this.http.post('http://localhost:9090/changeFunds', userInfo, {responseType: 'text'})
+
   }
 }
