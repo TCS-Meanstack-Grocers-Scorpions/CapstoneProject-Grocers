@@ -11,8 +11,10 @@ body {
   a{
     float: left;
   }
+  div{
+    background-color:darkgreen;
+  }
   /* STRUCTURE */
-  
   .wrapper {
     display: flex;
     align-items: center;
@@ -98,7 +100,7 @@ body {
     color: #cccccc;
   }
 
-  button {
+  button, span {
       float: right;
       margin: 5px;
       background-color:darkgreen;
