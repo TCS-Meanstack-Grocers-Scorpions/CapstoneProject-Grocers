@@ -33,6 +33,7 @@ import { MainComponent } from './main/main.component';
 import { SigninComponent } from './User/signin/signin.component';
 import {EmployeeSignInComponent} from './Employee/sign-in/sign-in.component';
 import { MyAuthGuard } from './myauthguard';
+import { SidebarDirective } from './sidebar.directives';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,14 +63,15 @@ import { MyAuthGuard } from './myauthguard';
     ViewRequestsComponent,
     MainComponent,
     SigninComponent,
-    EmployeeSignInComponent
+    EmployeeSignInComponent,
+    SidebarDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-   
+
   ],
   providers: [MyAuthGuard],
   bootstrap: [AppComponent]
