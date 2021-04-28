@@ -14,8 +14,9 @@ export class RaiseTicketComponent implements OnInit {
   ngOnInit(): void {
   }
   storeTicket(data: any) {
-    //console.log(data);
+    console.log(data);
     if (data.username != "" && data.reason != "") {
+
       this.ticketService.storeTicketinfo(data);
     }
     if (data.username == "") {

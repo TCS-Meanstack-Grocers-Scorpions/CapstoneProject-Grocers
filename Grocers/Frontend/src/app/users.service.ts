@@ -62,7 +62,7 @@ export class UsersService {
 
   storeTicketinfo(data: any): void {
     // tslint:disable-next-line:max-line-length
-    this.http.post('http://localhost:9090/ticket', data, { responseType: 'text' })
+    this.http.post('http://localhost:9090/ticket', data, { responseType: 'text' }).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
   storeUserDetailsInfo(productRef: any): void {
     // tslint:disable-next-line:max-line-length
@@ -79,20 +79,22 @@ export class UsersService {
 
 
   AddtoCart(product: any): void {
-   // tslint:disable-next-line:max-line-length
-   this.http.post('http://localhost:9090/select', product, {responseType: 'text'})
+   this.http.post('http://localhost:9090/select', product, {responseType: 'text'}).subscribe(result => {/*console.log(result)*/}, error => console.log(error));
   }
   viewCartitems(userId: any): Observable<cartProduct[]>{
     return this.http.get<cartProduct[]>('http://localhost:9090/cart/' + userId);
   }
   updateCart(cartRef: any): void {
- this.http.put('http://localhost:9090/cart', cartRef, {responseType: 'text'})
+ this.http.put('http://localhost:9090/cart', cartRef, {responseType: 'text'}).subscribe(
+  result => console.log(result), error => console.log(error));
   }
   deleteItem(cartRef: any): void {
-this.http.delete('http://localhost:9090/cart/' + cartRef, {responseType: 'text'})
+this.http.delete('http://localhost:9090/cart/' + cartRef, {responseType: 'text'}).subscribe(
+  result => console.log(result), error => console.log(error));
   }
   Purchaseitems(list: any): void {
-    this.http.post('http://localhost:9090/cart', list, {responseType: 'text'})
+    this.http.post('http://localhost:9090/cart', list, {responseType: 'text'}).subscribe(
+      result => console.log(result), error => console.log(error));
   }
 
   lockUser(userRef: any): any {
@@ -108,6 +110,7 @@ this.http.delete('http://localhost:9090/cart/' + cartRef, {responseType: 'text'}
   }
 
   changeFunds(userInfo:any):any {
-    this.http.post('http://localhost:9090/changeFunds', userInfo, {responseType: 'text'})
+    this.http.post('http://localhost:9090/changeFunds', userInfo, {responseType: 'text'}).subscribe(
+      result => {/*console.log(result)*/}, error => console.log(error));
   }
 }
