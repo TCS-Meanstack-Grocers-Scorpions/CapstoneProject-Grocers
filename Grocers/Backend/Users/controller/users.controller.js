@@ -305,7 +305,6 @@ let updateProductQuantity= (req,res)=> {
 
 module.exports = {
   updateProductQuantity,
-  updateUserInfo,
   lockUser,
   storeUserDetails,
   raiseTicket,
