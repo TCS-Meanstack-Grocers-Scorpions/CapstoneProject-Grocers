@@ -10,6 +10,7 @@ import { RequestService } from 'src/app/request.service';
 })
 export class ViewRequestsComponent implements OnInit {
   requests?:Array<Request>
+  resultMsg?:string;
   constructor(public router:Router, public reqService:RequestService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class ViewRequestsComponent implements OnInit {
     // checks every 30 seconds for new requests and updates the table.
     setInterval(()=>{
       this.updateTable();
-      }, 20000)
+      }, 30000)
   }
   updateTable() {
     this.reqService.retrieveAllRequests().subscribe(result=> {
@@ -32,5 +33,13 @@ export class ViewRequestsComponent implements OnInit {
 
   back() {
     this.router.navigate(["admin-index"]);
+  }
+  deleteById(id:any){
+    this.reqService.deleteRequestById(id).subscribe((result:string)=>{
+      this.resultMsg = result;
+      this.updateTable();
+    })
+    //displays the result message for 10 seconds and then 'removes' it
+    setTimeout(()=> this.resultMsg = '',10000);
   }
 }
