@@ -1,27 +1,26 @@
 <div>
     <h4>Add Employee</h4>
-    <form #formRef = 'ngForm' (ngSubmit) = 'addEmp(formRef.value)' ngNativeValidate>
+    <form #formRef = 'ngForm' (ngSubmit) = 'addEmp(formRef.value)'>
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Employee's First Name</label>
             <div class="col-sm-7">
-            <input type="text" class="form-control" name="fname" required ngModel/>
+            <input type="text" class="form-control" name="fname" ngModel/>
             </div>
         </div>
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Employee's Last Name</label>
             <div class="col-sm-7">
-            <input type="text" class="form-control" name="lname" required ngModel/>
+            <input type="text" class="form-control" name="lname" ngModel/>
             </div>
         </div>
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Employee's Email</label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" name="email" required ngModel/>
+                <input type="text" class="form-control" name="email" ngModel/>
             </div>
         </div>
         
         <button type="submit" class="btn btn-secondary m-2" >Add Employee</button>
         <button type="reset" class="btn btn-light">Reset</button>
     </form>
-    {{resultMsg}}
 </div>
