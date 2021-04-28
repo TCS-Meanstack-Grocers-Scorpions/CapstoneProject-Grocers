@@ -28,4 +28,5 @@ router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);
 router.post("/cart",UserController.PurchaseInfo);
 router.post("/changeFunds",UserController.changeUserFund);
+router.post("/updateQuantity",UserController.updateProductQuantity) 
 module.exports = router;
