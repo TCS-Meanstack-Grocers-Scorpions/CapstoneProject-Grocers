@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/product.service';
   styleUrls: ['./generate-report.component.css']
 })
 export class GenerateReportComponent implements OnInit {
+
   tableHeader:string = '';
   products?: Array<Purchased>;
   // customer?: Array<Purchased>;
