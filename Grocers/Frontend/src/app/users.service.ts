@@ -53,11 +53,7 @@ export class UsersService {
     });
   }
 
-  updateUserById(userRef: any): void  {
-    this.http.put('http://localhost:9090/user/updateUserInfo', userRef, {
-      responseType: 'text',
-    });
-  }
+
 
 
   storeTicketinfo(data: any): void {

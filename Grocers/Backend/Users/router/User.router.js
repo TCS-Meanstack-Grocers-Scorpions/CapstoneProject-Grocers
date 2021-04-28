@@ -14,7 +14,6 @@ router.put("/ updateUserFunds/:uid",UserController.updateUserFunds);
 router.post("/ticket",UserController.raiseTicket);
 router.get("/select", UserController.selectObject);
 router.post("/select",UserController.addtoCart);
-router.put("/updateUserInfo",UserController.updateUserInfo);
 router.get("/cart/:userId",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);
