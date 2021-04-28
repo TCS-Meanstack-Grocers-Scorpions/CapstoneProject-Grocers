@@ -1,12 +1,49 @@
 <div>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+          <b class="navbar-brand">User</b>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <span style = 'color: white'>ID: {{userId}}</span>
+      <div id="navbarNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a routerLink="cart" class="nav-link">Cart</a>
+              </li>
+              <li class="nav-item">
+                  <!--<a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>-->
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">More .....</a>
+                  <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                      <a style = 'color: black'routerLink="order-status" class="nav-link"> Order Status</a>
+                      <a style = 'color: black'routerLink="edit-profile" class="nav-link"> Edit Profile</a>
+                      <a style = 'color: black'routerLink="view-item" class="nav-link"> View Item</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </nav> 
+
+
+<div>
   <button  class="btn btn-dark btn-lg" type="button" name="user" routerLink='../'>Back</button>
   <button  routerLink="../../purchaseComplete" class="btn btn-dark btn-lg" type="button" name="user" (click)="Purchased()" style="position: relative;float:right;">Purchase: ${{total}}</button> 
   <div *ngFor="let item of cartProducts; let i=index;">
     <div [id]="'item'+i">
-      <img [src]="'/assets/images/'+ 'product'+cartProducts[i].imgId+'.png'" alt="" [id]="'img'+i">
-      {{cartProducts[i].name}}
-      ${{cartProducts[i].price}}
-      <div> Quantity:<span [id]="'Q'+i"> {{cartProducts[i].quantity}}</span></div>
+      <!-- <img [src]="'/assets/images/'+ 'product'+cartProducts[i].imgId+'.png'" alt="" [id]="'img'+i">-->
+    <table class="table">
+      <tr><th>Product</th>
+      <th>Price</th>
+    <th>Quantity</th></tr> 
+    <tr>
+      <td>{{cartProducts[i].name}}</td>
+     <td> ${{cartProducts[i].price}}</td>
+      <div> Quantity:<span [id]="'Q'+i"> {{cartProducts[i].quantity}}</span></div></tr> </table> 
       <div class="input-group" [id]="'updateinfo'+i" style="visibility:hidden">
         Quantity:<input type="button" value="-" class="button-minus" data-field="quantity"
           (click)="decriment('inc'+i,'nums'+i)">

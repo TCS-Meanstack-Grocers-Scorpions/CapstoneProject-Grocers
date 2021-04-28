@@ -288,16 +288,23 @@ let PurchaseInfo= (req,res)=> {
 }
 
 let changeUserFund= (req,res)=> {
-console.log("user id: "+req.body.userId);
-console.log("total: "+req.body.total);
   UserModel.findOne({_id:req.body.userId},(err, result)=>{
     let newFund=result.funds-req.body.total;
     UserModel.updateOne({_id:req.body.userId},{$set:{funds:newFund}},(err,result)=>{});
   })
 }
-
+let updateProductQuantity= (req,res)=> {
+  ProductModel.findOne({_id:req.body.pid},(err,result)=>{
+    let newQ=result.quantity-req.body.quantity;
+    console.log(result)
+    console.log("this is q " +req.body.quantity)
+    console.log(req.body.pid);
+    ProductModel.updateOne({_id:req.body.pid},{$set:{quantity:newQ}},(err,result)=>{});
+  })
+}
 
 module.exports = {
+  updateProductQuantity,
   updateUserInfo,
   lockUser,
   storeUserDetails,

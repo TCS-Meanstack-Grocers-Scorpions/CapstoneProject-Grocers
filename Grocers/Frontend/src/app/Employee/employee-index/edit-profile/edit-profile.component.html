@@ -1,1 +1,35 @@
-<p>edit-profile works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h3>Edit Your Employee Info</h3>
+      <form #editRef="ngForm" (ngSubmit)="updateEmpProfile(editRef.value)" ngNativeValidate>
+        <input
+          type="text"
+          name="eid"
+          placeholder="Confirm your Emp ID"
+          required
+          ngModel
+        /><br />
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+          required
+          ngModel
+        /><br />
+        <input
+          type="text"
+          name="lastname"
+          placeholder="Last Name"
+          required
+          ngModel
+        /><br />
+        <input type="text" name="email" placeholder="E-Mail" required ngModel /><br />
+        <input type="text" name="password" placeholder="Password" required ngModel /><br />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear" />
+      </form>
+  
+      <a routerLink="" class="nav-link">Back</a><br />
+      {{ msg }}
+    </div>
+  </div>

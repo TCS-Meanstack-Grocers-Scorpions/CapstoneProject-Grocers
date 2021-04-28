@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from './model.employee';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +13,7 @@ export class EmployeeService {
 
   getEmployeeByID(id: any): Observable<Employee[]> {
     return this.http.get<Employee[]>(
-      'http://localhost:9090/emp/getEmployeeById' + id
+      'http://localhost:9090/emp/getEmployeeById/' + id
     );
   }
 
@@ -32,10 +34,22 @@ export class EmployeeService {
     });
   }
 
-  //send request
+  // send request
   sendRequestToAdmin(requestRef: any): void {
     this.http
       .post('http://localhost:9090/request/sendRequest', requestRef, {
+        responseType: 'text',
+      })
+      .subscribe(
+        (result) => console.log(result),
+        (error) => console.log(error)
+      );
+  }
+  // update employee profile
+  updateEmployeeProfile(editRef: any): void {
+    console.log('updateinSVCfileReached');
+    this.http
+      .put('http://localhost:9090/emp/editEmployeeProfile', editRef, {
         responseType: 'text',
       })
       .subscribe(
