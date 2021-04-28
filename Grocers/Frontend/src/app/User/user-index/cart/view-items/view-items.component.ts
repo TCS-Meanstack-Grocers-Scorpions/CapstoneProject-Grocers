@@ -13,18 +13,16 @@ import { UsersService } from 'src/app/users.service';
 export class ViewItemsComponent implements OnInit {
   cartProducts: Array<cartProduct> = []
   products: Array<Product> = []
-  userId:string="4"; //get from local store later
+  userId:any=sessionStorage.getItem("curUserId"); //get from local store later
   total:number=0;
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
     this.getItemsService.viewCartitems(this.userId).subscribe(result => {
       this.cartProducts = result;
-      //console.log("this is" +result[0].imgId)
       for(let i=0;i<result.length;i++){
 this.total=this.total+(result[i].price*result[i].quantity)
       }
-      console.log(this.cartProducts)
     })
     this.getItemsService.selectAllitems().subscribe(result => {
       this.products = result;
