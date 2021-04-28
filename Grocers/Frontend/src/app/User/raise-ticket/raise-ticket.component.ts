@@ -14,22 +14,26 @@ export class RaiseTicketComponent implements OnInit {
   ngOnInit(): void {
   }
   storeTicket(data: any) {
-    //console.log(data);
     if (data.username != "" && data.reason != "") {
+      let user = (<HTMLInputElement>document.getElementById("username"));
+      user.value = "";
+      let reason = (<HTMLInputElement>document.getElementById("reason"));
+      reason.value = "";
+      let msg3=(<HTMLInputElement>document.getElementById("confirm"));
+      msg3.innerHTML="Ticket Sumbitted Successfully"
       this.ticketService.storeTicketinfo(data);
     }
     if (data.username == "") {
       this.msg1 = "Invalid input"
     }
     else {
-      this.msg1=""
+      this.msg1 = ""
     }
     if (data.reason == "") {
       this.msg2 = "Invalid input"
     }
-    else
-    {
-      this.msg2="";
+    else {
+      this.msg2 = "";
     }
   }
 }
