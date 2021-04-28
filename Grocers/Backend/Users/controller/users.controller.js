@@ -202,6 +202,7 @@ let updateUserDOB = (req, res) => {
   let newDOB = req.body.newDOB;
   UserModel.updateOne({ _id: uid }, { $set: { dob, newDOB } });
 };
+//potential async issue
 let updateUserFunds = (req, res) => {
   let uid = req.params.uid;
   let addedFunds = req.body.addedFunds;
@@ -214,15 +215,8 @@ let updateUserFunds = (req, res) => {
   let totalFunds = addedFunds + curFunds;
   UserModel.updateOne({ _id: uid }, { $set: { funds, totalFunds } });
 };
-//Edit Profile
-let updateUserInfo = (req, res) => {
-  let pid = req.body.pid;
-  let newEmail = req.body.newEmail;
-  let newPass = req.body.newPass;
-  let newAdd = req.body.newAdd;
-  let newPhone = req.body.newPhone;
-  let newDob = req.body.newDob;
-
+let getOrderStatus = (req,res) => {
+  let uid = req.params.uid;
 }
 
 let PurchaseInfo= (req,res)=> {
