@@ -11,13 +11,12 @@ import { ProductService } from 'src/app/product.service';
   styleUrls: ['./generate-report.component.css']
 })
 export class GenerateReportComponent implements OnInit {
-  PP:boolean = true;
   tableHeader:string = '';
   products?: Array<Purchased>;
-  customer?: Array<Purchased>;
-  daily?: Array<Purchased>;
-  weekly?: Array<Purchased>;
-  monthly?: Array<Purchased>;
+  // customer?: Array<Purchased>;
+  // daily?: Array<Purchased>;
+  // weekly?: Array<Purchased>;
+  // monthly?: Array<Purchased>;
   constructor(public router: Router, public proService: ProductService, public purchased: OrderService) { }
 
 
@@ -32,20 +31,20 @@ export class GenerateReportComponent implements OnInit {
     this.tableHeader = 'Particular Product'
   }
   getCustomer(formRef: any): void {
-    this.purchased.getUserpurchased(formRef.userID).subscribe(result => this.customer = result);
+    this.purchased.getUserpurchased(formRef.userID).subscribe(result => this.products = result);
     this.tableHeader = 'Particular Customer'
   }
   getDaily(formRef: any): void {
     console.log(formRef);
-    this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.daily = result);
+    this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.products = result);
     this.tableHeader = 'Day Report'
   }
   getWeekly(formRef: any): void {
-    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.weekly = result);
+    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.products = result);
     this.tableHeader = 'Week Report'
   }
   getMonthly(formRef: any): void {
-    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.monthly = result);
+    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.products = result);
     this.tableHeader = 'Month Report'
   }
 }
