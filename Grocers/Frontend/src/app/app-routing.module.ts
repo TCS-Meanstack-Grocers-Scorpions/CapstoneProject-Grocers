@@ -44,20 +44,20 @@ const routes: Routes = [
   },
 
   { path: 'employee-index', component: EmployeeIndexComponent },
-<<<<<<< HEAD
+
   { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
   { path: 'employee-index/send-request', component: SendRequestComponent },
   { path: 'employee-index/unlock-users', component: UnlockUsersComponent },
   { path: 'employee-index/update-order-status', component: UpdateOrderStatusComponent },
-=======
-  {
-    path: 'employee-index/edit-employee-profile',
-    component: EditProfileComponent,
-  },
-  { path: 'send-request', component: SendRequestComponent },
-  { path: 'unlockUsers', component: UnlockUsersComponent },
-  { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
->>>>>>> master
+
+  // {
+  //   path: 'employee-index/edit-employee-profile',
+  //   component: EditProfileComponent,
+  // },
+  // { path: 'send-request', component: SendRequestComponent },
+  // { path: 'unlockUsers', component: UnlockUsersComponent },
+  // { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
+
 
   {
     path: 'admin-index/report',
