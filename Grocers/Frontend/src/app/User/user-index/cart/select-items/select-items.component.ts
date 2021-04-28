@@ -10,7 +10,7 @@ import { UsersService } from 'src/app/users.service';
 export class SelectItemsComponent implements OnInit {
   products: Array<Product> = []
   cartNum: number = 0; //get from cart later
-  UserId = "4"
+  UserId = sessionStorage.getItem("curUserId")
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
@@ -22,6 +22,7 @@ export class SelectItemsComponent implements OnInit {
         this.cartNum = this.cartNum + result[i].quantity
       }
     })
+  
   }
 
   increment(id: any, val: any, i: any) {
@@ -59,7 +60,7 @@ export class SelectItemsComponent implements OnInit {
     this.cartNum = this.cartNum + parseInt(num.value);
     let newCartitem = { "_id": this.products[i]._id, name: this.products[i].name, price: this.products[i].price, "quantity": num.value, userId: this.UserId, imgId: i };
     this.getItemsService.AddtoCart(newCartitem)
-    num.value = "0";
+    num.value = "1";
     let output = document.getElementById("msg" + i);
     console.log(newCartitem.imgId);
     if (output) output.innerHTML = "Added"

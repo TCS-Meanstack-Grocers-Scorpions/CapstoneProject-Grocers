@@ -13,18 +13,16 @@ import { UsersService } from 'src/app/users.service';
 export class ViewItemsComponent implements OnInit {
   cartProducts: Array<cartProduct> = []
   products: Array<Product> = []
-  userId:string="4"; //get from local store later
+  userId:any=sessionStorage.getItem("curUserId"); //get from local store later
   total:number=0;
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
     this.getItemsService.viewCartitems(this.userId).subscribe(result => {
       this.cartProducts = result;
-      //console.log("this is" +result[0].imgId)
       for(let i=0;i<result.length;i++){
 this.total=this.total+(result[i].price*result[i].quantity)
       }
-      console.log(this.cartProducts)
     })
     this.getItemsService.selectAllitems().subscribe(result => {
       this.products = result;
@@ -90,16 +88,15 @@ this.total=this.total+(result[i].price*result[i].quantity)
    for(let j=0; j<this.cartProducts.length;j++){
     let date= new Date()
     let storedDate=(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear();
-    let prodTotal=this.cartProducts[j].price*this.cartProducts[j].quantity;
-    let obj=new Items(this.cartProducts[j].pid,this.cartProducts[j].name ,this.cartProducts[j].quantity,this.cartProducts[j].price,storedDate,"Processing",prodTotal)
+    let obj=new Items(this.cartProducts[j].pid,this.cartProducts[j].name ,this.cartProducts[j].quantity,this.cartProducts[j].price,storedDate,"Processing")
     cartarray.push(obj);
     let deletedItem ={userId:this.userId,pid:this.cartProducts[j].pid};
     let delete2=JSON.stringify(deletedItem);
     this.getItemsService.deleteItem(delete2);
    }
- 
-   let purchased=new Purchased (this.userId,cartarray);
+ let changeInfo={userId:this.userId,total:this.total};
+   let purchased=new Purchased (this.userId,cartarray,this.total);
    this.getItemsService.Purchaseitems(purchased);
-   
+   this.getItemsService.changeFunds(changeInfo);
   }
 }

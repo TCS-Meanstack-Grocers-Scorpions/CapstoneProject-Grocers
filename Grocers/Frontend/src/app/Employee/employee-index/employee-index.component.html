@@ -1,6 +1,28 @@
+<div>
 <h1>Employee</h1>
-<a routerLink = "edit-employee-profile">Edit Profile</a>
-<a routerLink = "send-request">Send Request</a>
-<a routerLink = "unlockUsers">Unlock Users</a>
-<a routerLink = "updateOrderStatus">Update Order Status</a>
-<a routerLink = "">Log Out</a>
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container-fluid">
+<b class="navbar-brand">Employee</b>
+<div id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="edit-employee-profile" class="nav-link">Edit Profile</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="send-request" class="nav-link">Send Request</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="unlock-users" class="nav-link">Unlock Users</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="update-order-status" class="nav-link">Update Order Status</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "" (click)="logout()">Log Out</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+</div>
