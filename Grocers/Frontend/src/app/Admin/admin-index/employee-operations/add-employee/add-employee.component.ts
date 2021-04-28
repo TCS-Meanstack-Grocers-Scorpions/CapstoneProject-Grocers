@@ -16,6 +16,7 @@ export class AddEmployeeComponent implements OnInit {
   addEmp(empRef: any): void {
     console.log(empRef);
     this.emp.storeEmpDetailsInfo(empRef);
+    // ADD A RESULT MESSAGE SO THE USER KNOWS THE EMPLOYEE WAS SUCESSFULLY ADDED
   }
 
 }
