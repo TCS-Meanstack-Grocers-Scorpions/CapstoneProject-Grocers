@@ -46,8 +46,8 @@ const routes: Routes = [
   { path: 'employee-index', component: EmployeeIndexComponent },
   { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
   { path: 'employee-index/send-request', component: SendRequestComponent },
-  { path: 'employee-index/unlockUsers', component: UnlockUsersComponent },
-  { path: 'employee-index/updateOrderStatus', component: UpdateOrderStatusComponent },
+  { path: 'employee-index/unlock-users', component: UnlockUsersComponent },
+  { path: 'employee-index/update-order-status', component: UpdateOrderStatusComponent },
 
   {
     path: 'admin-index/report',
