@@ -9,7 +9,6 @@ import { RequestService } from 'src/app/request.service';
   styleUrls: ['./view-requests.component.css']
 })
 export class ViewRequestsComponent implements OnInit {
-  resultMsg?:string;
   requests?:Array<Request>
   constructor(public router:Router, public reqService:RequestService) { }
 
@@ -31,12 +30,7 @@ export class ViewRequestsComponent implements OnInit {
     });
   }
 
-  deleteById(id:any){
-    this.reqService.deleteRequestById(id).subscribe((result:string)=>{
-      this.resultMsg = result;
-      this.updateTable();
-    })
-    //displays the result message for 10 seconds and then 'removes' it
-    setTimeout(()=> this.resultMsg = '',10000);
+  back() {
+    this.router.navigate(["admin-index"]);
   }
 }

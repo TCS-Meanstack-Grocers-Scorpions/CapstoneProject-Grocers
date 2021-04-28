@@ -7,7 +7,7 @@ import { EmployeeService } from 'src/app/employee.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-  resultMsg?:string;
+
   constructor(public emp: EmployeeService) { }
 
   ngOnInit(): void {
@@ -16,9 +16,7 @@ export class AddEmployeeComponent implements OnInit {
   addEmp(empRef: any): void {
     console.log(empRef);
     this.emp.storeEmpDetailsInfo(empRef);
-    this.resultMsg = "Employee Added"
-    //displays the result message for 10 seconds and then 'removes' it
-    setTimeout(()=> this.resultMsg = '',10000);
+    // ADD A RESULT MESSAGE SO THE USER KNOWS THE EMPLOYEE WAS SUCESSFULLY ADDED
   }
 
 }
