@@ -31,12 +31,12 @@ export class OrderService {
     return this.http.get<Purchased[]> ('http://localhost:9090/user/getUserPurchasedDetails/' + pid);
   }
   getProductpurchased(product: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/user/getProductPurchasedDetails/' + product);
+    return this.http.get<Purchased[]> ('http://localhost:9090/getProductPurchasedDetails/' + product);
   }
   getDatepurchased(date: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/user/getDatePurchasedDetails/' + date);
+    return this.http.get<Purchased[]> ('http://localhost:9090/getDatePurchasedDetails/' + date);
   }
   getDatesPurchased(date: any, date2: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/user/twoDatesPurchased/' + date + '/' + date2);
+    return this.http.get<Purchased[]> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
   }
 }

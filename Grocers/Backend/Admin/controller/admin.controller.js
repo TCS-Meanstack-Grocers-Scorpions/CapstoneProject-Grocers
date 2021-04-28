@@ -8,5 +8,4 @@ let getAdminDetails = (req,res)=>{
         }
     })
 }
-
 module.exports={getAdminDetails};
