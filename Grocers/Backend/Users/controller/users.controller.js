@@ -180,27 +180,77 @@ let deleteCart = (req, res) => {
 let updateUserPassword = (req, res) => {
   let uid = req.params.uid;
   let newPass = req.body.newPass;
-  UserModel.updateOne({ _id: uid }, { $set: { pass, newPass } });
+  UserModel.updateMany({ _id: uid }, { $set: { pass, newPass }},(err,result)=> {
+    if(!err){
+        if(result.nModified>0){
+                res.send("Record updated succesfully")
+        }else {
+                res.send("Record is not available");
+        }
+    }else {
+        res.send("Error generated "+err);
+    }
+});
 };
 let updateUserEmail = (req, res) => {
   let uid = req.params.uid;
   let newEmail = req.body.newEmail;
-  UserModel.updateOne({ _id: uid }, { $set: { email, newEmail } });
+  UserModel.updateMany({ _id: uid }, { $set: { email, newEmail }},(err,result)=> {
+    if(!err){
+        if(result.nModified>0){
+                res.send("Record updated succesfully")
+        }else {
+                res.send("Record is not available");
+        }
+    }else {
+        res.send("Error generated "+err);
+    }
+});
 };
 let updateUserAddress = (req, res) => {
   let uid = req.params.uid;
   let newAdd = req.body.newAdd;
-  UserModel.updateOne({ _id: uid }, { $set: { address, newAdd } });
+  UserModel.updateMany({ _id: uid }, { $set: { address, newAdd } },(err,result)=> {
+    if(!err){
+        if(result.nModified>0){
+                res.send("Record updated succesfully")
+        }else {
+                res.send("Record is not available");
+        }
+    }else {
+        res.send("Error generated "+err);
+    }
+});
 };
 let updateUserPhone = (req, res) => {
   let uid = req.params.uid;
   let newPhone = req.body.newPhone;
-  UserModel.updateOne({ _id: uid }, { $set: { phone, newPhone } });
+  UserModel.updateMany({ _id: uid }, { $set: { phone, newPhone } },(err,result)=> {
+    if(!err){
+        if(result.nModified>0){
+                res.send("Record updated succesfully")
+        }else {
+                res.send("Record is not available");
+        }
+    }else {
+        res.send("Error generated "+err);
+    }
+});
 };
 let updateUserDOB = (req, res) => {
   let uid = req.params.uid;
   let newDOB = req.body.newDOB;
-  UserModel.updateOne({ _id: uid }, { $set: { dob, newDOB } });
+  UserModel.updateMany({ _id: uid }, { $set: { dob, newDOB } },(err,result)=> {
+    if(!err){
+        if(result.nModified>0){
+                res.send("Record updated succesfully")
+        }else {
+                res.send("Record is not available");
+        }
+    }else {
+        res.send("Error generated "+err);
+    }
+});
 };
 let updateUserFunds = (req, res) => {
   let uid = req.params.uid;
@@ -212,18 +262,19 @@ let updateUserFunds = (req, res) => {
     }
   });
   let totalFunds = addedFunds + curFunds;
-  UserModel.updateOne({ _id: uid }, { $set: { funds, totalFunds } });
+  UserModel.updateMany({ _id: uid }, { $set: { funds, totalFunds } },(err,result)=> {
+    if(!err){
+        if(result.nModified>0){
+                res.send("Record updated succesfully")
+        }else {
+                res.send("Record is not available");
+        }
+    }else {
+        res.send("Error generated "+err);
+    }
+});
 };
-//Edit Profile
-let updateUserInfo = (req, res) => {
-  let pid = req.body.pid;
-  let newEmail = req.body.newEmail;
-  let newPass = req.body.newPass;
-  let newAdd = req.body.newAdd;
-  let newPhone = req.body.newPhone;
-  let newDob = req.body.newDob;
 
-}
 
 let PurchaseInfo= (req,res)=> {
   let PurchaseItem = new PurchaseModel({
@@ -254,7 +305,6 @@ let updateProductQuantity= (req,res)=> {
 
 module.exports = {
   updateProductQuantity,
-  updateUserInfo,
   lockUser,
   storeUserDetails,
   raiseTicket,
