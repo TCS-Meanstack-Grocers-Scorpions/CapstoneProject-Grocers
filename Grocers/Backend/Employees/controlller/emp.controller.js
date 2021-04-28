@@ -1,6 +1,8 @@
 let EmployeeModel = require('../model/employee.model.js');
 const ObjectId = require('mongodb').ObjectId;
 
+const ObjectId = require('mongodb').ObjectId;
+
 //get emp by ID
 
 let getEmpByID = (req, res) => {
@@ -47,39 +49,28 @@ let deleteEmpById = (req, res) => {
 
 //edit employee profile
 let editEmpPro = (req, res) => {
-  let pid = req.params.pid; //passing the id through path param
-  EmployeeModel.findById({ _id: pid }, (err, user) => {
-    if (!user) {
-      req.flash('error', 'No account found');
-      return res.redirect('/edit');
+  let eid = req.body.eid;
+  let bemail = req.body.email.trim();
+  let bfirstname = req.body.firstname.trim();
+  let blastname = req.body.lastname.trim();
+  let bpassword = req.body.password.trim();
+  EmployeeModel.updateOne(
+    { _id: new ObjectId(eid) },
+    {
+      $set: {
+        fname: bfirstname,
+        lname: blastname,
+        email: bemail,
+        pass: bpassword,
+      },
     }
-
-    // good idea to trim
-    var email = req.body.email.trim();
-    var firstname = req.body.firstname.trim();
-    var lastname = req.body.lastname.trim();
-    var password = req.body.password.trim();
-
-    // validate
-    if (!email || !firstname || !lastname || !password) {
-      req.flash('error', 'One or more fields are empty');
-      return res.redirect('/employee'); // modified
-    }
-
-    // no need for else since you are returning early ^
-    user.email = email;
-    user.fname = firstname;
-    user.lname = lastname;
-    user.pass = password;
-
-    user.save(function (err) {
-      if (!err) {
-        res.send('Records stored successfully');
-      } else {
-        res.send("Record didn't store...");
-      }
+  )
+    .then((obj) => {
+      console.log(obj);
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 };
 
 module.exports = { empUserDetails, deleteEmpById, editEmpPro, getEmpByID };
