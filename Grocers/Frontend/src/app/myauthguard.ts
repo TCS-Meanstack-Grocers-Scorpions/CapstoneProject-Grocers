@@ -10,7 +10,8 @@ export class MyAuthGuard implements CanActivate {
         //console.log(obj);
         if(obj == 'admin'){
             return true;
-        }else{
+        }
+        else{
             this.router.navigate(["admin"]);
             return false;
         }
