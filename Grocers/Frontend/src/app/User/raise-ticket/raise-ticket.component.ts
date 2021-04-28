@@ -14,7 +14,6 @@ export class RaiseTicketComponent implements OnInit {
   ngOnInit(): void {
   }
   storeTicket(data: any) {
-    console.log(data)
     if (data.username != "" && data.reason != "") {
       let user = (<HTMLInputElement>document.getElementById("username"));
       user.value = "";
