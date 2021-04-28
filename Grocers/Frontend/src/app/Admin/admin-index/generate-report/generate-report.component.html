@@ -1,73 +1,85 @@
-<div class="container"><br>
-    <h2 >Generate Reports</h2><br><br>
-    <div class="row">
-      <div class="col">
-        <h4>Particular product reports</h4>   
-        <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Product Name: </label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" name="productName" ngModel/>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <b class="navbar-brand">Generate Reports</b>
+          <div id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button class="nav-link btn btn-link" (click)="back()">Back</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container"><br><br>
+        <div class="row">
+        <div class="col">
+            <h4>Particular product reports</h4>   
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Product Name: </label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="productName" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
-        </form><br>
-        <h4>Particular customer reports</h4>
-        <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">user ID: </label>
-                <div class="col-sm-7">
-                <input type="text" class="form-control" name="userID" ngModel/>
+                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+            </form><br>
+            <h4>Particular customer reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">user ID: </label>
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="userID" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
-        </form><br>
-        <h4>Daily reports</h4>
-        <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>    
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Enter Date: </label>
-                <div class="col-sm-7">
-                    <input type="date" class="form-control" name="date" ngModel/>
+                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+            </form><br>
+            <h4>Daily reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>    
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="date" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
-        </form>
-      </div>
-      <div class="col">
-        <h4>Weekly reports</h4>
-        <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Enter Start Date: </label>
-                <div class="col-sm-7">
-                    <input type="date" class="form-control" name="StartDate" ngModel/>
+                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+            </form>
+        </div>
+        <div class="col">
+            <h4>Weekly reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter Start Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Enter End Date: </label>
-                <div class="col-sm-7">
-                    <input type="date" class="form-control" name="EndDate" ngModel/>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter End Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="EndDate" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
-        </form><br>
-        <h4>Monthly reports</h4>
-        <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Enter Start Date: </label>
-                <div class="col-sm-7">
-                    <input type="date" class="form-control" name="StartDate" ngModel/>
+                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+            </form><br>
+            <h4>Monthly reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter Start Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Enter End Date: </label>
-                <div class="col-sm-7">
-                    <input type="date" class="form-control" name="EndDate" ngModel/>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter End Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="EndDate" ngModel/>
+                    </div>
                 </div>
-            </div>
-            <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
-        </form>
-      </div>
+                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+            </form>
+        </div>
+        </div>
+        <br>
     </div>
-    <br>
-    <button class="btn btn-link" (click)="back()">Back</button>
 </div>
