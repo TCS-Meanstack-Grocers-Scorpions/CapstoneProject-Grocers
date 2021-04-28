@@ -1,35 +1,31 @@
 body {
-    font-family: "Poppins", sans-serif;
     height: 100vh;
+    /* background-color: rgb(233, 233, 233); */
   }
 
   h3 {
-
     margin: 20px;
   }
   
   a{
     float: left;
   }
-  div{
-    background-color:darkgreen;
-  }
   /* STRUCTURE */
   .wrapper {
     display: flex;
     align-items: center;
     flex-direction: column; 
-    justify-content: center;
+    /* justify-content: center; */
     width: 100%;
     min-height: 100%;
     padding: 20px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
   
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: rgb(247, 246, 246);;
+    background: rgb(247, 246, 246);
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -38,6 +34,8 @@ body {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
+    margin-top: 50px;
+
   }
    
   /* FORM TYPOGRAPHY*/
@@ -100,12 +98,12 @@ body {
     color: #cccccc;
   }
 
-  button, span {
+  button{
       float: right;
       margin: 5px;
       background-color:darkgreen;
       border: none;
       color: white;
-      padding: 3px;
+      padding: 5px;
       border-radius: 5px 5px 5px 5px;
   }

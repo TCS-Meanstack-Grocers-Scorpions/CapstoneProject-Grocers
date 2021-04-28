@@ -1,38 +1,105 @@
 <div>
-    <h2>GENERATE REPORT</h2>
-    <h4>Particular product reports</h4>
-    <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-        <label>Product Name: </label>
-        <input type="text" name="productName" ngModel> <br>
-        <input type="submit" value = "Submit Report">
-    </form>
-    <h4>Particular customer reports</h4>
-    <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-        <label>User ID: </label>
-        <input type="text" name="userID" ngModel> <br>
-        <input type="submit" value = "Submit Report">
-    </form>
-    <h4>Daily reports</h4>
-    <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-        <label>Enter Date: </label>
-        <input type="date" name="Date" ngModel> <br>
-        <input type="submit" value = "Submit Report">
-    </form>
-    <h4>Weekly reports</h4>
-    <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-        <label>Enter Start Date: </label>
-        <input type="date" name="StartDate" ngModel> <br>
-        <label>Enter End Date: </label>
-        <input type="date" name="EndDate" ngModel> <br>
-        <input type="submit" value = "Submit Report">
-    </form>
-    <h4>Monthly reports</h4>
-    <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
-        <label>Enter Start Date: </label>
-        <input type="date" name="StartDate" ngModel> <br>
-        <label>Enter End Date: </label>
-        <input type="date" name="EndDate" ngModel> <br>
-        <input type="submit" value = "Submit Report">
-    </form>
-    <button (click)="back()">Back</button>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <b class="navbar-brand">Generate Reports</b>
+          <div id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button class="nav-link btn btn-link" (click)="back()">Back</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container"><br><br>
+      <div class="row">
+        <div class="col">
+            <h4>Particular product reports</h4>   
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Product Name: </label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="productName" ngModel/>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
+            </form><br>
+            <h4>Particular customer reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">user ID: </label>
+                    <div class="col-sm-7">
+                    <input type="text" class="form-control" name="userID" ngModel/>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
+            </form><br>
+            <h4>Daily reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>    
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="date" ngModel/>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
+            </form>
+        </div>
+        <div class="col">
+            <h4>Weekly reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter Start Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter End Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="EndDate" ngModel/>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
+            </form><br>
+            <h4>Monthly reports</h4>
+            <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter Start Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Enter End Date: </label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" name="EndDate" ngModel/>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
+            </form>
+        </div>
+        </div>
+        <br>
+        <hr>
+        <h3>Report</h3>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <tr>
+                        <th>Prduct Id</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr *ngFor="let p of products">
+                        <td>{{p._id}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.quantity}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

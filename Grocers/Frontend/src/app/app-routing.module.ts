@@ -7,7 +7,6 @@ import { UpdateOrderStatusComponent } from './Employee/employee-index/update-ord
 import { EditProdileComponent } from './User/user-index/edit-profile/edit-prodile.component';
 import { AdminIndexComponent } from './Admin/admin-index/admin-index.component';
 import { GenerateReportComponent } from './Admin/admin-index/generate-report/generate-report.component';
-import { ViewRequestsComponent } from './Admin/admin-index/view-requests/view-requests.component';
 import { SignInComponent as AdminSignin } from './Admin/sign-in/sign-in.component';
 import { EmployeeSignInComponent as EmployeeSignin } from './Employee/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
@@ -27,21 +26,11 @@ const routes: Routes = [
   { path: 'admin', component: AdminSignin },
   { path: 'shopper', component: UserSignin },
   { path: 'employee', component: EmployeeSignin },
-  {
-    path: 'admin-index',
-    component: AdminIndexComponent,
-    canActivate: [MyAuthGuard],
-  },
-  {
-    path: 'admin-index/requests',
-    component: ViewRequestsComponent,
-    canActivate: [MyAuthGuard],
-  },
-  {
-    path: 'admin-index/report',
-    component: GenerateReportComponent,
-    canActivate: [MyAuthGuard],
-  },
+
+
+  { path: 'admin-index', component: AdminIndexComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/report', component: GenerateReportComponent, canActivate: [MyAuthGuard] },
+
 
   { path: 'employee-index', component: EmployeeIndexComponent },
   { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
@@ -49,16 +38,19 @@ const routes: Routes = [
   { path: 'employee-index/unlock-users', component: UnlockUsersComponent },
   { path: 'employee-index/update-order-status', component: UpdateOrderStatusComponent },
 
-  {
-    path: 'admin-index/report',
-    component: GenerateReportComponent,
-    canActivate: [MyAuthGuard],
-  },
+  // {
+  //   path: 'employee-index/edit-employee-profile',
+  //   component: EditProfileComponent,
+  // },
+  // { path: 'send-request', component: SendRequestComponent },
+  // { path: 'unlockUsers', component: UnlockUsersComponent },
+  // { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
+
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
-
   { path: 'purchaseComplete', component: CartComponent },
+
   { path: 'user-index', component: UserIndexComponent },
   { path: 'user-index/cart', component: CartComponent },
   { path: 'user-index/edit-profile', component: EditProdileComponent },
