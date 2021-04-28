@@ -1,28 +1,4 @@
-body {
-    height: 100vh;
-    /* background-color: rgb(233, 233, 233); */
-  }
-
-  h3 {
-    margin: 20px;
-  }
-  
-  a{
-    float: left;
-  }
-  /* STRUCTURE */
-  .wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    /* justify-content: center; */
-    width: 100%;
-    min-height: 100%;
-    padding: 20px;
-    /* margin-top: 50px; */
-  }
-  
-  #formContent {
+ #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: rgb(247, 246, 246);
@@ -37,9 +13,7 @@ body {
     margin-top: 50px;
 
   }
-   
-  /* FORM TYPOGRAPHY*/
-  
+    
 
   input[type=submit] {
     background-color:darkgreen;
@@ -81,25 +55,26 @@ body {
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
   }
-  
+  #username {
+      margin-left: 2%;
+  }
   #reason {
+      margin-left: 2%;
     height:300px;
-    width:85%;
+    width:95%;
     word-break: break-word;
   }
 
 
+  #wraptest {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgb(247, 246, 246);;
+    padding: 30px;
+    margin-top:3%;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   
-  input[type=text]:placeholder, input[type=password]:placeholder{
-    color: #cccccc;
-  }
-
-  button{
-      float: right;
-      margin: 5px;
-      background-color:darkgreen;
-      border: none;
-      color: white;
-      padding: 5px;
-      border-radius: 5px 5px 5px 5px;
   }
