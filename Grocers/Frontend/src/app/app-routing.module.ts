@@ -27,24 +27,11 @@ const routes: Routes = [
   { path: 'admin', component: AdminSignin },
   { path: 'shopper', component: UserSignin },
   { path: 'employee', component: EmployeeSignin },
-  {
-    path: 'admin-index',
-    component: AdminIndexComponent,
-    canActivate: [MyAuthGuard],
-  },
-  {
-    path: 'admin-index/requests',
-    component: ViewRequestsComponent,
-    canActivate: [MyAuthGuard],
-  },
-  {
-    path: 'admin-index/report',
-    component: GenerateReportComponent,
-    canActivate: [MyAuthGuard],
-  },
+
+  { path: 'admin-index', component: AdminIndexComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/report', component: GenerateReportComponent, canActivate: [MyAuthGuard] },
 
   { path: 'employee-index', component: EmployeeIndexComponent },
-
   { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },
   { path: 'employee-index/send-request', component: SendRequestComponent },
   { path: 'employee-index/unlock-users', component: UnlockUsersComponent },
@@ -58,17 +45,11 @@ const routes: Routes = [
   // { path: 'unlockUsers', component: UnlockUsersComponent },
   // { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
 
-
-  {
-    path: 'admin-index/report',
-    component: GenerateReportComponent,
-    canActivate: [MyAuthGuard],
-  },
   { path: 'selectItems/cart', component: ViewItemsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'selectItems', component: SelectItemsComponent },
-
   { path: 'purchaseComplete', component: CartComponent },
+
   { path: 'user-index', component: UserIndexComponent },
   { path: 'user-index/cart', component: CartComponent },
   { path: 'user-index/edit-profile', component: EditProdileComponent },
