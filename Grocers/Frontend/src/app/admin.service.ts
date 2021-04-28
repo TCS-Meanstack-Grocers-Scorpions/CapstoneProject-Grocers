@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
 
-  constructor(public http:HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-  retrieveAdminDetails():Observable<any[]>{
-    return this.http.get<any[]>("http://localhost:9090/admin/adminDetails")
+  retrieveAdminDetails(): Observable<any[]>{
+    return this.http.get<any[]>('http://localhost:9090/admin/adminDetails');
   }
 }
