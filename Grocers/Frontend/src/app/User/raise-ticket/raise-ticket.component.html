@@ -1,9 +1,9 @@
 <div>
     <form #ticketRef="ngForm" (ngSubmit)=storeTicket(ticketRef.value)>
-        <label>Username</label>
-        <input type="text" name="username"  id= 'username' ngModel><span style="color:red">{{msg1}}</span> <br>
-        <label>Issue</label>
-        <input type="text" name="reason" ngModel><span style="color:red">{{msg2}}</span> <br>
+        <label>Username</label> <br> 
+        <input type="text" name="username"  id= 'username' placeholder="UserID" ngModel><span style="color:red">{{msg1}}</span> <br> <br> <br>
+       <div> <label>Issue</label> <br>
+    <textarea name="reason" id="reason" cols="30" rows="10" ngModel>{{msg2}}</textarea> <br><span style="color:red">{{msg2}}</span> <br></div>
         <input type="submit" value="Raise Ticket">
     </form>
 </div>
