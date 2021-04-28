@@ -20,7 +20,7 @@ let getProductPurchaseDetails = (req,res)=>{
 }
 let datePurchased = (req,res)=>{
     let date = req.params.date;
-    PurchaseModel.find({ date: date},(err,result)=>{
+    PurchaseModel.find({ datePurchased: date},(err,result)=>{
         if(!err){
             res.json(result);
         }
