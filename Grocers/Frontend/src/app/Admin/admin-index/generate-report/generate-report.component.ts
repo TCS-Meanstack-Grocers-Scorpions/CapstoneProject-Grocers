@@ -1,3 +1,4 @@
+import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Purchased } from 'src/app/model.purchase';
@@ -28,19 +29,19 @@ export class GenerateReportComponent implements OnInit {
     this.router.navigate(['admin-index']);
   }
   getProduct(formRef: any): void {
-    this.purchased.getProductpurchased(formRef.productName).subscribe(result => this.products = result);
+    this.purchased.getProductpurchased(formRef.productName).subscribe(result => console.log(result));
   }
   getCustomer(formRef: any): void {
-    this.purchased.getUserpurchased(formRef.userID).subscribe(result => this.customer = result);
+    console.log(typeof(formRef.userID));
+    this.purchased.getUserpurchased(formRef.userID).subscribe(result => console.log(result));
   }
   getDaily(formRef: any): void {
-    console.log(formRef);
-    this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.daily = result);
+    this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => console.log(result));
   }
   getWeekly(formRef: any): void {
-    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.weekly = result);
+    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => console.log(result));
   }
   getMonthly(formRef: any): void {
-    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.monthly = result);
+    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => console.log(result));
   }
 }
