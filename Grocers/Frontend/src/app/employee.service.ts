@@ -43,4 +43,16 @@ export class EmployeeService {
         (error) => console.log(error)
       );
   }
+    //update employee profile
+    updateEmployeeProfile(editRef: any): void {
+      console.log('updateinSVCfileReached');
+      this.http
+        .put('http://localhost:9090/emp/editEmployeeProfile', editRef, {
+          responseType: 'text',
+        })
+        .subscribe(
+          (result) => console.log(result),
+          (error) => console.log(error)
+        );
+    }
 }
