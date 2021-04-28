@@ -10,17 +10,38 @@ import { RequestService } from 'src/app/request.service';
   styleUrls: ['./view-requests.component.css']
 })
 export class ViewRequestsComponent implements OnInit {
-  requests?: Array<Request>;
-  constructor(public router: Router, public reqService: RequestService) { }
+  requests?:Array<Request>
+  resultMsg?:string;
+  constructor(public router:Router, public reqService:RequestService) { }
 
   ngOnInit(): void {
-    this.reqService.retrieveAllRequests().subscribe(result => {
-      this.requests = result;
-      // console.log(result);
+    this.reqService.retrieveAllRequests().subscribe(result=> {
+      this.requests=result;
+    });
+    // checks every 30 seconds for new requests and updates the table.
+    setInterval(()=>{
+      this.updateTable();
+      }, 30000)
+  }
+  updateTable() {
+    this.reqService.retrieveAllRequests().subscribe(result=> {
+      if (this.requests?.length != result.length) {
+        this.requests=result;
+        //console.log("updated");
+      }
+
     });
   }
 
   back(): void {
     this.router.navigate(['admin-index']);
+  }
+  deleteById(id:any){
+    this.reqService.deleteRequestById(id).subscribe((result:string)=>{
+      this.resultMsg = result;
+      this.updateTable();
+    })
+    //displays the result message for 10 seconds and then 'removes' it
+    setTimeout(()=> this.resultMsg = '',10000);
   }
 }

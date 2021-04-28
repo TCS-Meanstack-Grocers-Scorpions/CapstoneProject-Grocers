@@ -1,0 +1,21 @@
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  h2 {
+    margin: 20px;
+  }
+ 
+  input[type="submit"] {
+    background-color: darkgreen;
+    border: none;
+    color: white;
+    
+  }
+  input[type="submit"]:hover {
+    background-color: rgb(0, 53, 0);
+  }
+  
+ 
