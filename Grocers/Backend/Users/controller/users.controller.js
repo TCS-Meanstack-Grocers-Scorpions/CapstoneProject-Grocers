@@ -237,8 +237,6 @@ let PurchaseInfo= (req,res)=> {
 }
 
 let changeUserFund= (req,res)=> {
-console.log("user id: "+req.body.userId);
-console.log("total: "+req.body.total);
   UserModel.findOne({_id:req.body.userId},(err, result)=>{
     let newFund=result.funds-req.body.total;
     UserModel.updateOne({_id:req.body.userId},{$set:{funds:newFund}},(err,result)=>{});
