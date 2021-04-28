@@ -20,7 +20,7 @@ export class ViewRequestsComponent implements OnInit {
     // checks every 30 seconds for new requests and updates the table.
     setInterval(()=>{
       this.updateTable();
-      }, 30000)
+      }, 20000)
   }
   updateTable() {
     this.reqService.retrieveAllRequests().subscribe(result=> {
