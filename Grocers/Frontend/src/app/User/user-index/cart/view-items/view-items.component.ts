@@ -90,7 +90,8 @@ this.total=this.total+(result[i].price*result[i].quantity)
    for(let j=0; j<this.cartProducts.length;j++){
     let date= new Date()
     let storedDate=(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear();
-    let obj=new Items(this.cartProducts[j].pid,this.cartProducts[j].name ,this.cartProducts[j].quantity,this.cartProducts[j].price,storedDate,"Processing",this.total)
+    let prodTotal=this.cartProducts[j].price*this.cartProducts[j].quantity;
+    let obj=new Items(this.cartProducts[j].pid,this.cartProducts[j].name ,this.cartProducts[j].quantity,this.cartProducts[j].price,storedDate,"Processing",prodTotal)
     cartarray.push(obj);
     let deletedItem ={userId:this.userId,pid:this.cartProducts[j].pid};
     let delete2=JSON.stringify(deletedItem);
