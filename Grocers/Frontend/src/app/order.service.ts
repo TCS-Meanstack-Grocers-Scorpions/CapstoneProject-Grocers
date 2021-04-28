@@ -36,4 +36,7 @@ export class OrderService {
   getDatepurchased(date: any): Observable<Purchased[]> {
     return this.http.get<Purchased[]> ('http://localhost:9090/user/getDatePurchasedDetails/' + date);
   }
+  getDatesPurchased(date: any, date2: any): Observable<Purchased[]> {
+    return this.http.get<Purchased[]> ('http://localhost:9090/user/twoDatesPurchased/' + date + '/' + date2);
+  }
 }

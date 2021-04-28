@@ -37,9 +37,9 @@ export class GenerateReportComponent implements OnInit {
     this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.daily = result);
   }
   getWeekly(formRef: any): void {
-    this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.weekly = result);
+    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.weekly = result);
   }
   getMonthly(formRef: any): void {
-    this.purchased.getDatepurchased(formRef.StartDate).subscribe(result => this.monthly = result);
+    this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.monthly = result);
   }
 }
