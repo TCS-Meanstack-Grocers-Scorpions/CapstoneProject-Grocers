@@ -27,8 +27,10 @@ const routes: Routes = [
   { path: 'shopper', component: UserSignin },
   { path: 'employee', component: EmployeeSignin },
 
+
   { path: 'admin-index', component: AdminIndexComponent, canActivate: [MyAuthGuard] },
   { path: 'admin-index/report', component: GenerateReportComponent, canActivate: [MyAuthGuard] },
+
 
   { path: 'employee-index', component: EmployeeIndexComponent },
   { path: 'employee-index/edit-employee-profile', component: EditProfileComponent },

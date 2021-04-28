@@ -10,7 +10,7 @@ import { UsersService } from 'src/app/users.service';
 export class SelectItemsComponent implements OnInit {
   products: Array<Product> = []
   cartNum: number = 0; //get from cart later
-  UserId = "4"
+  UserId = sessionStorage.getItem("curUserId")
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
