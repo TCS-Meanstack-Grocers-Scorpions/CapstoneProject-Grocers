@@ -110,4 +110,8 @@ this.http.delete('http://localhost:9090/cart/' + cartRef, {responseType: 'text'}
     return this.http.put('http://localhost:9090/unlockUsers/', unlockRef, {responseType: 'text', }).subscribe((result) => console.log(result), (error) => console.log(error));
   }
 
+  changeFunds(userInfo:any):any {
+    this.http.post('http://localhost:9090/changeFunds', userInfo, {responseType: 'text'}).subscribe(
+      result => console.log(result), error => console.log(error));
+  }
 }

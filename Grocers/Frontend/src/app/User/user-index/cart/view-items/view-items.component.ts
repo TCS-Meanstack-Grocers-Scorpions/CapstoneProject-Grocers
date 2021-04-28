@@ -94,9 +94,9 @@ this.total=this.total+(result[i].price*result[i].quantity)
     let delete2=JSON.stringify(deletedItem);
     this.getItemsService.deleteItem(delete2);
    }
- 
+ let changeInfo={userId:this.userId,total:this.total};
    let purchased=new Purchased (this.userId,cartarray,this.total);
    this.getItemsService.Purchaseitems(purchased);
-   
+   this.getItemsService.changeFunds(changeInfo);
   }
 }

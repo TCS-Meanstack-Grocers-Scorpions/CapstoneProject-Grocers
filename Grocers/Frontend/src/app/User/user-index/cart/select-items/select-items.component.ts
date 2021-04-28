@@ -22,6 +22,7 @@ export class SelectItemsComponent implements OnInit {
         this.cartNum = this.cartNum + result[i].quantity
       }
     })
+  
   }
 
   increment(id: any, val: any, i: any) {
