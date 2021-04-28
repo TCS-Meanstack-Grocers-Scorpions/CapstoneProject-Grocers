@@ -260,7 +260,6 @@ let updateUserFunds = (req, res) => {
     if (!err) {
       curFunds = result[0].funds;
     }
-  });
   let totalFunds = addedFunds + curFunds;
   UserModel.updateMany({ _id: uid }, { $set: { funds, totalFunds } },(err,result)=> {
     if(!err){
@@ -272,6 +271,7 @@ let updateUserFunds = (req, res) => {
     }else {
         res.send("Error generated "+err);
     }
+});
 });
 };
 
