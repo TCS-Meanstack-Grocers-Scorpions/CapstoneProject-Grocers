@@ -215,9 +215,7 @@ let updateUserFunds = (req, res) => {
   let totalFunds = addedFunds + curFunds;
   UserModel.updateOne({ _id: uid }, { $set: { funds, totalFunds } });
 };
-let getOrderStatus = (req,res) => {
-  let uid = req.params.uid;
-}
+
 
 let PurchaseInfo= (req,res)=> {
   let PurchaseItem = new PurchaseModel({
