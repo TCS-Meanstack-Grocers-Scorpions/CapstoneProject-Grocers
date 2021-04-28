@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminService } from 'src/app/services/admin.service';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-sign-in',

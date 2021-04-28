@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/app/order.service';
+
 
 @Component({
   selector: 'app-update-order-status',

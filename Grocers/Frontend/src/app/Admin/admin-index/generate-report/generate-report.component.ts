@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Purchased } from 'src/app/model/model.purchase';
-import { OrderService } from 'src/app/services/order.service';
-import { ProductService } from 'src/app/services/product.service';
+import { Purchased } from 'src/app/model.purchase';
+import { OrderService } from 'src/app/order.service';
+import { ProductService } from 'src/app/product.service';
+
 
 @Component({
   selector: 'app-generate-report',

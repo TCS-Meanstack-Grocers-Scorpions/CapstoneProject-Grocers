@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { cartProduct } from 'src/app/model/model.cart';
-import { Items } from 'src/app/model/model.items';
-import { Product } from 'src/app/model/model.product';
-import { Purchased } from 'src/app/model/model.purchase';
-import { UsersService } from 'src/app/services/users.service';
+import { cartProduct } from 'src/app/model.cart';
+import { Items } from 'src/app/model.items';
+import { Product } from 'src/app/model.product';
+import { Purchased } from 'src/app/model.purchase';
+import { UsersService } from 'src/app/users.service';
 
 
 @Component({

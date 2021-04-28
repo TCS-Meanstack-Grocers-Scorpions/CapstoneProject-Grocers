@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { EmployeeService } from 'src/app/services/employee.service';
+import { EmployeeService } from 'src/app/employee.service';
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',

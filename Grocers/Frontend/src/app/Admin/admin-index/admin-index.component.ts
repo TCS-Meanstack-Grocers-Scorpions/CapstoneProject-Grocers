@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/model/model.product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/model.product';
+import { ProductService } from 'src/app/product.service';
+
 
 @Component({
   selector: 'app-admin-index',
