@@ -105,5 +105,8 @@ this.total = this.total + (result[i].price * result[i].quantity);
    const purchased = new Purchased (this.userId, cartarray, this.total);
    this.getItemsService.Purchaseitems(purchased);
    this.getItemsService.changeFunds(changeInfo);
+   for(let k=0;k<cartarray.length;k++){
+this.getItemsService.updateProductQuantity(cartarray[k]);
+   }
   }
 }

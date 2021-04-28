@@ -31,9 +31,6 @@ router.post('/select', UserController.addtoCart);
 router.post("/cart",UserController.PurchaseInfo);
 router.post("/changeFunds",UserController.changeUserFund);
 
-router.get("/getUserPurchasedDetails/:pid", PurchaseController.getUserPurchaseDetails);
-router.get("/getProductPurchasedDetails/:product", PurchaseController.getProductPurchaseDetails);
-router.get("/datePurchased/:date", PurchaseController.datePurchased);
-router.get("/twoDatesPurchased/:date/:date2", PurchaseController.twoDatesPurchaseed);
+router.post("/updateQuantity",UserController.updateProductQuantity) 
 
 module.exports = router;
