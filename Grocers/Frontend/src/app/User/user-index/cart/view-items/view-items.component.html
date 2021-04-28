@@ -36,9 +36,14 @@
   <div *ngFor="let item of cartProducts; let i=index;">
     <div [id]="'item'+i">
       <!-- <img [src]="'/assets/images/'+ 'product'+cartProducts[i].imgId+'.png'" alt="" [id]="'img'+i">-->
-      {{cartProducts[i].name}}
-      ${{cartProducts[i].price}}
-      <div> Quantity:<span [id]="'Q'+i"> {{cartProducts[i].quantity}}</span></div>
+    <table class="table">
+      <tr><th>Product</th>
+      <th>Price</th>
+    <th>Quantity</th></tr> 
+    <tr>
+      <td>{{cartProducts[i].name}}</td>
+     <td> ${{cartProducts[i].price}}</td>
+      <div> Quantity:<span [id]="'Q'+i"> {{cartProducts[i].quantity}}</span></div></tr> </table> 
       <div class="input-group" [id]="'updateinfo'+i" style="visibility:hidden">
         Quantity:<input type="button" value="-" class="button-minus" data-field="quantity"
           (click)="decriment('inc'+i,'nums'+i)">
