@@ -16,7 +16,7 @@ export class AddEmployeeComponent implements OnInit {
   addEmp(empRef: any): void {
     console.log(empRef);
     this.emp.storeEmpDetailsInfo(empRef);
-    this.resultMsg = "Product Added"
+    this.resultMsg = "Employee Added"
     //displays the result message for 10 seconds and then 'removes' it
     setTimeout(()=> this.resultMsg = '',10000);
   }
