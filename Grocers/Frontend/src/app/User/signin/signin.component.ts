@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/model.user';
 import { UsersService } from 'src/app/users.service';
 
+
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -43,9 +45,9 @@ export class SigninComponent implements OnInit {
         // add authguard
         if (this.numberlogin === 3){
           // tslint:disable-next-line:no-shadowed-variable
-        /* this.user.updateUserById(userRef).subscribe((result: string) => {
+         this.user.lockUser(userRef).subscribe((result: string) => {
             this.resultMsg = result;
-          });*/
+          });
         }
       }
     });
