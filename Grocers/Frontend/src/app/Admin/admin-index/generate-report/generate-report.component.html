@@ -12,7 +12,7 @@
         </div>
     </nav>
     <div class="container"><br><br>
-        <div class="row">
+      <div class="row">
         <div class="col">
             <h4>Particular product reports</h4>   
             <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
@@ -22,7 +22,7 @@
                         <input type="text" class="form-control" name="productName" ngModel/>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
             <h4>Particular customer reports</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
@@ -32,7 +32,7 @@
                     <input type="text" class="form-control" name="userID" ngModel/>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
             <h4>Daily reports</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>    
@@ -42,7 +42,7 @@
                         <input type="date" class="form-control" name="date" ngModel/>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form>
         </div>
         <div class="col">
@@ -60,7 +60,7 @@
                         <input type="date" class="form-control" name="EndDate" ngModel/>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
             <h4>Monthly reports</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
@@ -76,10 +76,30 @@
                         <input type="date" class="form-control" name="EndDate" ngModel/>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Submit Report">
+                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form>
         </div>
         </div>
         <br>
+        <hr>
+        <h3>Report</h3>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <tr>
+                        <th>Prduct Id</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr *ngFor="let p of products">
+                        <td>{{p._id}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.quantity}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
