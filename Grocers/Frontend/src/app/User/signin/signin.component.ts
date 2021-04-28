@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
   checkUser(userRef: any): void {
     const id = userRef.id;
     const pass = userRef.pass;
-    //console.log(id, typeof(pass));
+    // console.log(id, typeof(pass));
     this.user.retrieveUserById(id).subscribe(result => {
       if (result[0]._id === id  && result[0].pass === pass && result[0].locked === false) {
         // this.resultMsg = 'Successful Login';
@@ -37,11 +37,11 @@ export class SigninComponent implements OnInit {
       else {
 
         this.resultMsg = 'Wrong Id or Password';
-        //console.log(result[0]._id, typeof(result[0].pass));
+        // console.log(result[0]._id, typeof(result[0].pass));
         this.numberlogin += 1;
         console.log(this.numberlogin);
         // add authguard
-        if (this.numberlogin == 3){
+        if (this.numberlogin === 3){
           // tslint:disable-next-line:no-shadowed-variable
         /* this.user.updateUserById(userRef).subscribe((result: string) => {
             this.resultMsg = result;
