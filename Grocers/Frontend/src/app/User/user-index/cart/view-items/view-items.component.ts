@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { cartProduct } from 'src/app/model.cart';
+import { Items } from 'src/app/model.items';
 import { Product } from 'src/app/model.product';
 import { Purchased } from 'src/app/model.purchase';
 import { UsersService } from 'src/app/users.service';
@@ -89,7 +90,7 @@ this.total=this.total+(result[i].price*result[i].quantity)
    for(let j=0; j<this.cartProducts.length;j++){
     let date= new Date()
     let storedDate=(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear();
-    let obj={pid:this.cartProducts[j].pid,name:this.cartProducts[j].name ,quantity:this.cartProducts[j].quantity,price:this.cartProducts[j].price,datePurchased:storedDate,orderStatus:"Processing",orderTotal:this.total}
+    let obj=new Items(this.cartProducts[j].pid,this.cartProducts[j].name ,this.cartProducts[j].quantity,this.cartProducts[j].price,storedDate,"Processing",this.total)
     cartarray.push(obj);
     let deletedItem ={userId:this.userId,pid:this.cartProducts[j].pid};
     let delete2=JSON.stringify(deletedItem);
