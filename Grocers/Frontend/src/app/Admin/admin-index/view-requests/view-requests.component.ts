@@ -15,7 +15,18 @@ export class ViewRequestsComponent implements OnInit {
   ngOnInit(): void {
     this.reqService.retrieveAllRequests().subscribe(result=> {
       this.requests=result;
-      // console.log(result);
+    });
+    // checks every 30 seconds for new requests and updates the table.
+    setInterval(()=>{
+      this.updateTable();
+      }, 20000)
+  }
+  updateTable() {
+    this.reqService.retrieveAllRequests().subscribe(result=> {
+      if (this.requests?.length != result.length) {
+        this.requests=result;
+        //console.log("updated");
+      }
     });
   }
 
