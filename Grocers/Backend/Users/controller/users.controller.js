@@ -227,31 +227,13 @@ let updateUserInfo = (req, res) => {
 
 let PurchaseInfo= (req,res)=> {
   let PurchaseItem = new PurchaseModel({
-    _id: req.body.userId,
-    items: req.body.items
+    userId: req.body.userId,
+    items: req.body.items,
+    total:req.body.total
   });
-
-PurchaseModel.findOne({_id:req.body.userId}, (err3, result) => {
-if(result==null)
-{
-  PurchaseItem.save()
-}
-else {
-  for(i=0;i<PurchaseItem.items.length;i++){
-    temp=  PurchaseItem.items[i];
-  PurchaseModel.updateOne({_id:req.body.userId},{$push:{items:temp}},(err,result)=>{
-    if(!err)
-    {
-      console.log("pushed");
-    }
-    else{
-      console.log("could not add to purchased array");
-    }
-  })
-  }
-}
-})
   
+  PurchaseItem.save()
+
 }
 
 
