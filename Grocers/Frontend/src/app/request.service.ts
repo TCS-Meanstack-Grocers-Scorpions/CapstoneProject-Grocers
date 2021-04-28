@@ -19,8 +19,4 @@ export class RequestService {
   retrieveAllRequests():Observable<Request[]>{
     return this.http.get<Request[]>("http://localhost:9090/request/getRequests")
   }
-
-  deleteRequestById(id:any):any{
-    return this.http.delete('http://localhost:9090/request/deleteRequest/'+id,{responseType:"text"})
-  }
 }

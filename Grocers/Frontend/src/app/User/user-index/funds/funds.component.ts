@@ -7,6 +7,7 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./funds.component.css']
 })
 export class FundsComponent implements OnInit {
+
   currentFunds? = 0;
   id = sessionStorage.getItem("curUserId");
   constructor(public userSer:UsersService) { }
@@ -23,6 +24,7 @@ export class FundsComponent implements OnInit {
       this.currentFunds = result[0].funds;
     }
       )
+
   }
 
 }

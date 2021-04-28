@@ -18,10 +18,10 @@ let updateStatus = (req, res) => {
       console.log(err);
     });
 };
-let getOrdersByUserID = (req,res)=>{
+let getOrdersByUserID = (req, res) => {
   let uid = req.params.uid;
-  OrderModel.find({userID:uid},(err,result)=>{
-    if(!err) res.json(result);
-  })
-}
-module.exports = { updateStatus,getOrdersByUserID};
+  OrderModel.find({ userID: uid }, (err, result) => {
+    if (!err) res.json(result);
+  });
+};
+module.exports = { updateStatus, getOrdersByUserID };

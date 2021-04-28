@@ -16,19 +16,11 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  checkButton(): any {
-    if (this.numberlogin >= 3) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   goTo(): void {
     this.router.navigate(['./signup']);
   }
   goto(): void {
-    this.router.navigate(['user-index/raise-ticket']);
+    this.router.navigate(['./raise-ticket']);
   }
   checkUser(userRef: any): void {
     const id = userRef.id;
@@ -43,6 +35,7 @@ export class SigninComponent implements OnInit {
         alert('Your account is locked, please raise a ticket');
       }
       else {
+
         this.resultMsg = 'Wrong Id or Password';
         //console.log(result[0]._id, typeof(result[0].pass));
         this.numberlogin += 1;
@@ -50,9 +43,9 @@ export class SigninComponent implements OnInit {
         // add authguard
         if (this.numberlogin == 3){
           // tslint:disable-next-line:no-shadowed-variable
-          this.user.lockUser(userRef).subscribe((result: string) => {
+        /* this.user.updateUserById(userRef).subscribe((result: string) => {
             this.resultMsg = result;
-          });
+          });*/
         }
       }
     });

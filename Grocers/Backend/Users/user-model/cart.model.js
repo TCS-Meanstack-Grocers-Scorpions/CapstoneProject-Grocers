@@ -6,7 +6,8 @@ let CartSchema = mongoose.Schema({
     quantity: Number,
     name: String,
     price: Number,
-    userId:String
+    userId:String,
+    imgId:Number
 })
 
 let TicketModel = mongoose.model("cart", CartSchema, "Cart");
