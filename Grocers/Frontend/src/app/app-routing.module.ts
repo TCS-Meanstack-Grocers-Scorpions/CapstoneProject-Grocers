@@ -47,8 +47,8 @@ const routes: Routes = [
   // { path: 'unlockUsers', component: UnlockUsersComponent },
   // { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
 
-  
-  { path: 'signup', component: SignUpComponent },
+
+  { path: 'signup', component: SignUpComponent, canActivate: [UserAuthGuard]},
   { path: 'user-index/select-item', component: SelectItemsComponent },
   { path: 'purchaseComplete', component: CartComponent },
 
