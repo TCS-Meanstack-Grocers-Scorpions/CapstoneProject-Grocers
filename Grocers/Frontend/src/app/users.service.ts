@@ -35,7 +35,7 @@ export class UsersService {
 
   updateUserPassword(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserPassword/' + id, userRef, {
+      .put('http://localhost:9090/updateUserPassword/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -47,7 +47,7 @@ export class UsersService {
   }
   updateUserEmail(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserEmail/' + id, userRef, {
+      .put('http://localhost:9090/updateUserEmail/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -59,7 +59,7 @@ export class UsersService {
   }
   updateUserAddress(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserAddress/' + id, userRef, {
+      .put('http://localhost:9090/updateUserAddress/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -71,7 +71,7 @@ export class UsersService {
   }
   updateUserPhone(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserPhone/' + id, userRef, {
+      .put('http://localhost:9090/updateUserPhone/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -83,7 +83,7 @@ export class UsersService {
   }
   updateUserDOB(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserDOB/' + id, userRef, {
+      .put('http://localhost:9090/updateUserDOB/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -95,7 +95,7 @@ export class UsersService {
   }
   updateFunds(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserFunds/' + id, userRef, {
+      .put('http://localhost:9090/updateUserFunds/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(

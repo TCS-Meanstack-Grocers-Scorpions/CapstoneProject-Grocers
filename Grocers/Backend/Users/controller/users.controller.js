@@ -231,7 +231,7 @@ let updateUserPassword = (req, res) => {
   let newPass = req.body.newPass;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { pass, newPass } },
+    { $set: { pass: newPass } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -250,7 +250,7 @@ let updateUserEmail = (req, res) => {
   let newEmail = req.body.newEmail;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { email, newEmail } },
+    { $set: { email: newEmail } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -269,7 +269,7 @@ let updateUserAddress = (req, res) => {
   let newAdd = req.body.newAdd;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { address, newAdd } },
+    { $set: { address: newAdd } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -288,7 +288,7 @@ let updateUserPhone = (req, res) => {
   let newPhone = req.body.newPhone;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { phone, newPhone } },
+    { $set: { phone: newPhone } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -307,7 +307,7 @@ let updateUserDOB = (req, res) => {
   let newDOB = req.body.newDOB;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { dob, newDOB } },
+    { $set: { dob: newDOB } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
