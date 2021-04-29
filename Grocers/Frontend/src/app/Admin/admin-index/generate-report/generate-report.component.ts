@@ -1,3 +1,4 @@
+import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Purchased } from 'src/app/model.purchase';
@@ -12,7 +13,7 @@ import { ProductService } from 'src/app/product.service';
 })
 export class GenerateReportComponent implements OnInit {
 
-  tableHeader:string = '';
+  tableHeader = '';
   products?: Array<Purchased>;
   // customer?: Array<Purchased>;
   // daily?: Array<Purchased>;
@@ -28,6 +29,7 @@ export class GenerateReportComponent implements OnInit {
     this.router.navigate(['admin-index']);
   }
   getProduct(formRef: any): void {
+
     this.purchased.getProductpurchased(formRef.productName).subscribe(result => console.log(result));
     this.tableHeader = 'Particular Product'
   }
@@ -42,10 +44,10 @@ export class GenerateReportComponent implements OnInit {
   }
   getWeekly(formRef: any): void {
     this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.products = result);
-    this.tableHeader = 'Week Report'
+    this.tableHeader = 'Week Report';
   }
   getMonthly(formRef: any): void {
     this.purchased.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => this.products = result);
-    this.tableHeader = 'Month Report'
+    this.tableHeader = 'Month Report';
   }
 }
