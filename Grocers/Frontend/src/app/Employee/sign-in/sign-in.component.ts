@@ -23,12 +23,10 @@ export class EmployeeSignInComponent implements OnInit {
         sessionStorage.setItem('curEmployeeID', id);
         this.router.navigate(['employee-index']);
         // this.msg = 'Successful';
-
       }
       else {
         this.msg = 'Employee Not Found, try again';
       }
     });
-
   }
 }

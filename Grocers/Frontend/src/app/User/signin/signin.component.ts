@@ -33,6 +33,7 @@ export class SigninComponent implements OnInit {
         // this.resultMsg = 'Successful Login';
         this.router.navigate(['user-index']);
         sessionStorage.setItem('curUserId', userRef.id);
+        sessionStorage.setItem('token', 'user');
       } else if (result[0].locked === true){
         alert('Your account is locked, please raise a ticket');
       }

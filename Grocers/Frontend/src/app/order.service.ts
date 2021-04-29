@@ -29,8 +29,8 @@ export class OrderService {
         (error) => console.log(error)
       );
   }
-  getUserpurchased(pid: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getUserPurchasedDetails/' + pid);
+  getUserpurchased(id: any): Observable<Purchased[]> {
+    return this.http.get<Purchased[]> ('http://localhost:9090/getUserPurchasedDetails/' + id);
   }
   getProductpurchased(product: any): Observable<Purchased[]> {
     return this.http.get<Purchased[]> ('http://localhost:9090/getProductPurchasedDetails/' + product);

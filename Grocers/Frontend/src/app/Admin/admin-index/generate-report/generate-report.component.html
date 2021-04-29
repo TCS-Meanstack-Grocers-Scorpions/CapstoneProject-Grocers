@@ -14,7 +14,7 @@
     <div class="container"><br><br>
       <div class="row">
         <div class="col">
-            <h4>Particular product reports</h4>   
+            <h4>Particular product report</h4>   
             <form #formRef = 'ngForm' (ngSubmit) = 'getProduct(formRef.value)'>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Product Name: </label>
@@ -24,7 +24,8 @@
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
-            <h4>Particular customer reports</h4>
+
+            <h4>Particular customer report</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getCustomer(formRef.value)'>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">user ID: </label>
@@ -34,7 +35,8 @@
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
-            <h4>Daily reports</h4>
+
+            <h4>Daily report</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getDaily(formRef.value)'>    
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter Date: </label>
@@ -46,7 +48,8 @@
             </form>
         </div>
         <div class="col">
-            <h4>Weekly reports</h4>
+
+            <h4>Weekly report</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getWeekly(formRef.value)'>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter Start Date: </label>
@@ -62,7 +65,8 @@
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
-            <h4>Monthly reports</h4>
+
+            <h4>Monthly report</h4>
             <form #formRef = 'ngForm' (ngSubmit) = 'getMonthly(formRef.value)'>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter Start Date: </label>
@@ -85,20 +89,21 @@
         <h3>Report</h3>
         <div class="row">
             <div class="col">
-                <!-- <table class="table">
+                <table class="table">
+                    <thead>{{tableHeader}}</thead>
                     <tr>
                         <th>Prduct Id</th>
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
                     </tr>
-                    <tr *ngFor="let p of products">
-                        <td>{{p._id}}</td>
-                        <td>{{p.name}}</td>
-                        <td>{{p.price}}</td>
-                        <td>{{p.quantity}}</td>
-                    </tr>
-                </table> -->
+                    <!-- <tr *ngFor="let p of products">
+                        <td>{{p.items.pid}}</td>
+                        <td>{{p.items.name}}</td>
+                        <td>{{p.items.price}}</td>
+                        <td>{{p.items.quantity}}</td>
+                    </tr> -->
+                </table>
             </div>
         </div>
     </div>
