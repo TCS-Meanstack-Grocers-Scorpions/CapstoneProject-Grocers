@@ -92,12 +92,14 @@
                 <table class="table">
                     <thead>{{tableHeader}}</thead>
                     <tr>
+                        <th>User Id</th>
                         <th>Prduct Id</th>
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
                     </tr>
                     <tr *ngFor="let p of products">
+                        <td>{{p.uid}}</td>
                         <td>{{p.pid}}</td>
                         <td>{{p.name}}</td>
                         <td>{{p.price}}</td>
