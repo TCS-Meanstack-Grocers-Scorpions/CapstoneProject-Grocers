@@ -21,35 +21,35 @@ export class UsersService {
 
   updateUserPassword(userRef: any, id: any): void {
     this.http.put(
-      'http://localhost:9090/user/updateUserPassword' + id,
+      'http://localhost:9090/user/updateUserPassword/' + id,
       userRef,
       { responseType: 'text' }
     );
   }
   updateUserEmail(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserEmail' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserEmail/' + id, userRef, {
       responseType: 'text',
     });
   }
   updateUserAddress(userRef: any, id: any): void {
     this.http.put(
-      'http://localhost:9090/user/updateUserAddress' + id,
+      'http://localhost:9090/user/updateUserAddress/' + id,
       userRef,
       { responseType: 'text' }
     );
   }
   updateUserPhone(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserPhone' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserPhone/' + id, userRef, {
       responseType: 'text',
     });
   }
   updateUserDOB(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserDOB' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserDOB/' + id, userRef, {
       responseType: 'text',
     });
   }
   updateFunds(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserFunds' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserFunds/' + id, userRef, {
       responseType: 'text',
     });
   }
