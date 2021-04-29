@@ -50,7 +50,6 @@ export class SigninComponent implements OnInit {
         if (this.numberlogin === 3) {
           // tslint:disable-next-line:no-shadowed-variable
           this.user.lockUser(userRef).subscribe((result: string) => {
-            this.resultMsg = result;
             this.showButton = true;
             alert('Your account is locked, please raise a ticket');
           });
