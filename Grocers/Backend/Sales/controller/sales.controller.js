@@ -52,7 +52,8 @@ let datePurchased = (req,res)=>{
 let twoDatesPurchaseed = (req,res)=>{
     let date = req.params.date;
     let date2 = req.params.date2;
-    SalesModel.find({ datePurchased: {$gt:date, $ls:date2}}, (err,result) => {
+    console.log(date, date2)
+    SalesModel.find({ datePurchased: {$gte:date, $lte:date2}}, (err,result) => {
         if(!err){
             res.json(result);
         }
