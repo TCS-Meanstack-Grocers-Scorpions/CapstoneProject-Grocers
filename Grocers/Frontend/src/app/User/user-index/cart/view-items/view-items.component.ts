@@ -76,7 +76,7 @@ this.total = this.total + (result[i].price * result[i].quantity);
     const updateQ = (document.getElementById('nums' + i) as HTMLInputElement).value;
     const updatedCart = { pid: this.cartProducts[i].pid, quantity: updateQ , userId: this.userId};
     this.getItemsService.updateCart(updatedCart);
-    // setTimeout(function() { location.reload(); }, 500);
+     setTimeout(function() { location.reload(); }, 500);
   }
 
   deleteCartItem(i: any): void {
@@ -85,16 +85,14 @@ this.total = this.total + (result[i].price * result[i].quantity);
     this.getItemsService.deleteItem(delete2);
     const item = document.getElementById('item' + i);
     if (item) { item.style.display = 'none'; }
-    // setTimeout(function() { location.reload(); }, 500);
+     setTimeout(function() { location.reload(); }, 500);
   }
 
   Purchased(): void{
    const cartarray = [];
-   // tslint:disable-next-line:prefer-for-of
    for (let j = 0; j < this.cartProducts.length; j++){
     const date = new Date();
     const storedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-    // tslint:disable-next-line:max-line-length
     const obj = new Items(this.cartProducts[j].pid, this.cartProducts[j].name , this.cartProducts[j].quantity, this.cartProducts[j].price, storedDate, 'Processing');
     this.getItemsService.addPurchasedItem(obj);
     cartarray.push(obj);
@@ -104,8 +102,8 @@ this.total = this.total + (result[i].price * result[i].quantity);
    }
    const changeInfo = {userId: this.userId, total: this.total};
    const purchased = new Purchased (this.userId, cartarray, this.total);
-   //this.getItemsService.Purchaseitems(purchased);
-   //this.getItemsService.changeFunds(changeInfo);
+   this.getItemsService.Purchaseitems(purchased);
+   this.getItemsService.changeFunds(changeInfo);
    for(let k=0;k<cartarray.length;k++){
 this.getItemsService.updateProductQuantity(cartarray[k]);
    }
