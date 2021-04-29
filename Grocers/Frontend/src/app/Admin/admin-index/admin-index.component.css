@@ -10,6 +10,16 @@ nav{
 a{
     color: white;
 }
+.dropdown-item {
+    color: black;
+}
+.dropdown {
+    margin: 5px;
+}
+#dropdownMenuButton {
+    background-color: rgb(1, 71, 1);
+    border: none;
+}
 #table, table{
     width:min-content;
 }
