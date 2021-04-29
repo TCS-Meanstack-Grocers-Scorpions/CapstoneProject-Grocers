@@ -18,8 +18,8 @@ export class UsersService {
       'http://localhost:9090/user/getUserByID/' + id
     );
   }
-  getUserDetails(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:9090/getUserDetails/');
+  getUserDetails(email: any): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:9090/getUserDetails/' + email);
   }
 
   updateUserPassword(userRef: any, id: any): void {
