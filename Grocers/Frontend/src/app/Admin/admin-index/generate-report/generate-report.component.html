@@ -1,88 +1,106 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-          <b class="navbar-brand">Generate Reports</b>
-          <div id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <button class="nav-link btn btn-link" (click)="back()">Back</button>
-              </li>
-            </ul>
-          </div>
+            <b class="navbar-brand">Generate Reports</b>
+            <div id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" (click)="back()">Back</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="container"><br><br>
-      <div class="row">
-        <div class="col">
-            <h4>Particular product report</h4>   
-            <form #formProductRef = 'ngForm' (ngSubmit) = 'getProduct(formProductRef.value)' ngNativeValidate>
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Product Name: </label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" name="productName" required ngModel/>
-                    </div>
+        <div class="row">
+            <div class="col">
+                <div style="text-align: center;">
+                    <input type="button" value="Product Report" (click)="toggleReport()">
+                    <input type="button" value="Customer Report" (click)="toggleUser()">
+                    <input type="button" value="Daily Report" (click)="toggleDaily()">
+                    <input type="button" value="Multiple Dates Report" (click)="toggleMultiple()">
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
-            </form><br>
+                <hr>
+                <div  *ngIf="showProduct" #form>
+                    <form #formProductRef='ngForm' (ngSubmit)='getProduct(formProductRef.value)' ngNativeValidate>
+                        <h4>Particular product report</h4>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Product Name: </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="productName" required ngModel />
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-secondary m-2" value="Generate Report">
+                    </form><br>
+                </div>
+                <div *ngIf="showUser" #form>
+                    <br>
+                    <form #formCRef='ngForm' (ngSubmit)='getCustomer(formCRef.value)' ngNativeValidate>
+                        <h4>Particular customer report</h4>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">user ID: </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="userID" required ngModel />
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-secondary m-2" value="Generate Report">
+                    </form><br>
+                </div>
+                <div *ngIf="showDaily" #form>
+                    <br>
+                    <form #formDRef='ngForm' (ngSubmit)='getDaily(formDRef.value)' ngNativeValidate>
+                        <h4>Daily report</h4>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Enter Date: </label>
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="StartDate" required ngModel />
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-secondary m-2" value="Generate Report">
+                    </form>
+                </div>
+                <div *ngIf="showMultiple" #form>
+                    <br>
+                    <form #formWRef='ngForm' (ngSubmit)='getWeekly(formWRef.value)' ngNativeValidate>
+                        <h4>Multiple Dates</h4>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Enter Start Date: </label>
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="StartDate" required ngModel />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Enter End Date: </label>
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="EndDate" required ngModel />
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-secondary m-2" value="Generate Report">
+                    </form><br>
 
-            <h4>Particular customer report</h4>
-            <form #formCRef = 'ngForm' (ngSubmit) = 'getCustomer(formCRef.value)' ngNativeValidate>
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">user ID: </label>
-                    <div class="col-sm-7">
-                    <input type="text" class="form-control" name="userID" required ngModel/>
-                    </div>
                 </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
-            </form><br>
 
-            <h4>Daily report</h4>
-            <form #formDRef = 'ngForm' (ngSubmit) = 'getDaily(formDRef.value)' ngNativeValidate>    
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Enter Date: </label>
-                    <div class="col-sm-7">
-                        <input type="date" class="form-control" name="StartDate" required ngModel/>
-                    </div>
-                </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
-            </form>
-        </div>
-        <div class="col">
+                <!-- <div>
+                    <h4>Monthly report</h4>
+                    <form #formMonthRef='ngForm' (ngSubmit)='getMonthly(formMonthRef.value)' ngNativeValidate>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Enter Start Date: </label>
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="StartDate" required ngModel />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Enter End Date: </label>
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control" name="EndDate" required ngModel />
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-secondary m-2" value="Generate Report">
+                    </form>
 
-            <h4>Weekly report</h4>
-            <form #formWRef = 'ngForm' (ngSubmit) = 'getWeekly(formWRef.value)' ngNativeValidate>
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Enter Start Date: </label>
-                    <div class="col-sm-7">
-                        <input type="date" class="form-control" name="StartDate" required ngModel/>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Enter End Date: </label>
-                    <div class="col-sm-7">
-                        <input type="date" class="form-control" name="EndDate" required ngModel/>
-                    </div>
-                </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
-            </form><br>
+                </div> -->
 
-            <h4>Monthly report</h4>
-            <form #formMonthRef = 'ngForm' (ngSubmit) = 'getMonthly(formMonthRef.value)' ngNativeValidate>
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Enter Start Date: </label>
-                    <div class="col-sm-7">
-                        <input type="date" class="form-control" name="StartDate" required ngModel/>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Enter End Date: </label>
-                    <div class="col-sm-7">
-                        <input type="date" class="form-control" name="EndDate" required ngModel/>
-                    </div>
-                </div>
-                <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
-            </form>
-        </div>
+            </div>
         </div>
         <br>
         <hr>
