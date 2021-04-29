@@ -72,7 +72,7 @@ export class SelectItemsComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     const newCartitem = { _id: this.products[i]._id, name: this.products[i].name, price: this.products[i].price, quantity: num.value, userId: this.UserId, imgId: i };
     this.getItemsService.AddtoCart(newCartitem);
-    num.value = '1';
+    num.value = '0';
     const output = document.getElementById('msg' + i);
     console.log(newCartitem.imgId);
     if (output) { output.innerHTML = 'Added'; }
