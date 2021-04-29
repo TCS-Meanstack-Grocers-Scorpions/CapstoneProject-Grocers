@@ -5,6 +5,7 @@ let CartModel = require('../user-model/cart.model');
 const PurchaseModel = require('../user-model/purchased.model.js');
 
 const ObjectId = require('mongodb').ObjectId;
+const ItemModel = require('../user-model/item.model.js');
 
 
 //adding users
@@ -296,14 +297,22 @@ let changeUserFund= (req,res)=> {
 let updateProductQuantity= (req,res)=> {
   ProductModel.findOne({_id:req.body.pid},(err,result)=>{
     let newQ=result.quantity-req.body.quantity;
-    console.log(result)
-    console.log("this is q " +req.body.quantity)
-    console.log(req.body.pid);
     ProductModel.updateOne({_id:req.body.pid},{$set:{quantity:newQ}},(err,result)=>{});
   })
 }
-
+let addPurchased=(req,res)=> {
+  let Item= new ItemModel({
+    pid:req.body.pid,
+    name:req.body.name,
+    price:req.body.price,
+    quantity:req.body.quantity,
+    datePurchased:req.body.datePurchased,
+    orderStatus:req.body.orderStatus
+  })
+  Item.save();
+}
 module.exports = {
+  addPurchased,
   updateProductQuantity,
   lockUser,
   storeUserDetails,

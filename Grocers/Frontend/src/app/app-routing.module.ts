@@ -47,9 +47,9 @@ const routes: Routes = [
   // { path: 'unlockUsers', component: UnlockUsersComponent },
   // { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
 
-  { path: 'selectItems/cart', component: ViewItemsComponent },
+  
   { path: 'signup', component: SignUpComponent },
-  { path: 'selectItems', component: SelectItemsComponent },
+  { path: 'user-index/select-item', component: SelectItemsComponent },
   { path: 'purchaseComplete', component: CartComponent },
 
   { path: 'user-index', component: UserIndexComponent, canActivate: [UserAuthGuard]},
@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: 'user-index/edit-profile', component: EditProdileComponent, canActivate: [UserAuthGuard] },
   { path: 'user-index/order-status', component: OrderStatusComponent, canActivate: [UserAuthGuard] },
   { path: 'user-index/view-item', component: ViewItemsComponent, canActivate: [UserAuthGuard] },
-  { path: 'user-index/raise-ticket', component: RaiseTicketComponent, canActivate: [UserAuthGuard] },
+  { path: 'user-index/raise-ticket', component: RaiseTicketComponent },
 ];
 
 @NgModule({
