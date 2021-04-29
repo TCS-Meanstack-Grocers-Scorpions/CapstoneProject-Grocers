@@ -307,7 +307,8 @@ let addPurchased=(req,res)=> {
     price:req.body.price,
     quantity:req.body.quantity,
     datePurchased:req.body.datePurchased,
-    orderStatus:req.body.orderStatus
+    orderStatus:req.body.orderStatus,
+    userId:req.params.userId
   })
   Item.save();
 }

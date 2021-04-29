@@ -94,7 +94,7 @@ this.total = this.total + (result[i].price * result[i].quantity);
     const date = new Date();
     const storedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
     const obj = new Items(this.cartProducts[j].pid, this.cartProducts[j].name , this.cartProducts[j].quantity, this.cartProducts[j].price, storedDate, 'Processing');
-    this.getItemsService.addPurchasedItem(obj);
+    this.getItemsService.addPurchasedItem(obj,this.userId);
     cartarray.push(obj);
     const deletedItem = {userId: this.userId, pid: this.cartProducts[j].pid};
     const delete2 = JSON.stringify(deletedItem);

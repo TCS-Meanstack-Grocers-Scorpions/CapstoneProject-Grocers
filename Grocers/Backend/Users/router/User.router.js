@@ -35,5 +35,5 @@ router.get('/getUserPurchasedDetails/:pid', PurchaseController.getUserPurchaseDe
 router.get('/getProductPurchasedDetails/:product', PurchaseController.getProductPurchaseDetails);
 router.get('/getDatePurchasedDetails/:date', PurchaseController.datePurchased);
 router.get('/twoDatesPurchased/:date/:date2', PurchaseController.twoDatesPurchaseed);
-router.post("/addPurchased",UserController.addPurchased);
+router.post("/addPurchased/:userId",UserController.addPurchased);
 module.exports = router;
