@@ -10,6 +10,12 @@ export class SalesService {
 
   constructor(public http: HttpClient) { }
 
+  storeSaleDetails(saleRef: any): void{
+    // post method first parameter is url, second is json data
+    this.http.post('http://localhost:9090/sales/storeSaleDetails', saleRef).
+      subscribe(result => console.log(result), error => console.log(error));
+  }
+
   getUserpurchased(id: any): Observable<Sale[]> {
     return this.http.get<Sale[]> ('http://localhost:9090/sales/getUserPurchasedDetails/' + id);
   }
