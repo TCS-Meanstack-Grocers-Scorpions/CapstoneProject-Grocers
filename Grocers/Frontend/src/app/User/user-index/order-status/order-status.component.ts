@@ -10,10 +10,11 @@ import { OrderService } from 'src/app/order.service';
 })
 export class OrderStatusComponent implements OnInit {
   orders?: Array<Order>;
+  id = sessionStorage.getItem("curUserID");
   constructor(public orderSer: OrderService) { }
 
   ngOnInit(): void {
-    this.orderSer.getOrdersByUserID('').subscribe(result => {
+    this.orderSer.getOrdersByUserID(this.id).subscribe(result => {
       this.orders = result;
     });
   }
