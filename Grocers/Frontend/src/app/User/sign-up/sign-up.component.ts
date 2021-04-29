@@ -19,9 +19,6 @@ export class SignUpComponent implements OnInit {
    console.log(userRef);
    this.user.storeUserDetailsInfo(userRef);
    sessionStorage.setItem('token', 'user');
-   this.user.getUserDetails(userRef.email).subscribe(result => {
-     console.log(result);
-   });
-   this.router.navigate(['user-index']); // MAY WANT TO CHANGE LATER
+   this.router.navigate(['shopper']); // MAY WANT TO CHANGE LATER
  }
 }
