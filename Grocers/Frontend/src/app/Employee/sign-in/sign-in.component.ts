@@ -23,25 +23,10 @@ export class EmployeeSignInComponent implements OnInit {
         sessionStorage.setItem('curEmployeeID', id);
         this.router.navigate(['employee-index']);
         // this.msg = 'Successful';
-
       }
       else {
         this.msg = 'Employee Not Found, try again';
-//   employeeLogin(empRef:any){
-//     let id = empRef.empID;
-//     let pass = empRef.empPass;
-//     this.empSer.getEmployeeByID(id).subscribe(result=>{
-//       if(result?.length>0){
-//         if(result[0].pass == pass){
-//           sessionStorage.setItem("curEmployeeID",id);
-//           this.router.navigate(["employee-index"]);
-
-//         }
-//         else{
-//           this.msg = 'Employee Not Found, try again';
-//         }
       }
     });
-
   }
 }
