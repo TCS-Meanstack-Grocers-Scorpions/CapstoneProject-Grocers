@@ -22,23 +22,20 @@ let storeUserDetails = (req, res) => {
   let uid;
   product.save((err, result) => {
     if (!err) {
-     res.send('Records stored successfully');
+      res.send('Records stored successfully');
     } else {
       res.send("Record didn't store...");
     }
-
   });
 
-  UserModel.find({},(err,result)=> { // gets it to display on the back end
-    console.log(result[result.length-1]);
-    uid=result.length-1;
-    if(!err) {
+  UserModel.find({}, (err, result) => {
+    // gets it to display on the back end
+    console.log(result[result.length - 1]);
+    uid = result.length - 1;
+    if (!err) {
       // cannot get it to send idk why
     }
-  })
-  
-  
-
+  });
 };
 
 let getUserById = (req, res) => {
@@ -62,6 +59,20 @@ let getOpenTickets = (req, res) => {
   TicketModel.find({}, (err, result) => {
     if (!err) {
       res.json(result);
+    }
+  });
+};
+
+let deleteTicket = (req, res) => {
+  let ticket = req.body.ticketId;
+  //convert to string
+  let tid = '' + ticket;
+  console.log(tid);
+  TicketModel.deleteOne({ _id: tid }, (err, result) => {
+    if (!err) {
+      res.json(result);
+    } else {
+      console.log(err);
     }
   });
 };
@@ -405,4 +416,5 @@ module.exports = {
   changeUserFund,
   getUserDetails,
   getOpenTickets,
+  deleteTicket,
 };

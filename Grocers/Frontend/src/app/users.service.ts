@@ -26,6 +26,20 @@ export class UsersService {
     return this.http.get<any[]>('http://localhost:9090/getRaisedTickets');
   }
 
+  resolveTicket(ticketId: string): void {
+    console.log('resolveTicket in SVC fired: ' + String(ticketId));
+    this.http
+      .put('http://localhost:9090/resolveRaisedTickets', ticketId, {
+        responseType: 'text',
+      })
+      .subscribe(
+        (result) => {
+          console.log(result);
+        },
+        (error) => console.log(error)
+      );
+  }
+
   updateUserPassword(userRef: any, id: any): void {
     this.http
       .put('http://localhost:9090/user/updateUserPassword/' + id, userRef, {
@@ -182,7 +196,6 @@ export class UsersService {
 
   unlockUser(unlockRef: any): any {
     console.log('unlockUser Service called');
-    // tslint:disable-next-line:max-line-length
     return this.http
       .put('http://localhost:9090/unlockUsers/', unlockRef, {
         responseType: 'text',
