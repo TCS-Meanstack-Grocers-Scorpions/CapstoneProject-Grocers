@@ -33,6 +33,7 @@
 <div>
   <button  class="btn btn-dark btn-lg" type="button" name="user" routerLink='../'>Back</button>
   <button  routerLink="../../purchaseComplete" class="btn btn-dark btn-lg" type="button" name="user" (click)="Purchased()" style="position: relative;float:right;">Purchase: ${{total}}</button> 
+  <p id='err' style="color:red"></p>
   <div *ngFor="let item of cartProducts; let i=index;">
     <div [id]="'item'+i">
       <!-- <img [src]="'/assets/images/'+ 'product'+cartProducts[i].imgId+'.png'" alt="" [id]="'img'+i">-->

@@ -6,5 +6,6 @@ router.get('/getUserPurchasedDetails/:uid', SalesController.getUserPurchaseDetai
 router.get('/getProductPurchasedDetails/:pid', SalesController.getProductPurchaseDetails);
 router.get('/getDatePurchasedDetails/:date', SalesController.datePurchased);
 router.get('/twoDatesPurchased/:date/:date2', SalesController.twoDatesPurchaseed);
+router.post('/storeSaleDetails', SalesController.storeSaleDetails);
 
 module.exports=router;

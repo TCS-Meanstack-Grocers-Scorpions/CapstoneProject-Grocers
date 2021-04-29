@@ -17,6 +17,7 @@ export class ViewItemsComponent implements OnInit {
   products: Array<Product> = [];
   userId: any = sessionStorage.getItem('curUserId'); // get from local store later
   total = 0;
+  currentFunds=0
   constructor(public getItemsService: UsersService,public saleServie:SalesService) { }
 
   ngOnInit(): void {
@@ -30,6 +31,9 @@ this.total = this.total + (result[i].price * result[i].quantity);
     this.getItemsService.selectAllitems().subscribe(result => {
       this.products = result;
     });
+    this.getItemsService.retrieveUserById(this.userId).subscribe(result => {
+      this.currentFunds = result[0].funds;
+    })
   }
 
   increment(id: any, val: any, i: any): void {
@@ -91,12 +95,14 @@ this.total = this.total + (result[i].price * result[i].quantity);
 
   Purchased(): void{
    const cartarray = [];
+   if(this.currentFunds>this.total){
    for (let j = 0; j < this.cartProducts.length; j++){
     const date = new Date();
-    let storedDate=date.getFullYear()+ '-'+(date.getMonth() + 1)+date.getDate()
+    let storedDate=date.getFullYear()+ '-'+(date.getMonth() + 1)+ '-'+date.getDate()
     const obj = new Items(this.cartProducts[j].pid, this.cartProducts[j].name , this.cartProducts[j].quantity, this.cartProducts[j].price, storedDate, 'Processing');
-    let obj2={uid:this.userId,pid:this.cartProducts[j].pid,price:this.cartProducts[j].price,quantity:this.cartProducts[j].quantity,datePurchased:storedDate} //sales item to send
+    let obj2={uid:this.userId,pid:this.cartProducts[j].pid,name:this.cartProducts[j].name, price:this.cartProducts[j].price,quantity:this.cartProducts[j].quantity,datePurchased:storedDate} //sales item to send
     this.saleServie.storeSaleDetails(obj2); // sales service
+    // console.log(obj2);
     this.getItemsService.addPurchasedItem(obj,this.userId);
     cartarray.push(obj);
     const deletedItem = {userId: this.userId, pid: this.cartProducts[j].pid};
@@ -111,4 +117,9 @@ this.total = this.total + (result[i].price * result[i].quantity);
 this.getItemsService.updateProductQuantity(cartarray[k]);
    }
   }
+  else {
+   let err=document.getElementById("err");
+   if(err) err.innerHTML="insufficent Funds"
+  }
+}
 }
