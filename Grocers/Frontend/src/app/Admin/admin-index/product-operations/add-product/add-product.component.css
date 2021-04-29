@@ -1,0 +1,25 @@
+.main {
+    max-width: fit-content;
+    max-height: fit-content;
+    /* border: black solid 3px; */
+    border-radius: 10px;
+    align-self: center;
+    padding: 6px;
+    margin: 40px;
+    float: left;
+}
+.main2 {
+    width: 400px;
+    max-height: fit-content;
+    /* border: black solid 3px; */
+    border-radius: 10px;
+    align-self: center;
+    padding: 6px;
+    margin: 40px;
+    float: left;
+
+}
+nav{
+    background-color: rgb(1, 71, 1);
+}
+

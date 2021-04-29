@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from 'src/app/model.tickets';
 import { UsersService } from 'src/app/users.service';
-
 
 @Component({
   selector: 'app-unlock-users',
@@ -9,13 +9,22 @@ import { UsersService } from 'src/app/users.service';
 })
 export class UnlockUsersComponent implements OnInit {
   constructor(public userServ: UsersService) {}
+  tickets?: Array<Ticket>;
   msg?: string;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userServ.getTickets().subscribe((result) => {
+      this.tickets = result;
+    });
+  }
 
   unlockUser(unlockRef: any): void {
     console.log('unlock called from component');
     this.userServ.unlockUser(unlockRef);
     this.msg = 'User Unlocked!';
+  }
+
+  resolvedTicket() {
+    console.log('Resolved');
   }
 }
