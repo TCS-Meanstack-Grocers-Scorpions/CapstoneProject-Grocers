@@ -95,8 +95,8 @@ this.total = this.total + (result[i].price * result[i].quantity);
     const date = new Date();
     let storedDate=date.getFullYear()+ '-'+(date.getMonth() + 1)+date.getDate()
     const obj = new Items(this.cartProducts[j].pid, this.cartProducts[j].name , this.cartProducts[j].quantity, this.cartProducts[j].price, storedDate, 'Processing');
-    let obj2={uid:this.userId,pid:this.cartProducts[j].pid,price:this.cartProducts[j].price,quantity:this.cartProducts[j].quantity,datePurchased:storedDate}
-    this.saleServie.storeSaleDetails(obj2);
+    let obj2={uid:this.userId,pid:this.cartProducts[j].pid,price:this.cartProducts[j].price,quantity:this.cartProducts[j].quantity,datePurchased:storedDate} //sales item to send
+    this.saleServie.storeSaleDetails(obj2); // sales service
     this.getItemsService.addPurchasedItem(obj,this.userId);
     cartarray.push(obj);
     const deletedItem = {userId: this.userId, pid: this.cartProducts[j].pid};
