@@ -33,6 +33,7 @@ import { MainComponent } from './main/main.component';
 import { SigninComponent } from './User/signin/signin.component';
 import {EmployeeSignInComponent} from './Employee/sign-in/sign-in.component';
 import { MyAuthGuard } from './myauthguard';
+import { UserAuthGuard } from './userAuthGuard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,7 @@ import { MyAuthGuard } from './myauthguard';
     HttpClientModule,
 
   ],
-  providers: [MyAuthGuard],
+  providers: [MyAuthGuard, UserAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

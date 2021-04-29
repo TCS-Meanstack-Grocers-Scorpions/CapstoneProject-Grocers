@@ -20,6 +20,7 @@ import { OrderStatusComponent } from './User/user-index/order-status/order-statu
 import { UserIndexComponent } from './User/user-index/user-index.component';
 import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
 import { EditProfileComponent } from './Employee/employee-index/edit-profile/edit-profile.component';
+import { UserAuthGuard } from './userAuthGuard';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -51,12 +52,12 @@ const routes: Routes = [
   { path: 'selectItems', component: SelectItemsComponent },
   { path: 'purchaseComplete', component: CartComponent },
 
-  { path: 'user-index', component: UserIndexComponent },
-  { path: 'user-index/cart', component: CartComponent },
-  { path: 'user-index/edit-profile', component: EditProdileComponent },
-  { path: 'user-index/order-status', component: OrderStatusComponent },
-  { path: 'user-index/view-item', component: ViewItemsComponent },
-  { path: 'user-index/raise-ticket', component: RaiseTicketComponent },
+  { path: 'user-index', component: UserIndexComponent, canActivate: [UserAuthGuard]},
+  { path: 'user-index/cart', component: CartComponent, canActivate: [UserAuthGuard] },
+  { path: 'user-index/edit-profile', component: EditProdileComponent, canActivate: [UserAuthGuard] },
+  { path: 'user-index/order-status', component: OrderStatusComponent, canActivate: [UserAuthGuard] },
+  { path: 'user-index/view-item', component: ViewItemsComponent, canActivate: [UserAuthGuard] },
+  { path: 'user-index/raise-ticket', component: RaiseTicketComponent, canActivate: [UserAuthGuard] },
 ];
 
 @NgModule({

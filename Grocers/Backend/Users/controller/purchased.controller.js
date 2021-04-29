@@ -12,7 +12,7 @@ let getUserPurchaseDetails = (req,res)=>{
 
 let getProductPurchaseDetails = (req,res)=>{
     let product = req.params.product;
-    PurchaseModel.find({ name: product },(err,result)=>{
+    PurchaseModel.find({ items: {name:product }},(err,result)=>{
         if(!err){
             res.json(result);
         }
