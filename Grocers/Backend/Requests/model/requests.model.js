@@ -2,8 +2,8 @@ let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 let RequestSchema = mongoose.Schema({
-  empID: Number,
-  productID: Number,
+  empID: String,
+  productID: String,
   productName: String,
   reqMsg: String,
 });
