@@ -29,6 +29,7 @@ router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);
 router.post("/cart",UserController.PurchaseInfo);
 router.post("/changeFunds",UserController.changeUserFund);
+router.get("/getUserDetails/:email", UserController.getUserDetails);
 
 router.post("/updateQuantity",UserController.updateProductQuantity);
 router.get('/getUserPurchasedDetails/:pid', PurchaseController.getUserPurchaseDetails);

@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 //add
 let storeSaleDetails = (req,res)=>{
-    let sale = new SaleModel({
+    let sale = new SalesModel({
         uid:req.body.uid,
         pid:req.body.pid,
         name:req.body.name,

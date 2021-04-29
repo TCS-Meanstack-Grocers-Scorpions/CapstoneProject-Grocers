@@ -37,6 +37,15 @@ let getUserById = (req, res) => {
     }
   });
 };
+let getUserDetails = (req,res)=>{
+  email = req.param.email;
+  UserModel.find({email: email},(err,result)=>{
+      if(!err){
+          res.json(result);
+      }
+  })
+}
+
 let lockUser = (req, res) => {
   let pid = req.body.id; 
   //console.log(pid)
@@ -332,5 +341,6 @@ module.exports = {
   updateUserPhone,
   updateUserFunds,
   PurchaseInfo,
-  changeUserFund 
+  changeUserFund,
+  getUserDetails 
 };

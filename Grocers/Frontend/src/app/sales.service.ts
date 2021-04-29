@@ -12,6 +12,7 @@ export class SalesService {
 
   storeSaleDetails(saleRef: any): void{
     // post method first parameter is url, second is json data
+    // console.log(saleRef)
     this.http.post('http://localhost:9090/sales/storeSaleDetails', saleRef).
       subscribe(result => console.log(result), error => console.log(error));
   }
