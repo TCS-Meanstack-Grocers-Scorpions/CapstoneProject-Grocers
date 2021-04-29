@@ -1,11 +1,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <h3>Send Request to Admins</h3>
-    <form
-      #requestRef="ngForm"
-      (ngSubmit)="sendReq(requestRef.value)"
-      ngNativeValidate
-    >
+    <form #requestRef="ngForm" (ngSubmit)="sendReq(requestRef.value)">
       <input
         type="text"
         name="pid"
