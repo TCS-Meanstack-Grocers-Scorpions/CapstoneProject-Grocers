@@ -1,3 +1,24 @@
-<p>Purchase Completed</p>
+<!-- NavBar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <b class="navbar-brand">User ID: {{userId}}</b>
+    </div>
+    <div  class="navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            <li><a routerLink="../order-status" class="nav-link"> Order Status</a></li>
+                    <li><a routerLink="../edit-profile" class="nav-link"> Edit Profile</a></li>
+                    <li><a routerLink="../" class="nav-link"> funds</a></li>
+                    <li><a routerLink="../" class="nav-link"> View Item</a></li>
+            <li class="nav-item">
+                <a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav> 
+<br>
 
-<button  class="btn btn-dark btn-lg" type="button" name="user" routerLink='../user-index'>Back</button>
+<div id='item' style="border:3px solid black; text-align: center;"><h2>Purchase Completed</h2> 
+    <button  class="btn btn-dark btn-lg" type="button" name="user" routerLink='../user-index'>Done</button></div>
+
