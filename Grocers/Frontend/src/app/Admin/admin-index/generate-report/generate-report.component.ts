@@ -12,11 +12,9 @@ import { SalesService } from 'src/app/sales.service';
   styleUrls: ['./generate-report.component.css']
 })
 export class GenerateReportComponent implements OnInit {
-
   tableHeader = '';
   products?: Array<Sale>;
   constructor(public router: Router, public saleService:SalesService) { }
-
 
   ngOnInit(): void {
   }
@@ -25,24 +23,44 @@ export class GenerateReportComponent implements OnInit {
     this.router.navigate(['admin-index']);
   }
   getProduct(formRef: any): void {
-    this.saleService.getProductpurchased(formRef.productName).subscribe(result => console.log(result));
+    this.products = [];
+    this.saleService.getProductpurchased(formRef.productName).subscribe(result => {
+      console.log(result)
+      this.products = result
+    });
     this.tableHeader = 'Particular Product';
   }
   getCustomer(formRef: any): void {
-    this.saleService.getUserpurchased(formRef.userID).subscribe(result => console.log(result));
+    this.products = [];
+    this.saleService.getUserpurchased(formRef.userID).subscribe(result => {
+      console.log(result)
+      this.products = result
+    });
     this.tableHeader = 'Particular Customer';
   }
   getDaily(formRef: any): void {
+    this.products = [];
     console.log(formRef);
-    this.saleService.getDatepurchased(formRef.StartDate).subscribe(result => console.log(result));
+    this.saleService.getDatepurchased(formRef.StartDate).subscribe(result => {
+      console.log(result)
+      this.products = result
+    });
     this.tableHeader = 'Day Report';
   }
   getWeekly(formRef: any): void {
-    this.saleService.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => console.log(result));
+    this.products = [];
+    this.saleService.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => {
+      console.log(result)
+      this.products = result
+    });
     this.tableHeader = 'Week Report';
   }
   getMonthly(formRef: any): void {
-    this.saleService.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => console.log(result));
+    this.products = [];
+    this.saleService.getDatesPurchased(formRef.StartDate, formRef.EndDate).subscribe(result => {
+      console.log(result)
+      this.products = result
+    });
     this.tableHeader = 'Month Report';
   }
 }

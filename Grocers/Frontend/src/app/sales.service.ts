@@ -11,16 +11,16 @@ export class SalesService {
   constructor(public http: HttpClient) { }
 
   getUserpurchased(id: any): Observable<Sale[]> {
-    return this.http.get<Sale[]> ('http://localhost:9090/getUserPurchasedDetails/' + id);
+    return this.http.get<Sale[]> ('http://localhost:9090/sales/getUserPurchasedDetails/' + id);
   }
   getProductpurchased(product: any): Observable<Sale[]> {
-    return this.http.get<Sale[]> ('http://localhost:9090/getProductPurchasedDetails/' + product);
+    return this.http.get<Sale[]> ('http://localhost:9090/sales/getProductPurchasedDetails/' + product);
   }
   getDatepurchased(date: any): Observable<Sale[]> {
-    return this.http.get<Sale[]> ('http://localhost:9090/getDatePurchasedDetails/' + date);
+    return this.http.get<Sale[]> ('http://localhost:9090/sales/getDatePurchasedDetails/' + date);
   }
   getDatesPurchased(date: any, date2: any): Observable<Sale[]> {
-    return this.http.get<Sale[]> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
+    return this.http.get<Sale[]> ('http://localhost:9090/sales/twoDatesPurchased/' + date + '/' + date2);
   }
 
 }
