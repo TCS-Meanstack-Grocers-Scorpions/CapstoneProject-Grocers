@@ -42,7 +42,7 @@
                     </table>
                         <div class="input-group">
                          <input type="button" value="-" class="button-minus" data-field="quantity" (click)="decriment('inc'+i,'nums'+i)"> 
-                          <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" [id]="'nums' +i" (input)="maxobj('nums'+i,i)">
+                          <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field" [id]="'nums' +i" (input)="maxobj('nums'+i,i)">
                           <input type="button" value="+" class="button-plus" data-field="quantity" id="'inc'+i" (click)="increment('inc'+i,'nums'+i,i)">
                         </div> 
                         <input type="button" value="Add to cart" (click)="addCart('nums'+i,i)"> <p [id]="'msg'+i" style="color: red;"></p>

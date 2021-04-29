@@ -14,11 +14,11 @@ export class SigninComponent implements OnInit {
   resultMsg!: string;
   numberlogin = 0;
   users?: Array<User>;
-  lock?: boolean;
+  showButton?: boolean;
   constructor(public router: Router, public user: UsersService) { }
 
   ngOnInit(): void {
-    this.lock = false;
+    this.showButton = false;
   }
   goTo(): void {
     this.router.navigate(['./signup']);
@@ -33,7 +33,7 @@ export class SigninComponent implements OnInit {
     this.user.retrieveUserById(id).subscribe(result => {
       if (result[0].locked === true) {
         alert('Your account is locked, please raise a ticket');
-        this.lock = true;
+        this.showButton = true;
       }
       if (result[0]._id === id && result[0].pass === pass && result[0].locked === false) {
         // this.resultMsg = 'Successful Login';
@@ -50,8 +50,7 @@ export class SigninComponent implements OnInit {
         if (this.numberlogin === 3) {
           // tslint:disable-next-line:no-shadowed-variable
           this.user.lockUser(userRef).subscribe((result: string) => {
-            this.resultMsg = result;
-            this.lock = true;
+            this.showButton = true;
             alert('Your account is locked, please raise a ticket');
           });
         }

@@ -9,7 +9,7 @@
             </form>
             <a routerLink="" class="nav-link">Back</a>
             <button (click) = "goTo()">Sign Up</button>
-            <button [disabled] = "(lock == false)" routerLink='../user-index/raise-ticket'>Raise Ticket</button>
+            <button *ngIf="showButton" #button routerLink='../user-index/raise-ticket'>Raise Ticket</button>
             <br>
             <span>{{resultMsg}}</span>
             <br>
