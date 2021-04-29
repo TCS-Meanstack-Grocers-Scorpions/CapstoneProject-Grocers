@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/employee.service';
 
 
@@ -9,7 +10,7 @@ import { EmployeeService } from 'src/app/employee.service';
 })
 export class DeleteEmployeeComponent implements OnInit {
   deleteMsg?: string;
-  constructor(public emp: EmployeeService) { }
+  constructor(public router: Router, public emp: EmployeeService) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +20,9 @@ export class DeleteEmployeeComponent implements OnInit {
     this.emp.deleteEmpById(empRef.id).subscribe((result: string) => {
       this.deleteMsg = result;
     });
+  }
+  back(): void {
+    this.router.navigate(['admin-index']);
   }
 
 }

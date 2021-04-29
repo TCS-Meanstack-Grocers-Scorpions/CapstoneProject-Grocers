@@ -44,9 +44,9 @@ let deleteEmpById = (req, res) => {
   EmployeeModel.deleteOne({ _id: pid }, (err, result) => {
     if (!err) {
       if (result.deletedCount > 0) {
-        res.send('Record deleted successfully');
+        res.send('Employee deleted successfully');
       } else {
-        res.send('No such Product');
+        res.send('No such Employee');
       }
     }
   });
