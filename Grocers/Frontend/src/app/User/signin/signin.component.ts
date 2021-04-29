@@ -14,9 +14,11 @@ export class SigninComponent implements OnInit {
   resultMsg!: string;
   numberlogin = 0;
   users?: Array<User>;
+  lock?: boolean;
   constructor(public router: Router, public user: UsersService) { }
 
   ngOnInit(): void {
+    this.lock = false;
   }
   goTo(): void {
     this.router.navigate(['./signup']);
@@ -29,25 +31,28 @@ export class SigninComponent implements OnInit {
     const pass = userRef.pass;
     // console.log(id, typeof(pass));
     this.user.retrieveUserById(id).subscribe(result => {
-      if (result[0]._id === id  && result[0].pass === pass && result[0].locked === false) {
+      if (result[0].locked === true) {
+        alert('Your account is locked, please raise a ticket');
+        this.lock = true;
+      }
+      if (result[0]._id === id && result[0].pass === pass && result[0].locked === false) {
         // this.resultMsg = 'Successful Login';
         this.router.navigate(['user-index']);
         sessionStorage.setItem('curUserId', userRef.id);
         sessionStorage.setItem('token', 'user');
-      } else if (result[0].locked === true){
-        alert('Your account is locked, please raise a ticket');
       }
       else {
-
         this.resultMsg = 'Wrong Id or Password';
         // console.log(result[0]._id, typeof(result[0].pass));
         this.numberlogin += 1;
         console.log(this.numberlogin);
         // add authguard
-        if (this.numberlogin === 3){
+        if (this.numberlogin === 3) {
           // tslint:disable-next-line:no-shadowed-variable
-         this.user.lockUser(userRef).subscribe((result: string) => {
+          this.user.lockUser(userRef).subscribe((result: string) => {
             this.resultMsg = result;
+            this.lock = true;
+            alert('Your account is locked, please raise a ticket');
           });
         }
       }
