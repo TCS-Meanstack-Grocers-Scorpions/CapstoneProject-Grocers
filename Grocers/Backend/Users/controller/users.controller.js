@@ -38,7 +38,8 @@ let getUserById = (req, res) => {
   });
 };
 let getUserDetails = (req,res)=>{
-  UserModel.find({},(err,result)=>{
+  email = req.param.email;
+  UserModel.find({email: email},(err,result)=>{
       if(!err){
           res.json(result);
       }
