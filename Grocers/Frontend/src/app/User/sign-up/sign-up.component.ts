@@ -18,12 +18,10 @@ export class SignUpComponent implements OnInit {
   storeUser(userRef: any): void {
    console.log(userRef);
    this.user.storeUserDetailsInfo(userRef);
-   sessionStorage.setItem('token', 'user');
-   this.user.getUserDetails(userRef.email).subscribe(result => {
-     console.log(result[0]._id);
-     sessionStorage.setItem('curUserId', userRef.id);
-
-   });
+  //  sessionStorage.setItem('token', 'user');
+  //  this.user.getUserDetails(userRef.email).subscribe(result => {
+  //    console.log(result);
+  //  });
    this.router.navigate(['user-index']); // MAY WANT TO CHANGE LATER
  }
 }
