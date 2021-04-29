@@ -24,29 +24,29 @@ export class UsersService {
       'http://localhost:9090/user/updateUserPassword/' + id,
       userRef,
       { responseType: 'text' }
-    );
+    ).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
   updateUserEmail(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserEmail/' + id, userRef, {
       responseType: 'text',
-    });
+    }).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
   updateUserAddress(userRef: any, id: any): void {
     this.http.put(
       'http://localhost:9090/user/updateUserAddress/' + id,
       userRef,
       { responseType: 'text' }
-    );
+    ).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
   updateUserPhone(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserPhone/' + id, userRef, {
       responseType: 'text',
-    });
+    }).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
   updateUserDOB(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserDOB/' + id, userRef, {
       responseType: 'text',
-    });
+    }).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
   updateFunds(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserFunds/' + id, userRef, {

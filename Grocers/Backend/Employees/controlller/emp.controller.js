@@ -76,6 +76,10 @@ let editEmpPro = (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-};
-
-module.exports = { empUserDetails, deleteEmpById, editEmpPro, getEmpByID };
+}; 
+let changeEmpPassword = (req,res) =>{
+  let eid = req.params.eid;
+  let newPass = req.body.newPass;
+  EmployeeModel.updateOne({_id:new ObjectId(eid)},{$set: {pass:newPass}})
+}
+module.exports = { empUserDetails, deleteEmpById, editEmpPro, getEmpByID,changeEmpPassword };

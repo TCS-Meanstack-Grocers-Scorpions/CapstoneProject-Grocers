@@ -9,4 +9,12 @@
         <a routerLink="" class="nav-link">Back</a><br>
         {{msg}}
     </div>
+    <div ng-if = "showChangePass" id = "changePassForm">
+        Change Password From Default
+        <form #empRef = "ngForm" (ngSubmit) = "changeEmployeePassword(empRef.value)">
+        <input type = "text" name = "id" placeholder = "Re-Enter ID" ngModel>
+        <input type = "password" name = "newPass" placeholder = "New Password" ngModel>
+        <input type = "submit" value = "Change Password">
+        </form>
+    </div>
 </div>
