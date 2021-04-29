@@ -25,8 +25,9 @@ a{
 }
 
 .col {
-    max-width: 613px;
+    max-width: fit-content;
     border: 3px solid black; 
     border-radius: 30px;
-    margin: 5px;
+    margin: auto;
+    margin-top: 50px;
 }
