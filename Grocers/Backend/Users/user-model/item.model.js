@@ -8,6 +8,7 @@ let ItemSchema = mongoose.Schema({
        quantity:Number,
        datePurchased:String,
        orderStatus:String,
+       userId:String
 })
 let ItemModel = mongoose.model("itemsPurchased",ItemSchema,"itemsPurchased");
 
