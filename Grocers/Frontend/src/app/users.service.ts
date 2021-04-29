@@ -51,7 +51,7 @@ export class UsersService {
   updateFunds(userRef: any, id: any): void {
     this.http.put('http://localhost:9090/user/updateUserFunds/' + id, userRef, {
       responseType: 'text',
-    });
+    }).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
 
 

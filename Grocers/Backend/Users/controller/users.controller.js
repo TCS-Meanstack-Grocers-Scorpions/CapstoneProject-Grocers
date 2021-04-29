@@ -262,7 +262,7 @@ let updateUserFunds = (req, res) => {
       curFunds = result[0].funds;
     }
   let totalFunds = addedFunds + curFunds;
-  UserModel.updateMany({ _id: uid }, { $set: { funds, totalFunds } },(err,result)=> {
+  UserModel.updateMany({ _id: uid }, { $set: { funds: totalFunds } },(err,result)=> {
     if(!err){
         if(result.nModified>0){
                 res.send("Record updated succesfully")
