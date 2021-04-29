@@ -10,7 +10,7 @@ import { EmployeeService } from 'src/app/employee.service';
 })
 export class EmployeeSignInComponent implements OnInit {
   msg?: string;
-  showChangePass:boolean = true;
+  showChangePass:boolean = false;
   constructor(public empSer: EmployeeService, public router: Router) { }
 
   ngOnInit(): void {
@@ -20,15 +20,15 @@ export class EmployeeSignInComponent implements OnInit {
     const id = empRef.empID;
     const pass = empRef.empPass;
     this.empSer.getEmployeeByID(id).subscribe(result => {
-      if (result[0]._id === id && result[0].pass === pass && pass!= "Welcome123") {
+      if (result[0]._id === id && result[0].pass === pass /*&& pass!= "Welcome123"*/) {
         sessionStorage.setItem('curEmployeeID', id);
         this.router.navigate(['employee-index']);
         // this.msg = 'Successful';
       } 
-      else if (pass == "Welcome123"){
+      /*else if (pass == "Welcome123"){
         alert("Change Password From Default");
         this.displayChangePass();
-      }
+      }*/
       else {
         this.msg = 'Employee Not Found, try again';
       }
