@@ -1,21 +1,39 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <h3>Send Request to Admins</h3>
-    <form #requestRef="ngForm" (ngSubmit)="sendReq(requestRef.value)">
-      <input type="number" name="pid" placeholder="Product ID" ngModel /><br />
+    <form
+      #requestRef="ngForm"
+      (ngSubmit)="sendReq(requestRef.value)"
+      ngNativeValidate
+    >
+      <input
+        type="text"
+        name="pid"
+        placeholder="Product ID"
+        required
+        ngModel
+      /><br />
       <input
         type="text"
         name="pname"
         placeholder="Product Name"
+        required
         ngModel
       /><br />
       <input
         type="number"
         name="empId"
         placeholder="Employee ID"
+        required
         ngModel
       /><br />
-      <input type="text" name="msg" placeholder="Message" ngModel /><br />
+      <input
+        type="text"
+        name="msg"
+        placeholder="Message"
+        required
+        ngModel
+      /><br />
       <input type="submit" value="Submit" />
       <input type="reset" value="Clear" />
     </form>
