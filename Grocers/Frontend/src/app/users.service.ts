@@ -122,4 +122,8 @@ this.http.post('http://localhost:9090/updateQuantity',prod,  {responseType: 'tex
 .subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
 
   }
+  addPurchasedItem(item:any):any {
+    this.http.post('http://localhost:9090/addPurchased', item, {responseType: 'text'})
+    .subscribe((result) =>{/*console.log(result)*/}, (error) => console.log(error));
+  }
 }

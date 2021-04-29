@@ -96,6 +96,7 @@ this.total = this.total + (result[i].price * result[i].quantity);
     const storedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
     // tslint:disable-next-line:max-line-length
     const obj = new Items(this.cartProducts[j].pid, this.cartProducts[j].name , this.cartProducts[j].quantity, this.cartProducts[j].price, storedDate, 'Processing');
+    this.getItemsService.addPurchasedItem(obj);
     cartarray.push(obj);
     const deletedItem = {userId: this.userId, pid: this.cartProducts[j].pid};
     const delete2 = JSON.stringify(deletedItem);
@@ -103,8 +104,8 @@ this.total = this.total + (result[i].price * result[i].quantity);
    }
    const changeInfo = {userId: this.userId, total: this.total};
    const purchased = new Purchased (this.userId, cartarray, this.total);
-   this.getItemsService.Purchaseitems(purchased);
-   this.getItemsService.changeFunds(changeInfo);
+   //this.getItemsService.Purchaseitems(purchased);
+   //this.getItemsService.changeFunds(changeInfo);
    for(let k=0;k<cartarray.length;k++){
 this.getItemsService.updateProductQuantity(cartarray[k]);
    }
