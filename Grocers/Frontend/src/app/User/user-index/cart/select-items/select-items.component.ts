@@ -76,6 +76,6 @@ export class SelectItemsComponent implements OnInit {
     const output = document.getElementById('msg' + i);
     console.log(newCartitem.imgId);
     if (output) { output.innerHTML = 'Added'; }
-    // setTimeout(function(){ if (output) { output.style.visibility = 'hidden'; } }, 1000);
+     setTimeout(function(){ if (output) { output.style.visibility = 'hidden'; } }, 1000);
   }
 }
