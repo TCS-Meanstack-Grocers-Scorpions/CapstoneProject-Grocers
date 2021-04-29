@@ -10,7 +10,7 @@ import { OrderService } from 'src/app/order.service';
 })
 export class OrderStatusComponent implements OnInit {
   orders?: Array<Order>;
-  id = sessionStorage.getItem("curUserId");
+  id = sessionStorage.getItem('curUserId');
   constructor(public orderSer: OrderService) { }
 
   ngOnInit(): void {
