@@ -15,33 +15,33 @@
       <div class="row">
         <div class="col">
             <h4>Particular product report</h4>   
-            <form #formProductRef = 'ngForm' (ngSubmit) = 'getProduct(formProductRef.value)'>
+            <form #formProductRef = 'ngForm' (ngSubmit) = 'getProduct(formProductRef.value)' ngNativeValidate>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Product Name: </label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="productName" ngModel/>
+                        <input type="text" class="form-control" name="productName" required ngModel/>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
 
             <h4>Particular customer report</h4>
-            <form #formCRef = 'ngForm' (ngSubmit) = 'getCustomer(formCRef.value)'>
+            <form #formCRef = 'ngForm' (ngSubmit) = 'getCustomer(formCRef.value)' ngNativeValidate>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">user ID: </label>
                     <div class="col-sm-7">
-                    <input type="text" class="form-control" name="userID" ngModel/>
+                    <input type="text" class="form-control" name="userID" required ngModel/>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
 
             <h4>Daily report</h4>
-            <form #formDRef = 'ngForm' (ngSubmit) = 'getDaily(formDRef.value)'>    
+            <form #formDRef = 'ngForm' (ngSubmit) = 'getDaily(formDRef.value)' ngNativeValidate>    
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter Date: </label>
                     <div class="col-sm-7">
-                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                        <input type="date" class="form-control" name="StartDate" required ngModel/>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
@@ -50,34 +50,34 @@
         <div class="col">
 
             <h4>Weekly report</h4>
-            <form #formWRef = 'ngForm' (ngSubmit) = 'getWeekly(formWRef.value)'>
+            <form #formWRef = 'ngForm' (ngSubmit) = 'getWeekly(formWRef.value)' ngNativeValidate>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter Start Date: </label>
                     <div class="col-sm-7">
-                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                        <input type="date" class="form-control" name="StartDate" required ngModel/>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter End Date: </label>
                     <div class="col-sm-7">
-                        <input type="date" class="form-control" name="EndDate" ngModel/>
+                        <input type="date" class="form-control" name="EndDate" required ngModel/>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
             </form><br>
 
             <h4>Monthly report</h4>
-            <form #formMonthRef = 'ngForm' (ngSubmit) = 'getMonthly(formMonthRef.value)'>
+            <form #formMonthRef = 'ngForm' (ngSubmit) = 'getMonthly(formMonthRef.value)' ngNativeValidate>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter Start Date: </label>
                     <div class="col-sm-7">
-                        <input type="date" class="form-control" name="StartDate" ngModel/>
+                        <input type="date" class="form-control" name="StartDate" required ngModel/>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Enter End Date: </label>
                     <div class="col-sm-7">
-                        <input type="date" class="form-control" name="EndDate" ngModel/>
+                        <input type="date" class="form-control" name="EndDate" required ngModel/>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-secondary m-2" value = "Generate Report">
