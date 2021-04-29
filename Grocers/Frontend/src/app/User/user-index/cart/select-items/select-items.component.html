@@ -1,15 +1,16 @@
 <div id="wrapper">
   <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-dark" style="position:relative;">
+      <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="container-fluid">
               <b class="navbar-brand">User ID: {{UserId}}</b>
           </div>
           <div id="navbarNav" class="navbar-collapse">
               <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active"></li>
+                  <li class="nav-item active">
+                  </li>
                   <li><a routerLink="order-status" class="nav-link"> Order Status</a></li>
                           <li><a routerLink="edit-profile" class="nav-link"> Edit Profile</a></li>
-                          <li><a routerLink="select-item" class="nav-link">cart</a></li>
+                          <li><a routerLink="../" class="nav-link"> funds</a></li>
                   <li class="nav-item">
                       <!--<a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>-->
                   </li>
@@ -17,23 +18,43 @@
           </div>
       </nav> 
       <br>
-      </div>
-      
       <!-- #navBar -->
-<div>
-  <button routerLink='../view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart: {{cartNum}}</button>
-<hr>
-  <div *ngFor="let item of products; let i=index;">
-    <!--<img [src]="'/assets/images/'+ 'product'+i+'.png'" alt=""> -->
-   <table class="table"><tr><td>{{products[i].name}}</td> 
-   <td> ${{products[i].price}}</td></tr></table>
-   <td> <div class="input-group">
-     <input type="button" value="-" class="button-minus" data-field="quantity" (click)="decriment('inc'+i,'nums'+i)"> 
-      <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" [id]="'nums' +i" (input)="maxobj('nums'+i,i)">
-      <input type="button" value="+" class="button-plus" data-field="quantity" id="'inc'+i" (click)="increment('inc'+i,'nums'+i,i)">
-    </div> 
-    <input type="button" value="Add to cart" (click)="addCart('nums'+i,i)"> <p [id]="'msg'+i" style="color: red;"></p>
+      <!-- page content -->
+      <div class="container main">
+          <div class="row">
+              <div class="col" style="border: 3px solid black; margin: 10px; border-radius: 30px;">
+                  <div class = "container-fluid">
+                      <h1 style="text-align: center;">User</h1>
+                      <hr>
+                      
+                      <hr>
+                      <div>
+                      <button routerLink='../view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart: {{cartNum}}</button>
+                      
+                    <hr>
+                      <div *ngFor="let item of products; let i=index;">
+                        <!--<img [src]="'/assets/images/'+ 'product'+i+'.png'" alt=""> -->
+                       <table class="table" style="table-layout: fixed;">
+                         <tr>
+                           <td>{{products[i].name}}</td> 
+                       <td> ${{products[i].price}}</td>
+                      </tr>
+                    </table>
+                        <div class="input-group">
+                         <input type="button" value="-" class="button-minus" data-field="quantity" (click)="decriment('inc'+i,'nums'+i)"> 
+                          <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" [id]="'nums' +i" (input)="maxobj('nums'+i,i)">
+                          <input type="button" value="+" class="button-plus" data-field="quantity" id="'inc'+i" (click)="increment('inc'+i,'nums'+i,i)">
+                        </div> 
+                        <input type="button" value="Add to cart" (click)="addCart('nums'+i,i)"> <p [id]="'msg'+i" style="color: red;"></p>
+                      </div>
+                    
+                    </div>
+                      <br>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- #pageContent -->
   </div>
-
-</div>
+      
 <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->

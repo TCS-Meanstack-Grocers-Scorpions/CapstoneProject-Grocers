@@ -13,6 +13,7 @@ export class SelectItemsComponent implements OnInit {
   products: Array<Product> = [];
   cartNum = 0; // get from cart later
   UserId = sessionStorage.getItem('curUserId');
+  currentFunds=0;
   constructor(public getItemsService: UsersService) { }
 
   ngOnInit(): void {
@@ -24,7 +25,10 @@ export class SelectItemsComponent implements OnInit {
       for (let i = 0; i < result.length; i++) {
         this.cartNum = this.cartNum + result[i].quantity;
       }
-    });
+        });
+    this.getItemsService.retrieveUserById(this.UserId).subscribe(result => {
+      this.currentFunds = result[0].funds;
+    })
 
   }
 
