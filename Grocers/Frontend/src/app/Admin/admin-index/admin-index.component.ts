@@ -16,14 +16,9 @@ export class AdminIndexComponent implements OnInit {
   constructor(public proService: ProductService, public router: Router) { }
 
   ngOnInit(): void {
+    this.updateTable();
   }
 
-  toggleTable(): void{
-    this.showTable = !this.showTable;
-    if (this.showTable){
-      this.proService.retrieveAllProductDetails().subscribe(result => this.products = result);
-    }
-  }
   updateTable(): void {
     this.proService.retrieveAllProductDetails().subscribe(result => {
       if (this.products?.length !== result.length) {
