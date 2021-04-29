@@ -3,6 +3,7 @@ import { cartProduct } from 'src/app/model.cart';
 import { Items } from 'src/app/model.items';
 import { Product } from 'src/app/model.product';
 import { Purchased } from 'src/app/model.purchase';
+import { SalesService } from 'src/app/sales.service';
 import { UsersService } from 'src/app/users.service';
 
 
@@ -16,7 +17,7 @@ export class ViewItemsComponent implements OnInit {
   products: Array<Product> = [];
   userId: any = sessionStorage.getItem('curUserId'); // get from local store later
   total = 0;
-  constructor(public getItemsService: UsersService) { }
+  constructor(public getItemsService: UsersService,public saleServie:SalesService) { }
 
   ngOnInit(): void {
     this.getItemsService.viewCartitems(this.userId).subscribe(result => {
@@ -92,8 +93,10 @@ this.total = this.total + (result[i].price * result[i].quantity);
    const cartarray = [];
    for (let j = 0; j < this.cartProducts.length; j++){
     const date = new Date();
-    const storedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+    let storedDate=date.getFullYear()+ '-'+(date.getMonth() + 1)+date.getDate()
     const obj = new Items(this.cartProducts[j].pid, this.cartProducts[j].name , this.cartProducts[j].quantity, this.cartProducts[j].price, storedDate, 'Processing');
+    let obj2={uid:this.userId,pid:this.cartProducts[j].pid,price:this.cartProducts[j].price,quantity:this.cartProducts[j].quantity,datePurchased:storedDate} //sales item to send
+    this.saleServie.storeSaleDetails(obj2); // sales service
     this.getItemsService.addPurchasedItem(obj,this.userId);
     cartarray.push(obj);
     const deletedItem = {userId: this.userId, pid: this.cartProducts[j].pid};

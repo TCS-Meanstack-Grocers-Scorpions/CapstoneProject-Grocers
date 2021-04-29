@@ -30,7 +30,7 @@ export class FundsComponent implements OnInit {
       this.currentFunds = result[0].funds;
     }
       );
-
+      setTimeout(function() { location.reload(); }, 500);
   }
 
 }
