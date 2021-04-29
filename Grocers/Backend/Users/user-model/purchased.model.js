@@ -8,9 +8,8 @@ let PurchasedSchema = mongoose.Schema({
        name:String,
        price:Number,
        quantity:Number,
-       datePurchased:String,
-       orderStatus:String,
    }],
+   datePurchased:String,
    total:Number
 })
 let PurchaseModel = mongoose.model("purchased",PurchasedSchema,"Purchased");

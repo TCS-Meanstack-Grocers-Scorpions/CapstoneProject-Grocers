@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 let getUserPurchaseDetails = (req,res)=>{
     let pid = req.params.pid;
-    PurchaseModel.find({ _id: new ObjectId(pid) },(err,result)=>{
+    PurchaseModel.find({ userId: pid },(err,result)=>{
         if(!err){
             res.json(result);
         }
@@ -12,7 +12,7 @@ let getUserPurchaseDetails = (req,res)=>{
 
 let getProductPurchaseDetails = (req,res)=>{
     let product = req.params.product;
-    PurchaseModel.find({ name: product },(err,result)=>{
+    PurchaseModel.find({ items: [{name: product}] },(err,result)=>{
         if(!err){
             res.json(result);
         }
