@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent implements OnInit {
+  [x: string]: any;
   cartProducts: Array<cartProduct> = [];
   products: Array<Product> = [];
   userId: any = sessionStorage.getItem('curUserId'); // get from local store later
@@ -121,5 +122,11 @@ this.getItemsService.updateProductQuantity(cartarray[k]);
    let err=document.getElementById("err");
    if(err) err.innerHTML="insufficent Funds"
   }
+}
+logout(): void{
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('curUserId');
+  this.router.navigate(['shopper']);
+  
 }
 }
