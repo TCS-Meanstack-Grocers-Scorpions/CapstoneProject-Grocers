@@ -1,5 +1,7 @@
 nav{
     background-color: rgb(1, 71, 1);
 }
-
+input[type=button] {
+    margin: 5px;
+}
   
