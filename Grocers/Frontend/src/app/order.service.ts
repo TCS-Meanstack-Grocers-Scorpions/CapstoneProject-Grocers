@@ -13,7 +13,7 @@ export class OrderService {
 
   getOrdersByUserID(uid: any): Observable<Order[]> {
     return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrderByUserID/' + uid
+      'http://localhost:9090/order/getOrdersByUserID/' + uid
     );
   }
 
