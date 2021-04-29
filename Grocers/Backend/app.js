@@ -29,6 +29,8 @@ var Admin = require('./Admin/router/admin.router.js');
 var Request = require('./Requests/router/requests.router.js');
 var Order = require('./Orders/router/orders.router.js');
 
+var Sales = require("./Sales/router/sales.router.js");
+
 // http://localhost:9090/product/viewProducts   Get App Product Details
 // http://localhost:9090/product/selectProduct/102   Get App Product Details by Id
 // http://localhost:9090/product/storeProductDetails    rest client or post man {"pid":103,"pname":"Computer","price":43000}
@@ -43,5 +45,7 @@ app.use('/emp', Employee);
 app.use('/admin', Admin);
 app.use('/request', Request);
 app.use('/order', Order);
+
+app.use('/sales', Sales);
 
 app.listen(9090, () => console.log('Server is running on port number 9090'));

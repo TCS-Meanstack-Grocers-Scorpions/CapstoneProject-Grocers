@@ -21,44 +21,40 @@ export class UsersService {
 
   updateUserPassword(userRef: any, id: any): void {
     this.http.put(
-      'http://localhost:9090/user/updateUserPassword' + id,
+      'http://localhost:9090/user/updateUserPassword/' + id,
       userRef,
       { responseType: 'text' }
     );
   }
   updateUserEmail(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserEmail' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserEmail/' + id, userRef, {
       responseType: 'text',
     });
   }
   updateUserAddress(userRef: any, id: any): void {
     this.http.put(
-      'http://localhost:9090/user/updateUserAddress' + id,
+      'http://localhost:9090/user/updateUserAddress/' + id,
       userRef,
       { responseType: 'text' }
     );
   }
   updateUserPhone(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserPhone' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserPhone/' + id, userRef, {
       responseType: 'text',
     });
   }
   updateUserDOB(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserDOB' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserDOB/' + id, userRef, {
       responseType: 'text',
     });
   }
   updateFunds(userRef: any, id: any): void {
-    this.http.put('http://localhost:9090/user/updateUserFunds' + id, userRef, {
+    this.http.put('http://localhost:9090/user/updateUserFunds/' + id, userRef, {
       responseType: 'text',
-    });
+    }).subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
   }
 
-  updateUserById(userRef: any): void  {
-    this.http.put('http://localhost:9090/user/updateUserInfo', userRef, {
-      responseType: 'text',
-    });
-  }
+
 
 
   storeTicketinfo(data: any): void {
@@ -125,5 +121,9 @@ this.http.delete('http://localhost:9090/cart/' + cartRef, {responseType: 'text'}
 this.http.post('http://localhost:9090/updateQuantity',prod,  {responseType: 'text'})
 .subscribe((result) => {/*console.log(result)*/}, (error) => console.log(error));
 
+  }
+  addPurchasedItem(item:any,userId:any):any {
+    this.http.post('http://localhost:9090/addPurchased/'+userId, item, {responseType: 'text'})
+    .subscribe((result) =>{/*console.log(result)*/}, (error) => console.log(error));
   }
 }

@@ -12,11 +12,10 @@ router.put("/updateUserEmail/:uid",UserController.updateUserEmail);
 router.put("/updateUserAddress/:uid",UserController.updateUserAddress);
 router.put("/updateUserPhone/:uid",UserController.updateUserPhone);
 router.put("/updateUserDOB/:uid", UserController.updateUserDOB);
-router.put("/ updateUserFunds/:uid",UserController.updateUserFunds);
+router.put("/user/updateUserFunds/:uid",UserController.updateUserFunds);
 router.post("/ticket",UserController.raiseTicket);
 router.get("/select", UserController.selectObject);
 router.post("/select",UserController.addtoCart);
-router.put("/updateUserInfo",UserController.updateUserInfo);
 router.get("/cart/:userId",UserController.viewCart);
 router.put("/cart",UserController.updateCart);
 router.delete("/cart/:pid",UserController.deleteCart);
@@ -36,4 +35,5 @@ router.get('/getUserPurchasedDetails/:pid', PurchaseController.getUserPurchaseDe
 router.get('/getProductPurchasedDetails/:product', PurchaseController.getProductPurchaseDetails);
 router.get('/getDatePurchasedDetails/:date', PurchaseController.datePurchased);
 router.get('/twoDatesPurchased/:date/:date2', PurchaseController.twoDatesPurchaseed);
+router.post("/addPurchased/:userId",UserController.addPurchased);
 module.exports = router;

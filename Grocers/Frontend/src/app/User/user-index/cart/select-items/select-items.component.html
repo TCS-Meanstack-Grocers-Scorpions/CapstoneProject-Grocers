@@ -1,5 +1,27 @@
+<div id="wrapper">
+  <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-dark" style="position:relative;">
+          <div class="container-fluid">
+              <b class="navbar-brand">User ID: {{UserId}}</b>
+          </div>
+          <div id="navbarNav" class="navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active"></li>
+                  <li><a routerLink="order-status" class="nav-link"> Order Status</a></li>
+                          <li><a routerLink="edit-profile" class="nav-link"> Edit Profile</a></li>
+                          <li><a routerLink="select-item" class="nav-link">cart</a></li>
+                  <li class="nav-item">
+                      <!--<a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>-->
+                  </li>
+              </ul>
+          </div>
+      </nav> 
+      <br>
+      </div>
+      
+      <!-- #navBar -->
 <div>
-  <button routerLink='view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart: {{cartNum}}</button>
+  <button routerLink='../view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart: {{cartNum}}</button>
 <hr>
   <div *ngFor="let item of products; let i=index;">
     <!--<img [src]="'/assets/images/'+ 'product'+i+'.png'" alt=""> -->
