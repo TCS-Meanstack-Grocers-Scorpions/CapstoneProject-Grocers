@@ -26,18 +26,11 @@ export class UsersService {
     return this.http.get<any[]>('http://localhost:9090/getRaisedTickets');
   }
 
-  resolveTicket(ticketId: string): void {
-    console.log('resolveTicket in SVC fired: ' + String(ticketId));
-    this.http
-      .put('http://localhost:9090/resolveRaisedTickets', ticketId, {
-        responseType: 'text',
-      })
-      .subscribe(
-        (result) => {
-          console.log(result);
-        },
-        (error) => console.log(error)
-      );
+  resolveTicket(ticketId: any): any {
+    return this.http.delete(
+      'http://localhost:9090/resolveRaisedTickets/' + ticketId,
+      { responseType: 'text' }
+    );
   }
 
   updateUserPassword(userRef: any, id: any): void {
