@@ -3,12 +3,16 @@
     <h3>Update Order Status</h3>
     <form #updateRef="ngForm" (ngSubmit)="updateOrder(updateRef.value)">
       <input type="text" name="oid" placeholder="Order ID" ngModel /><br />
-      <input
-        type="text"
-        name="orderStatus"
-        placeholder="Order Status"
-        ngModel
-      /><br />
+      <select name="orderStatus" id="Status" ngModel>
+        <optgroup optgroup label="order status">
+          <option disabled selected value>-- select an option --</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Pending">Pending</option>
+        </optgroup>
+      </select>
+      <br />
       <input type="submit" value="Submit" />
       <input type="reset" value="Clear" />
     </form>
