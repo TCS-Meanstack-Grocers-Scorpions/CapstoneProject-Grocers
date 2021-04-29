@@ -21,6 +21,11 @@ import { UserIndexComponent } from './User/user-index/user-index.component';
 import { RaiseTicketComponent } from './User/raise-ticket/raise-ticket.component';
 import { EditProfileComponent } from './Employee/employee-index/edit-profile/edit-profile.component';
 import { UserAuthGuard } from './userAuthGuard';
+import { AddProductComponent } from './Admin/admin-index/product-operations/add-product/add-product.component';
+import { UpdateProductComponent } from './Admin/admin-index/product-operations/update-product/update-product.component';
+import { DeleteProductComponent } from './Admin/admin-index/product-operations/delete-product/delete-product.component';
+import { AddEmployeeComponent } from './Admin/admin-index/employee-operations/add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './Admin/admin-index/employee-operations/delete-employee/delete-employee.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -31,6 +36,11 @@ const routes: Routes = [
 
   { path: 'admin-index', component: AdminIndexComponent, canActivate: [MyAuthGuard] },
   { path: 'admin-index/report', component: GenerateReportComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/addProduct', component: AddProductComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/updateProduct', component: UpdateProductComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/deleteProduct', component: DeleteProductComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/addEmployee', component: AddEmployeeComponent, canActivate: [MyAuthGuard] },
+  { path: 'admin-index/deleteEmployee', component: DeleteEmployeeComponent, canActivate: [MyAuthGuard] },
 
 
   { path: 'employee-index', component: EmployeeIndexComponent },

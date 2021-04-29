@@ -4,6 +4,25 @@
         <b class="navbar-brand">Admin</b>
         <div id="navbarNav">
           <ul class="navbar-nav">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Employee
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a routerLink="addEmployee" class="dropdown-item">Add Employee</a>
+                <a routerLink="deleteEmployee" class="dropdown-item">Delete Employee</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Product
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a routerLink="addProduct" class="dropdown-item">Add Product</a>
+                <a routerLink="updateProduct" class="dropdown-item">Update Product</a>
+                <a routerLink="deleteProduct" class="dropdown-item">Delete Product</a>
+              </div>
+            </div>
             <li class="nav-item">
               <a routerLink="report" class="nav-link">New Report</a>
             </li>
@@ -18,41 +37,6 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h1>Products</h1><hr>
-          <app-add-product></app-add-product>
-          <br>
-          <app-update-product></app-update-product>
-          <br>
-          <app-delete-product></app-delete-product>
-          <br>
-          <div style="text-align: center;">
-            <input type="button" value="Show/Hide Products" (click)="toggleTable()"/>
-            <input type="button" value="Refresh" (click)="updateTable()"/>
-          </div>
-          <br>
-          <div *ngIf="showTable" #table>
-            <table class="table">
-                <tr>
-                    <th>Prduct Id</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                </tr>
-                <tr *ngFor="let p of products">
-                    <td>{{p._id}}</td>
-                    <td>{{p.name}}</td>
-                    <td>{{p.price}}</td>
-                    <td>{{p.quantity}}</td>
-                </tr>
-            </table>
-            <br>
-          </div>
-        </div>
-        <div class="col">
-          <h1>Employees</h1><hr>
-          <app-add-employee></app-add-employee><br>
-          <app-delete-employee></app-delete-employee>
-          <hr>
           <h1>Requests</h1>
           <app-view-requests></app-view-requests>
           <br>
