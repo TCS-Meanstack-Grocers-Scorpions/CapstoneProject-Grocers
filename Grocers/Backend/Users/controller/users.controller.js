@@ -64,7 +64,7 @@ let getOpenTickets = (req, res) => {
 };
 
 let deleteTicket = (req, res) => {
-  let ticket = req.param.ticketId;
+  let ticket = req.params._id;
   TicketModel.deleteOne({ _id: ticket }, (err, result) => {
     if (!err) {
       res.json(result);

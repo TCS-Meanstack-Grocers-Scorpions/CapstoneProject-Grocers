@@ -7,7 +7,7 @@ let PurchaseController = require('../controller/purchased.controller');
 router.post('/signUp', UserController.storeUserDetails);
 router.get('/getUserById/:pid', UserController.getUserById);
 router.get('/getRaisedTickets', UserController.getOpenTickets);
-router.delete('/resolveRaisedTickets/:ticketId', UserController.deleteTicket);
+router.delete('/resolveRaisedTickets/:_id', UserController.deleteTicket);
 router.put('/updateUserPassword/:uid', UserController.updateUserPassword);
 router.put('/updateUserEmail/:uid', UserController.updateUserEmail);
 router.put('/updateUserAddress/:uid', UserController.updateUserAddress);

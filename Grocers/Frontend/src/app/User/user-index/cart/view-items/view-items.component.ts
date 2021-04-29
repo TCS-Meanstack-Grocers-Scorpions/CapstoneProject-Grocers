@@ -25,7 +25,7 @@ export class ViewItemsComponent implements OnInit {
       this.cartProducts = result;
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < result.length; i++){
-this.total = this.total + (result[i].price * result[i].quantity);
+        this.total = this.total + (result[i].price * result[i].quantity);
       }
     });
     this.getItemsService.selectAllitems().subscribe(result => {
