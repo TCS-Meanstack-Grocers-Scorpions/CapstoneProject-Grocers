@@ -80,6 +80,15 @@ let editEmpPro = (req, res) => {
 let changeEmpPassword = (req,res) =>{
   let eid = req.params.eid;
   let newPass = req.body.newPass;
-  EmployeeModel.updateOne({_id:new ObjectId(eid)},{$set: {pass:newPass}})
+  console.log(eid, newPass)
+  EmployeeModel.updateOne({_id: eid},{$set: {pass: newPass}}, (err, result) => {
+    if (!err) {
+      if (result.nModified > 0) {
+        res.send('Employee pass updates successfully');
+      } else {
+        res.send('No such Employee');
+      }
+    }
+  });
 }
 module.exports = { empUserDetails, deleteEmpById, editEmpPro, getEmpByID,changeEmpPassword };
