@@ -1,5 +1,6 @@
 let OrderModel = require('../model/orders.model.js');
 const ObjectId = require('mongodb').ObjectId;
+let ItemModel=require("../../Users/user-model/item.model");
 
 // update order status
 let updateStatus = (req, res) => {
@@ -19,8 +20,9 @@ let updateStatus = (req, res) => {
     });
 };
 let getOrdersByUserID = (req, res) => {
+  console.log("hello")
   let uid = req.params.uid;
-  OrderModel.find({ userID: uid }, (err, result) => {
+  ItemModel.find({ userId: uid }, (err, result) => {
     if (!err) res.json(result);
   });
 };
