@@ -1,12 +1,14 @@
 <div>
     <table class = "table">
             <tr>
+                <th>Order ID</th>
                 <th>Order Name</th>
                 <th>Order Status</th>
             </tr>
             <tr *ngFor="let order of orders">
+                    <td>{{order._id}}</td>
                     <td>{{order.name}}</td>
-                    <td>{{order.status}}</td>
+                    <td>{{order.orderStatus}}</td>
             </tr>
     </table>
     <a routerLink=".." class="nav-link">Back</a><br />
