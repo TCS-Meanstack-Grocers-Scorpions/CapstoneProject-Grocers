@@ -26,7 +26,7 @@ export class UsersService {
     return this.http.get<any[]>('http://localhost:9090/getRaisedTickets');
   }
 
-  updateUserPassword(userRef: any, id: any): void {
+  updateUserPassword(userRef: any, id: any): any {
     this.http
       .put('http://localhost:9090/user/updateUserPassword/' + id, userRef, {
         responseType: 'text',
@@ -38,7 +38,7 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
-  updateUserEmail(userRef: any, id: any): void {
+  updateUserEmail(userRef: any, id: any): any {
     this.http
       .put('http://localhost:9090/user/updateUserEmail/' + id, userRef, {
         responseType: 'text',
@@ -50,7 +50,7 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
-  updateUserAddress(userRef: any, id: any): void {
+  updateUserAddress(userRef: any, id: any): any {
     this.http
       .put('http://localhost:9090/user/updateUserAddress/' + id, userRef, {
         responseType: 'text',
@@ -62,7 +62,7 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
-  updateUserPhone(userRef: any, id: any): void {
+  updateUserPhone(userRef: any, id: any): any {
     this.http
       .put('http://localhost:9090/user/updateUserPhone/' + id, userRef, {
         responseType: 'text',
@@ -74,7 +74,7 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
-  updateUserDOB(userRef: any, id: any): void {
+  updateUserDOB(userRef: any, id: any): any {
     this.http
       .put('http://localhost:9090/user/updateUserDOB/' + id, userRef, {
         responseType: 'text',

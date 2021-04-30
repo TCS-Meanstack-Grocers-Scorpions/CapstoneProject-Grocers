@@ -57,7 +57,7 @@ export class EmployeeService {
         (error) => console.log(error)
       );
   }
-  changeEmployeePassword(empRef:any,id:any){
+  changeEmployeePassword(empRef:any,id:any):any{
     this.http.put('http://localhost:9090/emp/changeEmployeePassword/'+id,empRef, {
       responseType : 'text',
     }).subscribe(

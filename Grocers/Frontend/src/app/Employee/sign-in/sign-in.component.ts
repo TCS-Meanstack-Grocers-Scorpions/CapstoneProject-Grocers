@@ -39,8 +39,9 @@ export class EmployeeSignInComponent implements OnInit {
   }
   changeEmployeePassword(empRef : any){
     let id = empRef.id;
-    this.empSer.changeEmployeePassword(empRef,id);
-    alert("Log In With New Password");
+    this.empSer.changeEmployeePassword(empRef,id).subscribe((result:string)=> {
+      console.log(result);
+    });
     this.showChangePass = false;
   }
 }
