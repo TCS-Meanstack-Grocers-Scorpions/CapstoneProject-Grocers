@@ -1,6 +1,6 @@
 <div class="wrapper fadeInDown">
-    <div id="formContent">
-                <h3>Employee Sign In</h3>
+    <div *ngIf = "!showChangePass" id="formContent">
+        <h3>Employee Sign In</h3>
         <form #empRef = "ngForm" (ngSubmit) = "employeeLogin(empRef.value)">
             <input type="text" name="empID" placeholder="Employee Id" ngModel>
             <input type="password" name="empPass" placeholder="password" ngModel>
@@ -9,13 +9,13 @@
         <a routerLink=".." class="nav-link">Back</a><br>
         {{msg}}
     </div>
-    <div *ngIf = "showChangePass" id = "changePassForm">
+    <div *ngIf = "showChangePass" id = "changePassForm" ngNativeValidate>
         Change Password From Default
-        <form #empRef = "ngForm" (ngSubmit) = "changeEmployeePassword(empRef.value)">
-        <input type = "text" name = "id" placeholder = "Re-Enter ID" ngModel>
-        <input type = "password" name = "newPass" placeholder = "New Password" ngModel>
+        <form #empPRef = "ngForm" (ngSubmit) = "changeEmployeePassword(empPRef.value)">
+        <input type = "text" name = "id" placeholder = "Re-Enter ID" required ngModel>
+        <input type = "password" name = "newPass" placeholder = "New Password" required ngModel>
         <input type = "submit" value = "Change Password">
         </form>
-    </div> -->
+    </div>
 </div>
  

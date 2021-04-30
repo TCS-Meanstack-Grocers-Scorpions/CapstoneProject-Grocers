@@ -19,31 +19,35 @@ export class EmployeeSignInComponent implements OnInit {
   employeeLogin(empRef: any): void {
     const id = empRef.empID;
     const pass = empRef.empPass;
-    if (pass == "Welcome123"){
-      alert("Change Password From Default");
-      this.displayChangePass();
-    }
+    // if (pass == "Welcome123"){
+    //   alert("Change Password From Default");
+    //   this.displayChangePass();
+    // }
+    
     this.empSer.getEmployeeByID(id).subscribe(result => {
-      if (result[0]._id === id && result[0].pass === pass /*&& pass!= "Welcome123"*/) {
-        sessionStorage.setItem('curEmployeeID', id);
-        this.router.navigate(['employee-index']);
-         this.msg = 'Successful';
-      } 
-      /*else if (pass == "Welcome123"){
+      if (result[0]._id === id && result[0].pass === "Welcome123") {
         alert("Change Password From Default");
         this.displayChangePass();
-      }*/
+      } 
+      else if (result[0]._id === id && result[0].pass === pass) {
+        sessionStorage.setItem('curEmployeeID', id);
+        this.router.navigate(['employee-index']);
+        this.msg = 'Successful';
+      } 
       else {
         this.msg = 'Employee Not Found, try again';
       }
     });
+    
   }
   displayChangePass(){
-    this.showChangePass = true;
+    this.showChangePass = !this.showChangePass;
   }
+
   changeEmployeePassword(empRef : any){
     let id = empRef.id;
     this.empSer.changeEmployeePassword(empRef,id);
     alert("Log In With New Password");
+    this.displayChangePass()
   }
 }

@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent implements OnInit {
+  [x: string]: any;
   cartProducts: Array<cartProduct> = [];
   products: Array<Product> = [];
   userId: any = sessionStorage.getItem('curUserId'); // get from local store later
@@ -25,7 +26,7 @@ export class ViewItemsComponent implements OnInit {
       this.cartProducts = result;
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < result.length; i++){
-this.total = this.total + (result[i].price * result[i].quantity);
+        this.total = this.total + (result[i].price * result[i].quantity);
       }
     });
     this.getItemsService.selectAllitems().subscribe(result => {
@@ -121,5 +122,11 @@ this.getItemsService.updateProductQuantity(cartarray[k]);
    let err=document.getElementById("err");
    if(err) err.innerHTML="insufficent Funds"
   }
+}
+logout(): void{
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('curUserId');
+  this.router.navigate(['shopper']);
+  
 }
 }

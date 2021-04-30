@@ -1,38 +1,28 @@
-<div>
-  <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-          <b class="navbar-brand">User</b>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <span style = 'color: white'>ID: {{userId}}</span>
-      <div id="navbarNav" class="collapse navbar-collapse">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a routerLink="../select-item" class="nav-link">View items</a>
-              </li>
-              <li class="nav-item">
-                  <!--<a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>-->
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">More .....</a>
-                  <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                      <a style = 'color: black'routerLink="order-status" class="nav-link"> Order Status</a>
-                      <a style = 'color: black'routerLink="edit-profile" class="nav-link"> Edit Profile</a>
-                      <a style = 'color: black'routerLink="view-item" class="nav-link"> View Item</a>
-                  </div>
-              </li>
-          </ul>
-      </div>
-  </nav> 
+<!-- NavBar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <b class="navbar-brand">User ID: {{userId}}</b>
+            </div>
+            <div  class="navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    </li>
+                    <li><a routerLink="../order-status" class="nav-link"> Order Status</a></li>
+                            <li><a routerLink="../edit-profile" class="nav-link"> Edit Profile</a></li>
+                            <li><a routerLink="../" class="nav-link"> funds</a></li>
+                            <li><a routerLink="../" class="nav-link"> View Item</a></li>
+                    <li class="nav-item">
+                        <a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+        <br>
 
 
 <div>
-  <button  class="btn btn-dark btn-lg" type="button" name="user" routerLink='../'>Back</button>
-  <button  routerLink="../../purchaseComplete" class="btn btn-dark btn-lg" type="button" name="user" (click)="Purchased()" style="position: relative;float:right;">Purchase: ${{total}}</button> 
+  <button  class="btn btn-success" type="button" name="user" routerLink='../'>Back</button>
+  <button  routerLink="../../purchaseComplete" class="btn btn-success" type="button" name="user" (click)="Purchased()" style="position: relative;float:right;">Purchase: ${{total}}</button> 
   <p id='err' style="color:red"></p>
   <div *ngFor="let item of cartProducts; let i=index;">
     <div [id]="'item'+i">
@@ -54,8 +44,8 @@
           (click)="increment('inc'+i,'nums'+i,i)">
         <input type="button" value="confirm" (click)=confirmUpdate(i)>
       </div>
-      <span style="width: 50px; margin-right: 20px;"><input type="button" value="Update" (click)=showUpdate(i)> </span>
-      <span><input type="button" value="Delete" (click)=deleteCartItem(i)></span>
+      <span style="width: 50px; margin-right: 20px;"><input type="button" value="Update" (click)=showUpdate(i) class="btn btn-primary"> </span>
+      <span><input type="button" value="Delete" (click)=deleteCartItem(i) class="btn btn-secondary"></span>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/employee.service';
 
 
@@ -8,8 +9,8 @@ import { EmployeeService } from 'src/app/employee.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-
-  constructor(public emp: EmployeeService) { }
+  resultMsg?:string;
+  constructor(public router: Router, public emp: EmployeeService) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +18,10 @@ export class AddEmployeeComponent implements OnInit {
   addEmp(empRef: any): void {
     console.log(empRef);
     this.emp.storeEmpDetailsInfo(empRef);
-    // ADD A RESULT MESSAGE SO THE USER KNOWS THE EMPLOYEE WAS SUCESSFULLY ADDED
+    this.resultMsg = "Employee Added"
+    //displays the result message for 10 seconds and then 'removes' it
+    setTimeout(()=> this.resultMsg = '',10000);  }
+  back(): void {
+    this.router.navigate(['admin-index']);
   }
-
 }

@@ -44,9 +44,9 @@ let deleteEmpById = (req, res) => {
   EmployeeModel.deleteOne({ _id: pid }, (err, result) => {
     if (!err) {
       if (result.deletedCount > 0) {
-        res.send('Record deleted successfully');
+        res.send('Employee deleted successfully');
       } else {
-        res.send('No such Product');
+        res.send('No such Employee');
       }
     }
   });
@@ -80,6 +80,15 @@ let editEmpPro = (req, res) => {
 let changeEmpPassword = (req,res) =>{
   let eid = req.params.eid;
   let newPass = req.body.newPass;
-  EmployeeModel.updateOne({_id:new ObjectId(eid)},{$set: {pass:newPass}})
+  console.log(eid, newPass)
+  EmployeeModel.updateOne({_id: eid},{$set: {pass: newPass}}, (err, result) => {
+    if (!err) {
+      if (result.nModified > 0) {
+        res.send('Employee pass updates successfully');
+      } else {
+        res.send('No such Employee');
+      }
+    }
+  });
 }
 module.exports = { empUserDetails, deleteEmpById, editEmpPro, getEmpByID,changeEmpPassword };

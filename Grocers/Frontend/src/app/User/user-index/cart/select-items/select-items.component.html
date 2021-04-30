@@ -1,10 +1,10 @@
-<div id="wrapper">
+<div>
   <!-- NavBar -->
       <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="container-fluid">
               <b class="navbar-brand">User ID: {{UserId}}</b>
           </div>
-          <div id="navbarNav" class="navbar-collapse">
+          <div  class="navbar-collapse">
               <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
                   </li>
@@ -12,7 +12,7 @@
                           <li><a routerLink="../edit-profile" class="nav-link"> Edit Profile</a></li>
                           <li><a routerLink="../" class="nav-link"> funds</a></li>
                   <li class="nav-item">
-                      <!--<a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>-->
+                      <a routerLink="" class="nav-link" (click) = "logout()">Log Out</a>
                   </li>
               </ul>
           </div>
@@ -29,7 +29,7 @@
                       
                       <hr>
                       <div>
-                      <button routerLink='../view-item' class="btn btn-dark btn-lg" type="button" name="user">Cart: {{cartNum}}</button>
+                      <button routerLink='../view-item' class="btn btn-dark btn-lg" type="button" name="user">Go To Cart: {{cartNum}}</button>
                       
                     <hr>
                       <div *ngFor="let item of products; let i=index;">
@@ -56,5 +56,6 @@
       </div>
       <!-- #pageContent -->
   </div>
+
       
 <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->

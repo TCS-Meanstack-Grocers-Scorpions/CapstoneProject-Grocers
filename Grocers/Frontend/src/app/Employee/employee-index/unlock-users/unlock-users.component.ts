@@ -24,7 +24,14 @@ export class UnlockUsersComponent implements OnInit {
     this.msg = 'User Unlocked!';
   }
 
-  resolvedTicket() {
-    console.log('Resolved');
+  resolvedTicket(ticketId: any): any {
+    console.log('Resolved Ticket Fired for: ' + ticketId);
+    this.userServ.resolveTicket(ticketId).subscribe((result: string) => {
+      console.log(result);
+    });
+    this.tickets = [];
+    this.userServ.getTickets().subscribe((result) => {
+      this.tickets = result;
+    });
   }
 }

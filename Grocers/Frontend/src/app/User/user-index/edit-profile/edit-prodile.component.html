@@ -4,7 +4,7 @@
     <div id = "formContent">
     <div class = "row">
     <div class = "row mb-3">
-    <form #userRef = "ngForm" (ngSubmit) = "updateEmail(userRef.value)">
+    <form #userERef = "ngForm" (ngSubmit) = "updateEmail(userERef.value)">
         <label class = "col col-form-label">New Email</label>
         <div class = "col">
         <input type = "text" name = "newEmail" class = "form-control" ngModel><br/>
@@ -14,7 +14,7 @@
     </form>
     </div>
     <div class = "row mb-3">
-    <form #userRef = "ngForm" (ngSubmit) = "updatePass(userRef.value)">
+    <form #userPassRef = "ngForm" (ngSubmit) = "updatePass(userPassRef.value)">
         <label class = "col col-form-label">New Password</label>
         <div class = "col">
         <input type = "password" name = "newPass" class = "form-control" ngModel><br/>
@@ -24,7 +24,7 @@
     </form>
     </div>
     <div class = "row">
-    <form #userRef = "ngForm" (ngSubmit) = "updateAddress(userRef.value)">
+    <form #userARef = "ngForm" (ngSubmit) = "updateAddress(userARef.value)">
         <label class = "col col-form-label">New Address</label>
         <div class = "col">
         <input type = "text" name = "newAdd" class = "form-control"  ngModel><br/>
@@ -36,7 +36,7 @@
     </div>
     <div class = "row">
     <div class = "row">
-    <form #userRef = "ngForm" (ngSubmit) = "updatePhone(userRef.value)">
+    <form #userPRef = "ngForm" (ngSubmit) = "updatePhone(userPRef.value)">
         <label  class = "col col-form-label">New Phone Number</label>
         <div class = "col">
         <input type = "number" name = "newPhone" class = "form-control" ngModel><br/>
@@ -46,7 +46,7 @@
     </form>
     </div>
     <div class = "row">
-    <form #userRef = "ngForm" (ngSubmit) = "updateDOB(userRef.value)">
+    <form #userdobRef = "ngForm" (ngSubmit) = "updateDOB(userdobRef.value)">
         <label  class = "col col-form-label">New Date of Birth</label>
         <div class = "col">
         <input type = "date" name = "newDOB" class = "form-control" ngModel><br/>
@@ -56,6 +56,7 @@
     </form>
     </div>
     </div>
+    <div style="color: green;"><br>{{success}}</div>
     </div>
     <a routerLink=".." class="nav-link">Back</a><br />
     </div> 

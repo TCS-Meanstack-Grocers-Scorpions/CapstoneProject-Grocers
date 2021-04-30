@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-  constructor() { }
+  userId: any = sessionStorage.getItem('curUserId');
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
+    
+  }
+  logout(): void{
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('curUserId');
+    this.router.navigate(['shopper']);
+  }
+  complete(): void {
+    this.router.navigate(['user-index']);
   }
 
 }
