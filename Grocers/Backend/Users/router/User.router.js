@@ -13,7 +13,7 @@ router.put('/updateUserEmail/:uid', UserController.updateUserEmail);
 router.put('/updateUserAddress/:uid', UserController.updateUserAddress);
 router.put('/updateUserPhone/:uid', UserController.updateUserPhone);
 router.put('/updateUserDOB/:uid', UserController.updateUserDOB);
-router.put('/user/updateUserFunds/:uid', UserController.updateUserFunds);
+router.put('/updateUserFunds/:uid', UserController.updateUserFunds);
 router.post('/ticket', UserController.raiseTicket);
 router.get('/select', UserController.selectObject);
 router.post('/select', UserController.addtoCart);

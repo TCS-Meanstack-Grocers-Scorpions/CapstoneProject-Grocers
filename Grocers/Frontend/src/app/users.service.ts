@@ -93,6 +93,7 @@ export class UsersService {
         (error) => console.log(error)
       );
   }
+  
   updateFunds(userRef: any, id: any): void {
     this.http
       .put('http://localhost:9090/updateUserFunds/' + id, userRef, {
