@@ -26,9 +26,6 @@ export class UsersService {
     return this.http.get<any[]>('http://localhost:9090/getRaisedTickets');
   }
 
-<<<<<<< HEAD
-  updateUserPassword(userRef: any, id: any): any {
-=======
   resolveTicket(ticketId: any): any {
     return this.http.delete(
       'http://localhost:9090/resolveRaisedTickets/' + ticketId,
@@ -37,7 +34,6 @@ export class UsersService {
   }
 
   updateUserPassword(userRef: any, id: any): void {
->>>>>>> master
     this.http
       .put('http://localhost:9090/updateUserPassword/' + id, userRef, {
         responseType: 'text',

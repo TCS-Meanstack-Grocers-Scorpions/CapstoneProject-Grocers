@@ -17,32 +17,6 @@ export class EditProdileComponent implements OnInit {
   }
 
   updatePass(userRef: any): void{
-<<<<<<< HEAD
-    this.userSer.updateUserPassword(userRef, this.id).subscribe((result:string)=> {
-      console.log(result);
-      this.displayMessage = "Password Updated";
-    });;
-  }
-  updateEmail(userRef: any): void{
-    this.userSer.updateUserEmail(userRef, this.id).subscribe((result:string)=> {
-      console.log(result);
-    });;
-  }
-  updateAddress(userRef: any): void{
-    this.userSer.updateUserAddress(userRef, this.id).subscribe((result:string)=> {
-      console.log(result);
-    });;
-  }
-  updatePhone(userRef: any): void{
-    this.userSer.updateUserPhone(userRef, this.id).subscribe((result:string)=> {
-      console.log(result);
-    });;
-  }
-  updateDOB(userRef: any): void{
-    this.userSer.updateUserDOB(userRef, this.id).subscribe((result:string)=> {
-      console.log(result);
-    });;
-=======
     this.userSer.updateUserPassword(userRef, this.id);
     this.success = 'Password Updated Successfully'
     setTimeout(()=>
@@ -71,7 +45,6 @@ export class EditProdileComponent implements OnInit {
     this.success = 'DOB Updated Successfully'
     setTimeout(()=>
     this.success='',8000)
->>>>>>> master
   }
 
 }
