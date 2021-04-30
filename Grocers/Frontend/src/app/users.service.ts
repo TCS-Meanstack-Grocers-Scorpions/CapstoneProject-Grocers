@@ -26,9 +26,20 @@ export class UsersService {
     return this.http.get<any[]>('http://localhost:9090/getRaisedTickets');
   }
 
+<<<<<<< HEAD
   updateUserPassword(userRef: any, id: any): any {
+=======
+  resolveTicket(ticketId: any): any {
+    return this.http.delete(
+      'http://localhost:9090/resolveRaisedTickets/' + ticketId,
+      { responseType: 'text' }
+    );
+  }
+
+  updateUserPassword(userRef: any, id: any): void {
+>>>>>>> master
     this.http
-      .put('http://localhost:9090/user/updateUserPassword/' + id, userRef, {
+      .put('http://localhost:9090/updateUserPassword/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -40,7 +51,7 @@ export class UsersService {
   }
   updateUserEmail(userRef: any, id: any): any {
     this.http
-      .put('http://localhost:9090/user/updateUserEmail/' + id, userRef, {
+      .put('http://localhost:9090/updateUserEmail/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -52,7 +63,7 @@ export class UsersService {
   }
   updateUserAddress(userRef: any, id: any): any {
     this.http
-      .put('http://localhost:9090/user/updateUserAddress/' + id, userRef, {
+      .put('http://localhost:9090/updateUserAddress/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -64,7 +75,7 @@ export class UsersService {
   }
   updateUserPhone(userRef: any, id: any): any {
     this.http
-      .put('http://localhost:9090/user/updateUserPhone/' + id, userRef, {
+      .put('http://localhost:9090/updateUserPhone/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -76,7 +87,7 @@ export class UsersService {
   }
   updateUserDOB(userRef: any, id: any): any {
     this.http
-      .put('http://localhost:9090/user/updateUserDOB/' + id, userRef, {
+      .put('http://localhost:9090/updateUserDOB/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -88,7 +99,7 @@ export class UsersService {
   }
   updateFunds(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/user/updateUserFunds/' + id, userRef, {
+      .put('http://localhost:9090/updateUserFunds/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -182,7 +193,6 @@ export class UsersService {
 
   unlockUser(unlockRef: any): any {
     console.log('unlockUser Service called');
-    // tslint:disable-next-line:max-line-length
     return this.http
       .put('http://localhost:9090/unlockUsers/', unlockRef, {
         responseType: 'text',

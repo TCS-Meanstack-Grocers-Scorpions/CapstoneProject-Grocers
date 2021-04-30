@@ -18,7 +18,9 @@
       <tr *ngFor="let ticket of tickets">
         <td>{{ ticket._id }}</td>
         <td>{{ ticket.reason }}</td>
-        <td><button type="submit" (click)="resolvedTicket()">X</button></td>
+        <td>
+          <button type="submit" (click)="resolvedTicket(ticket._id)">X</button>
+        </td>
       </tr>
     </table>
   </div>

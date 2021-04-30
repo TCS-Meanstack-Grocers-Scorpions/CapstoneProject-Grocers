@@ -22,23 +22,20 @@ let storeUserDetails = (req, res) => {
   let uid;
   product.save((err, result) => {
     if (!err) {
-     res.send('Records stored successfully');
+      res.send('Records stored successfully');
     } else {
       res.send("Record didn't store...");
     }
-
   });
 
-  UserModel.find({},(err,result)=> { // gets it to display on the back end
-    console.log(result[result.length-1]);
-    uid=result.length-1;
-    if(!err) {
+  UserModel.find({}, (err, result) => {
+    // gets it to display on the back end
+    console.log(result[result.length - 1]);
+    uid = result.length - 1;
+    if (!err) {
       // cannot get it to send idk why
     }
-  })
-  
-  
-
+  });
 };
 
 let getUserById = (req, res) => {
@@ -62,6 +59,17 @@ let getOpenTickets = (req, res) => {
   TicketModel.find({}, (err, result) => {
     if (!err) {
       res.json(result);
+    }
+  });
+};
+
+let deleteTicket = (req, res) => {
+  let ticket = req.params._id;
+  TicketModel.deleteOne({ _id: ticket }, (err, result) => {
+    if (!err) {
+      res.json(result);
+    } else {
+      console.log(err);
     }
   });
 };
@@ -223,7 +231,7 @@ let updateUserPassword = (req, res) => {
   let newPass = req.body.newPass;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { pass, newPass } },
+    { $set: { pass: newPass } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -242,7 +250,7 @@ let updateUserEmail = (req, res) => {
   let newEmail = req.body.newEmail;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { email, newEmail } },
+    { $set: { email: newEmail } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -261,7 +269,7 @@ let updateUserAddress = (req, res) => {
   let newAdd = req.body.newAdd;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { address, newAdd } },
+    { $set: { address: newAdd } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -280,7 +288,7 @@ let updateUserPhone = (req, res) => {
   let newPhone = req.body.newPhone;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { phone, newPhone } },
+    { $set: { phone: newPhone } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -299,7 +307,7 @@ let updateUserDOB = (req, res) => {
   let newDOB = req.body.newDOB;
   UserModel.updateMany(
     { _id: uid },
-    { $set: { dob, newDOB } },
+    { $set: { dob: newDOB } },
     (err, result) => {
       if (!err) {
         if (result.nModified > 0) {
@@ -405,4 +413,5 @@ module.exports = {
   changeUserFund,
   getUserDetails,
   getOpenTickets,
+  deleteTicket,
 };

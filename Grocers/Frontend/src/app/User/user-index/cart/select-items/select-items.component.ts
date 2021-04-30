@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/users.service';
   styleUrls: ['./select-items.component.css']
 })
 export class SelectItemsComponent implements OnInit {
+  [x: string]: any;
   products: Array<Product> = [];
   cartNum = 0; // get from cart later
   UserId = sessionStorage.getItem('curUserId');
@@ -77,5 +78,11 @@ export class SelectItemsComponent implements OnInit {
     console.log(newCartitem.imgId);
     if (output) { output.innerHTML = 'Added'; }
      setTimeout(function(){ if (output) { output.style.visibility = 'hidden'; } }, 1000);
+  }
+  logout(): void{
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('curUserId');
+    this.router.navigate(['shopper']);
+    
   }
 }

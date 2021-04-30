@@ -30,7 +30,7 @@ a {
   background: rgb(247, 246, 246);
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  min-width: fit-content;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
