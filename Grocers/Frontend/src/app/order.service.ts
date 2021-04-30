@@ -16,7 +16,9 @@ export class OrderService {
       'http://localhost:9090/order/getOrdersByUserID/' + uid
     );
   }
-
+  getAllOrders():Observable<Order[]> {
+    return this.http.get<Order[]>("http://localhost:9090/order/getAllOrders");
+  }
   // update order status
   updateOrderStatus(updateRef: any): any {
     console.log('updateRef: ' + updateRef);

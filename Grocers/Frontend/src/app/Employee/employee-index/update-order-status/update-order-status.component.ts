@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/model.order';
 import { OrderService } from 'src/app/order.service';
+import { UsersService } from 'src/app/users.service';
 
 
 @Component({
@@ -10,8 +12,10 @@ import { OrderService } from 'src/app/order.service';
 export class UpdateOrderStatusComponent implements OnInit {
   constructor(public updateOr: OrderService) {}
   msg?: string;
-
-  ngOnInit(): void {}
+ orders?:Array<Order>
+  ngOnInit(): void {
+    this.updateOr.getAllOrders().subscribe(result=>{console.log(result); this.orders=result}); // gets all orders and console logs it on load, probably move this into a table
+  }
 
   updateOrder(updateRef: any): void {
     this.updateOr.updateOrderStatus(updateRef);
