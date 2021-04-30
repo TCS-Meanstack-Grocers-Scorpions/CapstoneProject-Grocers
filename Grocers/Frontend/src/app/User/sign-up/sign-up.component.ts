@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit {
    this.user.getUserDetails(userRef.email).subscribe(result => {
      console.log(result);
    });
+   alert("You will recieve an email soon with your login id.");
    this.router.navigate(['shopper']);
  }
 }
