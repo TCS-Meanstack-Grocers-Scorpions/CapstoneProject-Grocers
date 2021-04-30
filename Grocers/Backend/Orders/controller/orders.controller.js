@@ -48,4 +48,10 @@ let getOrdersByUserID = (req, res) => {
     if (!err) res.json(result);
   });
 };
-module.exports = { updateStatus, getOrdersByUserID };
+
+let getAllOrders= (req,res)=>{
+  OrderModel.find({}, (err, result) => {
+    if (!err) res.json(result);
+  });
+}
+module.exports = { updateStatus, getOrdersByUserID,getAllOrders };
