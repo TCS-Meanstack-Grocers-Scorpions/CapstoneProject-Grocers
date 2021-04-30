@@ -21,3 +21,19 @@
     {{ msg }}
   </div>
 </div>
+
+<div>
+  <table class="table" style="table-layout: fixed;">
+    <tr>
+      <th>OrderID</th>
+      <th>Product </th>
+      <th>Status</th>
+    </tr> 
+       <tr *ngFor="let item of orders; let i=index;">
+        <td>{{orders[i]._id}}</td> 
+         <td>{{orders[i].name}}</td> 
+         <td>{{orders[i].orderStatus}}</td>
+    </tr>
+    
+  </table>
+</div>
