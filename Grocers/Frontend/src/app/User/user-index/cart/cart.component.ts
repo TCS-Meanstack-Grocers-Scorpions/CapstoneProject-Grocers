@@ -17,7 +17,9 @@ export class CartComponent implements OnInit {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('curUserId');
     this.router.navigate(['shopper']);
-    
+  }
+  complete(): void {
+    this.router.navigate(['user-index']);
   }
 
 }

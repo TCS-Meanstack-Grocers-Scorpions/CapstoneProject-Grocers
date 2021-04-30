@@ -49,15 +49,6 @@ const routes: Routes = [
   { path: 'employee-index/unlock-users', component: UnlockUsersComponent },
   { path: 'employee-index/update-order-status', component: UpdateOrderStatusComponent },
 
-  // {
-  //   path: 'employee-index/edit-employee-profile',
-  //   component: EditProfileComponent,
-  // },
-  // { path: 'send-request', component: SendRequestComponent },
-  // { path: 'unlockUsers', component: UnlockUsersComponent },
-  // { path: 'updateOrderStatus', component: UpdateOrderStatusComponent },
-
-
   { path: 'signup', component: SignUpComponent},
   { path: 'user-index/select-item', component: SelectItemsComponent },
   { path: 'purchaseComplete', component: CartComponent },
