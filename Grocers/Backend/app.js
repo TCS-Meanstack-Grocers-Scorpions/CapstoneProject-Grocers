@@ -5,7 +5,15 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let cors = require('cors');
 
+//to load the static files (angular files)	<<AWS>>
+app.use(express.static(process.cwd()));
+
 let url = 'mongodb://localhost:27017/Grocers';
+
+//load the frontend file ie angular program	<<AWS>>
+app.get('/',(req,res) => {
+	res.sendFile(__dirname+"/index.html")
+});
 
 app.use(bodyParser.urlencoded({ extended: true })); // enable body part data
 app.use(bodyParser.json()); // json data.

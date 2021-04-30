@@ -8,19 +8,20 @@ import { Request } from './model.request';
 })
 export class RequestService {
 
+  ipAddress:string = "http://54.167.26.197:9090"
   constructor(public http: HttpClient) { }
 
   storeRequestDetails(reqRef: any): void{
     // post method first parameter is url, second is json data
-    this.http.post('http://localhost:9090/request/sendRequest', reqRef).
+    this.http.post(this.ipAddress+'/request/sendRequest', reqRef).
       subscribe(result => console.log(result), error => console.log(error));
   }
 
   retrieveAllRequests(): Observable<Request[]>{
-    return this.http.get<Request[]>('http://localhost:9090/request/getRequests');
+    return this.http.get<Request[]>(this.ipAddress+'/request/getRequests');
   }
 
   deleteRequestById(id: any): any{
-    return this.http.delete('http://localhost:9090/request/deleteRequest/' + id, {responseType: 'text'});
+    return this.http.delete(this.ipAddress+'/request/deleteRequest/' + id, {responseType: 'text'});
   }
 }

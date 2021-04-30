@@ -9,33 +9,34 @@ import { User } from './model.user';
   providedIn: 'root',
 })
 export class UsersService {
+  ipAddress:string = "http://54.167.26.197:9090"
   constructor(public http: HttpClient) {}
 
   getUserByID(id: any): Observable<User[]> {
     return this.http.get<User[]>(
-      'http://localhost:9090/user/getUserByID/' + id
+      this.ipAddress+'/getUserByID/' + id
     );
   }
   getUserDetails(email: any): Observable<User[]> {
     return this.http.get<User[]>(
-      'http://localhost:9090/getUserDetails/' + email
+      this.ipAddress+'/getUserDetails/' + email
     );
   }
 
   getTickets(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:9090/getRaisedTickets');
+    return this.http.get<any[]>(this.ipAddress+'/getRaisedTickets');
   }
 
   resolveTicket(ticketId: any): any {
     return this.http.delete(
-      'http://localhost:9090/resolveRaisedTickets/' + ticketId,
+      this.ipAddress+'/resolveRaisedTickets/' + ticketId,
       { responseType: 'text' }
     );
   }
 
   updateUserPassword(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/updateUserPassword/' + id, userRef, {
+      .put(this.ipAddress+'/updateUserPassword/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -47,7 +48,7 @@ export class UsersService {
   }
   updateUserEmail(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/updateUserEmail/' + id, userRef, {
+      .put(this.ipAddress+'/updateUserEmail/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -59,7 +60,7 @@ export class UsersService {
   }
   updateUserAddress(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/updateUserAddress/' + id, userRef, {
+      .put(this.ipAddress+'/updateUserAddress/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -71,7 +72,7 @@ export class UsersService {
   }
   updateUserPhone(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/updateUserPhone/' + id, userRef, {
+      .put(this.ipAddress+'/updateUserPhone/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -83,7 +84,7 @@ export class UsersService {
   }
   updateUserDOB(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/updateUserDOB/' + id, userRef, {
+      .put(this.ipAddress+'/updateUserDOB/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -96,7 +97,7 @@ export class UsersService {
   
   updateFunds(userRef: any, id: any): void {
     this.http
-      .put('http://localhost:9090/updateUserFunds/' + id, userRef, {
+      .put(this.ipAddress+'/updateUserFunds/' + id, userRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -110,7 +111,7 @@ export class UsersService {
   storeTicketinfo(data: any): void {
     // tslint:disable-next-line:max-line-length
     this.http
-      .post('http://localhost:9090/ticket', data, { responseType: 'text' })
+      .post(this.ipAddress+'/ticket', data, { responseType: 'text' })
       .subscribe(
         (result) => {
           /*console.log(result)*/
@@ -121,7 +122,7 @@ export class UsersService {
   storeUserDetailsInfo(productRef: any): void {
     // tslint:disable-next-line:max-line-length
     this.http
-      .post('http://localhost:9090/signUp', productRef, {
+      .post(this.ipAddress+'/signUp', productRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -130,17 +131,17 @@ export class UsersService {
       );
   }
   retrieveUserById(id: any): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:9090/getUserById/' + id);
+    return this.http.get<User[]>(this.ipAddress+'/getUserById/' + id);
   }
 
   selectAllitems(): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:9090/select');
+    return this.http.get<Product[]>(this.ipAddress+'/select');
   }
 
   AddtoCart(product: any): void {
     // tslint:disable-next-line:max-line-length
     this.http
-      .post('http://localhost:9090/select', product, { responseType: 'text' })
+      .post(this.ipAddress+'/select', product, { responseType: 'text' })
       .subscribe(
         (result) => {
           /*console.log(result)*/
@@ -149,11 +150,11 @@ export class UsersService {
       );
   }
   viewCartitems(userId: any): Observable<cartProduct[]> {
-    return this.http.get<cartProduct[]>('http://localhost:9090/cart/' + userId);
+    return this.http.get<cartProduct[]>(this.ipAddress+'/cart/' + userId);
   }
   updateCart(cartRef: any): void {
     this.http
-      .put('http://localhost:9090/cart', cartRef, { responseType: 'text' })
+      .put(this.ipAddress+'/cart', cartRef, { responseType: 'text' })
       .subscribe(
         (result) => {
           /*console.log(result)*/
@@ -163,7 +164,7 @@ export class UsersService {
   }
   deleteItem(cartRef: any): void {
     this.http
-      .delete('http://localhost:9090/cart/' + cartRef, { responseType: 'text' })
+      .delete(this.ipAddress+'/cart/' + cartRef, { responseType: 'text' })
       .subscribe(
         (result) => {
           /*console.log(result)*/
@@ -173,7 +174,7 @@ export class UsersService {
   }
   Purchaseitems(list: any): void {
     this.http
-      .post('http://localhost:9090/cart', list, { responseType: 'text' })
+      .post(this.ipAddress+'/cart', list, { responseType: 'text' })
       .subscribe(
         (result) => {
           /*console.log(result)*/
@@ -183,7 +184,7 @@ export class UsersService {
   }
 
   lockUser(userRef: any): any {
-    return this.http.put('http://localhost:9090/lockUser/', userRef, {
+    return this.http.put(this.ipAddress+'/lockUser/', userRef, {
       responseType: 'text',
     });
   }
@@ -191,7 +192,7 @@ export class UsersService {
   unlockUser(unlockRef: any): any {
     console.log('unlockUser Service called');
     return this.http
-      .put('http://localhost:9090/unlockUsers/', unlockRef, {
+      .put(this.ipAddress+'/unlockUsers/', unlockRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -204,7 +205,7 @@ export class UsersService {
 
   changeFunds(userInfo: any): any {
     this.http
-      .post('http://localhost:9090/changeFunds', userInfo, {
+      .post(this.ipAddress+'/changeFunds', userInfo, {
         responseType: 'text',
       })
       .subscribe(
@@ -216,7 +217,7 @@ export class UsersService {
   }
   updateProductQuantity(prod: any): any {
     this.http
-      .post('http://localhost:9090/updateQuantity', prod, {
+      .post(this.ipAddress+'/updateQuantity', prod, {
         responseType: 'text',
       })
       .subscribe(
@@ -228,7 +229,7 @@ export class UsersService {
   }
   addPurchasedItem(item: any, userId: any): any {
     this.http
-      .post('http://localhost:9090/addPurchased/' + userId, item, {
+      .post(this.ipAddress+'/addPurchased/' + userId, item, {
         responseType: 'text',
       })
       .subscribe(

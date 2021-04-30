@@ -9,11 +9,12 @@ import { Purchased } from './model.purchase';
   providedIn: 'root',
 })
 export class OrderService {
+  ipAddress:string = "http://54.167.26.197:9090"
   constructor(public http: HttpClient) {}
 
   getOrdersByUserID(uid: any): Observable<Order[]> {
     return this.http.get<Order[]>(
-      'http://localhost:9090/order/getOrdersByUserID/' + uid
+      this.ipAddress+'/order/getOrdersByUserID/' + uid
     );
   }
 
@@ -21,7 +22,7 @@ export class OrderService {
   updateOrderStatus(updateRef: any): any {
     console.log('updateRef: ' + updateRef);
     this.http
-      .put('http://localhost:9090/order/updateOrderStatus', updateRef, {
+      .put(this.ipAddress+'/order/updateOrderStatus', updateRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -30,15 +31,15 @@ export class OrderService {
       );
   }
   getUserpurchased(id: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getUserPurchasedDetails/' + id);
+    return this.http.get<Purchased[]> (this.ipAddress+'/getUserPurchasedDetails/' + id);
   }
   getProductpurchased(product: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getProductPurchasedDetails/' + product);
+    return this.http.get<Purchased[]> (this.ipAddress+'/getProductPurchasedDetails/' + product);
   }
   getDatepurchased(date: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/getDatePurchasedDetails/' + date);
+    return this.http.get<Purchased[]> (this.ipAddress+'/getDatePurchasedDetails/' + date);
   }
   getDatesPurchased(date: any, date2: any): Observable<Purchased[]> {
-    return this.http.get<Purchased[]> ('http://localhost:9090/twoDatesPurchased/' + date + '/' + date2);
+    return this.http.get<Purchased[]> (this.ipAddress+'/twoDatesPurchased/' + date + '/' + date2);
   }
 }

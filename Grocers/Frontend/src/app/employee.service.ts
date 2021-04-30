@@ -9,17 +9,18 @@ import { Employee } from './model.employee';
   providedIn: 'root',
 })
 export class EmployeeService {
+  ipAddress:string = "http://54.167.26.197:9090"
   constructor(public http: HttpClient) {}
 
   getEmployeeByID(id: any): Observable<Employee[]> {
     return this.http.get<Employee[]>(
-      'http://localhost:9090/emp/getEmployeeById/' + id
+      this.ipAddress+'/emp/getEmployeeById/' + id
     );
   }
 
   storeEmpDetailsInfo(empRef: any): void {
     this.http
-      .post('http://localhost:9090/emp/addEmployee', empRef, {
+      .post(this.ipAddress+'/emp/addEmployee', empRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -29,7 +30,7 @@ export class EmployeeService {
   }
   // by default all http client method return type observalbe with json format data
   deleteEmpById(id: any): any {
-    return this.http.delete('http://localhost:9090/emp/deleteEmpById/' + id, {
+    return this.http.delete(this.ipAddress+'/emp/deleteEmpById/' + id, {
       responseType: 'text',
     });
   }
@@ -37,7 +38,7 @@ export class EmployeeService {
   // send request
   sendRequestToAdmin(requestRef: any): void {
     this.http
-      .post('http://localhost:9090/request/sendRequest', requestRef, {
+      .post(this.ipAddress+'/request/sendRequest', requestRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -49,7 +50,7 @@ export class EmployeeService {
   updateEmployeeProfile(editRef: any): void {
     console.log('updateinSVCfileReached');
     this.http
-      .put('http://localhost:9090/emp/editEmployeeProfile', editRef, {
+      .put(this.ipAddress+'/emp/editEmployeeProfile', editRef, {
         responseType: 'text',
       })
       .subscribe(
@@ -58,7 +59,7 @@ export class EmployeeService {
       );
   }
   changeEmployeePassword(emp2Ref:any,id:any){
-    this.http.put('http://localhost:9090/emp/changeEmployeePassword/'+id,emp2Ref, {
+    this.http.put(this.ipAddress+'/emp/changeEmployeePassword/'+id,emp2Ref, {
       responseType : 'text',
     }).subscribe(
       (result) => console.log(result),
